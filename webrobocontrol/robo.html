@@ -1,0 +1,398 @@
+<html>
+	
+	<head>
+		
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title> Web Controled Robot </title>
+	
+<script type="text/javascript" src="jquery.min.js" ></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootbox.min.js"></script>
+<script type="text/javascript" src="js/spin.min.js"></script>
+<link rel="stylesheet" href="css/cerulean/bootstrap.css" type="text/css"/>
+<link rel="stylesheet" href="css/demo.css" type="text/css"/>
+	
+	 <style type="text/css">
+	
+	html, body {height:100%;}
+	html {display:table; width:100%;}
+	body {
+	display:table-cell; 
+	text-align:center; 
+	/*vertical-align:middle;*/
+	}
+
+      .on  { background:rgba(62, 149, 124, 1); }
+      .off { background:rgba(230, 103, 103, 1); }
+      
+      .on_1  { background:rgba(103, 136, 230, 1); }
+      .off_1 { background:rgba(215, 215, 215, 1); }
+      
+      
+	.button {
+		display: inline-block;
+		outline: none;
+		cursor: pointer;
+		border: solid 1px rgba(245, 244, 243, 1);
+		/*background: #478dad;*/
+		text-align: center;
+		text-decoration: none;
+		font: 14px/100% Arial, Helvetica, sans-serif;
+		padding: .5em 2em .55em;
+		text-shadow: 0 1px 1px rgba(0,0,0,.3);
+		-webkit-border-radius: .5em; 
+		-moz-border-radius: .5em;
+		border-radius: .3em;
+		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	}
+
+	.button:hover {
+		background: #f47c20;
+		background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+		background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+	}
+	.button:active {
+		position: relative;
+		top: 1px;
+	}
+
+.panel-default {
+    border-color: #FFF;
+}
+     </style>
+    
+	</head>
+	<body>
+			
+			<script>
+			
+			function clearotherbuttons(selectedbutton){
+				console.log(selectedbutton);
+	           	for (var i = 1; i <=5; i++) {
+	           		console.log("btn"+i);
+	           		if(("btn"+i)!= selectedbutton)
+	           		if(document.getElementById("btn"+i).getAttribute('content')=="on" ) toggleState(document.getElementById("btn"+i));
+				}
+
+		
+			}
+			
+			function toggleState(item){
+	           if(item.className == "button on") {
+	              item.className="button off";
+	              item.setAttribute('content', 'off');
+
+	           } else {
+	              item.className="button on";
+	              item.setAttribute('content', 'on');
+	           }
+	           				
+	        }
+	        
+	        function toggleState_1(item){
+	           if(item.className == "button on_1") {
+	              item.className="button off_1";
+	              item.setAttribute('content', 'off');
+	              item.value = 'off';
+	           } else {
+	              item.className="button on_1";
+	              item.setAttribute('content', 'on');
+	              item.value = 'on';
+	           }
+	        }
+			var rpi_ip= prompt("Please enter Rpi IP  ", "");
+			
+			var pin1 = "0";
+			var pin2 = "0";
+			var pin3 = "0";
+			var pin4 = "0";
+			var pin5 = "0";
+			var pin6 = "0";
+			var pin7 = "0";
+			var pin8 = "0";
+			    
+			    
+			function func1(move_var){  
+			    
+			 if(move_var=="top"){
+			 	console.log(" top");
+			 	pin1="1";
+			 	pin2="0";
+			 	pin3="1";
+			 	pin4="0";
+			 	pin5="0";
+			 	pin6="0";
+			 	pin7="0";
+			 	pin8="0";
+			 }
+			 else if(move_var=="right"){
+			 	console.log(" right");
+			 	pin1="1";
+			 	pin2="0";
+			 	pin3="0";
+			 	pin4="0";
+			 	pin5="0";
+			 	pin6="0";
+			 	pin7="0";
+			 	pin8="0";
+			 }
+			 else if(move_var=="left"){
+			 	console.log(" left");
+			 	pin1="0";
+			 	pin2="0";
+			 	pin3="1";
+			 	pin4="0";
+			 	pin5="0";
+			 	pin6="0";
+			 	pin7="0";
+			 	pin8="0";
+			 }
+			 else if(move_var=="back"){
+			 	console.log(" back");
+			 	pin1="0";
+			 	pin2="1";
+			 	pin3="0";
+			 	pin4="1";
+			 	pin5="0";
+			 	pin6="0";
+			 	pin7="0";
+			 	pin8="0";
+			 }
+			 else if(move_var=="stop"){
+			 	console.log(" stop");
+			 	pin1="0";
+			 	pin2="0";
+			 	pin3="0";
+			 	pin4="0";
+			 	pin5="0";
+			 	pin6="0";
+			 	pin7="0";
+			 	pin8="0";
+			 }
+			 else if(move_var=="clean"){
+			 	console.log(" clean");
+			 	
+				//get status of top
+				if(document.getElementById('btn1').getAttribute('content')=="on"){
+			 		pin1="1";
+			 		pin2="0";
+			 		pin3="1";
+			 		pin4="0";
+			 	}
+			 	
+			 	//get status of left
+			 	else if(document.getElementById('btn2').getAttribute('content')=="on"){
+			 		pin1="0";
+			 		pin2="0";
+			 		pin3="1";
+			 		pin4="0";
+			 	}
+			 	
+			 	//get status of stop
+			 	else if(document.getElementById('btn3').getAttribute('content')=="on"){
+			 		pin1="0";
+			 		pin2="0";
+			 		pin3="0";
+			 		pin4="0";
+			 	}
+			 	
+			 				 	
+			 	//get sttaus of right
+			 	else if(document.getElementById('btn4').getAttribute('content')=="on"){
+			 		pin1="1";
+			 		pin2="0";
+			 		pin3="0";
+			 		pin4="0";
+			 	}
+			 	
+			 	
+			 	//get sttaus of back
+			 	else if(document.getElementById('btn4').getAttribute('content')=="on"){
+			 		pin1="0";
+			 		pin2="1";
+			 		pin3="0";
+			 		pin4="1";
+			 	}
+			 	
+			 	//default case of stop
+			 	else{
+			 		pin1="0";
+			 		pin2="0";
+			 		pin3="0";
+			 		pin4="0";
+			 	}
+			 	
+			 	//get the value of button from seeting clean button numb 7
+			 	if(document.getElementById('btn6').getAttribute('content')=="on"){
+			 		pin5="1";
+			 	}
+			 	else{
+			 		pin5="0";
+			 	}
+
+			 	pin6="0";
+			 	pin7="0";
+			 	pin8="0";
+			 }
+			 else if(move_var=="lift"){
+			 	console.log(" lift");
+			 	
+			 	pin1="0";
+			 	pin2="0";
+			 	pin3="0";
+			 	pin4="0";
+			 	pin5="0";
+			 	
+			 	//clear the clean switch ,if on
+			 	if ( document.getElementById('btn6').getAttribute('content')=="on"){
+			 		toggleState_1(document.getElementById('btn6'));
+			 	}
+			 	
+			 	if(document.getElementById('btn7').getAttribute('content')=="on"){
+			 		pin6="1";
+			 		pin7="0";
+			 	}
+			 	else{
+			 		pin6="0";
+			 		pin7="1";
+			 	}
+			 	pin8="0";
+			 }
+			 else{
+			 //even if it doesnt match anything , just stop 
+			    console.log(" stop");
+				pin1="0";
+			 	pin2="0";
+			 	pin3="0";
+			 	pin4="0";
+			 	pin5="0";
+			 	pin6="0";
+			 	pin7="0";
+			 	pin8="0";
+			 }
+			
+			document.getElementById('myFrame19').src="http://"+rpi_ip+"/rpiramudroid/perform1.php?p1=" + pin1 + "&p2=" + pin2 + "&p3=" + pin3+ "&p4=" + pin4+ "&p5=" + pin5+ "&p6=" + pin6+ "&p7=" + pin7+ "&p8=" + pin8;
+			    
+			}
+			</script>
+			
+	
+			<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="index.html">Ramu Droid (Robot Navigation + Live Streaming) </a>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html">Home</a></li>
+						<li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="test.html">Index</a></li>
+								<li class="divider"></li>
+							</ul>
+						</li>
+						<li><a href="docs">Documentation</a></li>
+					</ul>
+					<div class="navbar-header navbar-right">
+						<ul class="nav navbar-nav">
+							<li> - </li>
+							<li> - </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			</nav>
+	
+			<div class="container">
+			
+			<div class="container" id="streams">
+				<div class="row">
+					
+					<div class="col-md-6">
+						<div class="panel panel-default">		
+							<iframe id="myFrame18" src="#" width="500" height="300" frameborder="1" style="align:centre"></iframe>
+						</div>
+					</div>
+					
+					<div class="col-md-6">
+						<div class="panel panel-default">
+
+								<table>
+									<tr>
+										<td></td>
+										<td><input type="button" id="btn1" value="Top" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn1');func1('top');" /></td>
+										<td></td>
+									</tr>
+									
+									<tr>
+										<td><input type="button" id="btn2" value="Left" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn2');func1('left');" /></td>
+										<td><input type="button" id="btn3" value="Stop" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn3');func1('stop');" /></td>
+										<td><input type="button" id="btn4" value="Right" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn4');func1('right');" /></td>
+									</tr>
+										<td></td>
+										<td><input type="button" id="btn5" value="Back" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn5');func1('back');" /></td>
+										<td></td>				
+									<tr>
+										
+									</tr>
+								</table>
+								
+								<br/><br/><br/>
+								
+								Clean : <input type="button" id="btn6" value="off" content="off" class="button off_1" onclick="toggleState_1(this);func1('clean');" /> 
+								Lift Garbage : <input type="button" id="btn7" value="off" content="off" class="button off_1" onclick="toggleState_1(this);func1('lift');" />
+								
+								<br/><br/><br/>
+								
+								<br/>Rpi Robot Logs:<br/>								
+								<iframe id="myFrame19" src="#" width="80%" height="60" frameborder="1" style="align:centre"></iframe>	
+								
+								<br/>Ultrasonic Obstruction detection: </br/>
+								<iframe id="myFrame20" src="#" width="80%" height="60" frameborder="1" style="align:centre"></iframe>	
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+
+			<div class="container" id="details">
+				<div class="row">
+					<div class="col-md-12">	
+							---													
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<hr>
+	<div class="footer">
+	<p> - || 2015</p>
+	</div>
+</div>
+
+
+		
+			
+<script>
+	document.getElementById('myFrame19').src="http://"+rpi_ip+"/rpiramudroid/perform1.php?p1=" + 0 + "&p2=" + 0 + "&p3=" + 0+ "&p4=" + 0+ "&p5=" + 0+ "&p6=" + 0+ "&p7=" + 0+ "&p8=" + 0;
+	document.getElementById('myFrame18').src="http://"+rpi_ip+":8081";
+	document.getElementById('myFrame20').src="http://"+rpi_ip+"/rpiramudroid/perform2.php?&p8=" + 0;
+</script>	
+			
+				
+	</body>
+</html>
