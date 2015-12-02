@@ -119,8 +119,9 @@
         }
 
 
-		var rpi_ip= prompt("Please enter Rpi IP  ", "");
-		
+		//var rpi_ip= prompt("Please enter Rpi IP  ", "");
+		var rpi_ip="127.0.0.1";
+
 		var pin1 = "0";
 		var pin2 = "0";
 		var pin3 = "0";
@@ -437,10 +438,11 @@
 
 	document.getElementById('myFrame20').src="http://"+rpi_ip+"/m2m/rpiramudroid/perform2.php?&p8=" + 0;
 
+	console.log(document.getElementById('myFrame18').contentWindow.document);
 
 
 document.onreadystatechange( 
-	console.log(document.getElementById('myFrame18').contentWindow.document)
+;
 );
 
 /*if(document.getElementById('myFrame18').contentWindow.getElementsByTagName("img")!=undefined){
