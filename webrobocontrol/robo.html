@@ -328,8 +328,7 @@
 			</div>
 		</div>
 	</nav> -->
-	
-	<canvas id="rpiCanvas"></canvas>
+
 
 	<div class="tabContainer">
 
@@ -371,48 +370,45 @@
 	</div>
 
 
+	
+	<canvas id="rpiCanvas" style="width:100%" ></canvas>
+
 	<div class="container">
 		
 		<div class="container" id="streams">
-			<div class="row">
-				
-				<div class="col-md-6">
-					<div class="panel panel-default">		
-						<iframe id="myFrame18" src="#" width="670" height="550" frameborder="1" style="align:centre"></iframe>
-						<table id="controls" class="panel-controlbuttons">
-							<tr>
-								<td></td>
-								<td><input type="button" id="btn1" value="Top" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn1');func1('top');" /></td>
-								<td></td>
-							</tr>
-							
-							<tr>
-								<td><input type="button" id="btn2" value="Left" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn2');func1('left');" /></td>
-								<td><input type="button" id="btn3" value="Stop" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn3');func1('stop');" /></td>
-								<td><input type="button" id="btn4" value="Right" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn4');func1('right');" /></td>
-							</tr>
 
-							<tr>
-								<td></td>
-								<td><input type="button" id="btn5" value="Back" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn5');func1('back');" /></td>
-								<td></td>				
-							</tr>
+			<div class="panel panel-default">		
+
+				<img id="streamFrame" src="http://192.168.1.100:8080/stream/video.mjpeg" style="width:100%"/>
+
+				<table id="controls" class="panel-controlbuttons">
+					<tr>
+						<td></td>
+						<td><input type="button" id="btn1" value="Top" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn1');func1('top');" /></td>
+						<td></td>
+					</tr>
+					
+					<tr>
+						<td><input type="button" id="btn2" value="Left" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn2');func1('left');" /></td>
+						<td><input type="button" id="btn3" value="Stop" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn3');func1('stop');" /></td>
+						<td><input type="button" id="btn4" value="Right" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn4');func1('right');" /></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td><input type="button" id="btn5" value="Back" content="off" class="button off" onclick="toggleState(this);clearotherbuttons('btn5');func1('back');" /></td>
+						<td></td>				
+					</tr>
 
 
-							<tr style="height: 80;">
-								<td>Clean : <input type="button" id="btn6" value="off" content="off" class="button off_1" onclick="toggleState_1(this);func1('clean');" /> </td>
-								<td>Lift Garbage : <input type="button" id="btn7" value="off" content="off" class="button off_1" onclick="toggleState_1(this);func1('lift');" /></td>
-								<td></td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				
-				<div class="col-md-6">
-
-				</div>
-				
+					<tr style="height: 80;">
+						<td>Clean : <input type="button" id="btn6" value="off" content="off" class="button off_1" onclick="toggleState_1(this);func1('clean');" /> </td>
+						<td>Lift Garbage : <input type="button" id="btn7" value="off" content="off" class="button off_1" onclick="toggleState_1(this);func1('lift');" /></td>
+						<td></td>
+					</tr>
+				</table>
 			</div>
+
 		</div>
 		
 		<div class="container" id="details">
@@ -433,37 +429,26 @@
 	document.getElementById('myFrame19').src= "http://192.168.1.100/m2m/rpiramudroid/perform1.php?p1=" + 0 + 
 	"&p2=" + 0 +"&p3=" + 0+ "&p4=" + 0+ "&p5=" + 0+ "&p6=" + 0+ "&p7=" + 0+ "&p8=" + 0;
 	 
+	function refreshCanvas(){
+		var canvas = document.getElementById('rpiCanvas');
+	  	var ctx =canvas.getContext("2d");
+	  	var imgStream=document.getElementById("streamFrame");
+		ctx.drawImage(imgStream, 0, 0);
+  	}
+
 	//document.getElementById('myFrame18').src="http://"+rpi_ip+":8081";
-	var streamFrame = document.getElementById('myFrame18');
+/*	var streamFrame = document.getElementById('myFrame18');
 	streamFrame.src = "http://192.168.1.100:8080/stream";
-	streamFrame.setAttribute("style","height:100%");
+	streamFrame.setAttribute("style","height:100%");*/
+	var streamFrame=document.getElementById("streamFrame");
 	streamFrame.onload = function() { 
-		alert('myframe is loaded'); 
-		var imgStream= streamFrame.getElementsByTagName("img")[0];
-
-	  	function drawStuff() {
-
-	  	  var canvas = document.getElementById('rpiCanvas');
-		  var ctx =canvas.getContext("2d");
-		  
-	      clearInterval(i);
-	      paintCanvas(imgStream , ctx, "500px" , "500px");
-
-	  	}
-
-	  	function paintCanvas(v,c,w,h) {
-	    	c.clearRect(0, 0, w, h);
-	    	i=window.setInterval(function() {
-	           c.drawImage(v,0,0,w,h)
-	        },20);
-	  	}
-
-
+		//alert('myframe is loaded'); 
+      	//window.setInterval("refreshCanvas()", 10);
 	}; 
 
 	document.getElementById('myFrame20').src="http://192.168.1.100/m2m/rpiramudroid/perform2.php?&p8=" + 0;
 
-	console.log(document.getElementById('myFrame18').contentWindow.document);
+	//console.log(document.getElementById('myFrame18').contentWindow.document);
 
 
 /*if(document.getElementById('myFrame18').contentWindow.getElementsByTagName("img")!=undefined){
