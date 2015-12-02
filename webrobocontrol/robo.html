@@ -348,8 +348,16 @@
 	      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 	    </div>
 	    <div id="menu1" class="tab-pane fade">
-	      <h3>Menu 1</h3>
-	      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	      <h3>Logs</h3>
+			<div class="panel panel-default">
+		
+				<br/> Rpi Robot Logs:<br/>								
+				<iframe id="myFrame19" src="#" width="80%" height="60" frameborder="1" style="align:centre"></iframe>	
+				
+				<br/> Ultrasonic Obstruction detection: </br/>
+				<iframe id="myFrame20" src="#" width="80%" height="60" frameborder="1" style="align:centre;margin-bottom: 40px;"></iframe>	
+
+			</div>
 	    </div>
 	    <div id="menu2" class="tab-pane fade">
 	      <h3>Menu 2</h3>
@@ -401,15 +409,7 @@
 				</div>
 				
 				<div class="col-md-6">
-					<div class="panel panel-default">
-					
-						<br/> Rpi Robot Logs:<br/>								
-						<iframe id="myFrame19" src="#" width="80%" height="60" frameborder="1" style="align:centre"></iframe>	
-						
-						<br/> Ultrasonic Obstruction detection: </br/>
-						<iframe id="myFrame20" src="#" width="80%" height="60" frameborder="1" style="align:centre;margin-bottom: 40px;"></iframe>	
 
-					</div>
 				</div>
 				
 			</div>
@@ -436,26 +436,27 @@
 	//document.getElementById('myFrame18').src="http://"+rpi_ip+":8081";
 	var streamFrame = document.getElementById('myFrame18');
 	streamFrame.src = "http://192.168.1.100:8080/stream";
+	streamFrame.setAttribute("style","height:100%");
 	streamFrame.onload = function() { 
-		//alert('myframe is loaded'); 
+		alert('myframe is loaded'); 
 		var imgStream= streamFrame.getElementsByTagName("img")[0];
 
-		  	function drawStuff() {
+	  	function drawStuff() {
 
-		  	  var canvas = document.getElementById('rpiCanvas');
-			  var ctx =canvas.getContext("2d");
-			  
-		      clearInterval(i);
-		      paintCanvas(imgStream , ctx, "500px" , "500px");
+	  	  var canvas = document.getElementById('rpiCanvas');
+		  var ctx =canvas.getContext("2d");
+		  
+	      clearInterval(i);
+	      paintCanvas(imgStream , ctx, "500px" , "500px");
 
-		  	}
+	  	}
 
-		  function paintCanvas(v,c,w,h) {
-		    c.clearRect(0, 0, w, h);
-		    i=window.setInterval(function() {
-		           c.drawImage(v,0,0,w,h)
-		         },20);
-		  }
+	  	function paintCanvas(v,c,w,h) {
+	    	c.clearRect(0, 0, w, h);
+	    	i=window.setInterval(function() {
+	           c.drawImage(v,0,0,w,h)
+	        },20);
+	  	}
 
 
 	}; 
