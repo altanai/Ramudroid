@@ -432,9 +432,33 @@
 
 	document.getElementById('myFrame19').src= "http://192.168.1.100/m2m/rpiramudroid/perform1.php?p1=" + 0 + 
 	"&p2=" + 0 +"&p3=" + 0+ "&p4=" + 0+ "&p5=" + 0+ "&p6=" + 0+ "&p7=" + 0+ "&p8=" + 0;
-	
+	 
 	//document.getElementById('myFrame18').src="http://"+rpi_ip+":8081";
-	document.getElementById('myFrame18').src="http://192.168.1.100:8080/stream";
+	var streamFrame = document.getElementById('myFrame18');
+	streamFrame.src = "http://192.168.1.100:8080/stream";
+	streamFrame.onload = function() { 
+		//alert('myframe is loaded'); 
+		var imgStream= streamFrame.getElementsByTagName("img")[0];
+
+		  	function drawStuff() {
+
+		  	  var canvas = document.getElementById('rpiCanvas');
+			  var ctx =canvas.getContext("2d");
+			  
+		      clearInterval(i);
+		      paintCanvas(imgStream , ctx, "500px" , "500px");
+
+		  	}
+
+		  function paintCanvas(v,c,w,h) {
+		    c.clearRect(0, 0, w, h);
+		    i=window.setInterval(function() {
+		           c.drawImage(v,0,0,w,h)
+		         },20);
+		  }
+
+
+	}; 
 
 	document.getElementById('myFrame20').src="http://192.168.1.100/m2m/rpiramudroid/perform2.php?&p8=" + 0;
 
