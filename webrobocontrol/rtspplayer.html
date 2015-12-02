@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html><body>
+<OBJECT classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921"
+ codebase="http://downloads.videolan.org/pub/videolan/vlc/latest/win32/axvlc.cab"
+ width="800" height="600" id="vlc" events="True">
+ <param name="Src" value="rtsp://10.42.0.97:8080/" />
+ <param name="ShowDisplay" value="True" />
+ <param name="AutoLoop" value="False" />
+ <param name="AutoPlay" value="True" />
+ <embed id="vlcEmb" type="application/x-google-vlc-plugin" version="VideoLAN.VLCPlugin.2" autoplay="yes" loop="no" width="640" height="480"
+ target="rtsp://10.42.0.97:8080/" ></embed>
+</OBJECT>
+</html></body>
+
+<!--
+
+RTSP
+
+raspivid -o - -t 99999999999 -w 800 -h 600 --hflip | cvlc -vvv stream:///dev/stdin --sout '#rtp{sdp=rtsp://:8080/}' :demux=h264
+
+-->
+
+
+<!--
+HTTP 
+
+raspivid -o - -t 9999999 -w 800 -h 600 --hflip | cvlc -vvv stream:///dev/stdin --sout '#standard{access=http,mux=ts,dst=:8080}' :demux=h264
+
+-->
