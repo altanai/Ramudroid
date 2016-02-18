@@ -1,7 +1,6 @@
 <html>
 	
 <head>
-		
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -12,83 +11,16 @@
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/bootbox.min.js"></script>
 	<script type="text/javascript" src="js/spin.min.js"></script>
+
 	<link rel="stylesheet" href="css/cerulean/bootstrap.css" type="text/css"/>
 	<link rel="stylesheet" href="css/demo.css" type="text/css"/>
-		
-	<style type="text/css">
-		
-		html, body {height:100%;}
-		html {display:table; width:100%;}
-		body {
-			background: #40455C;
-			display:table-cell; 
-			text-align:center; 
-			/*vertical-align:middle;*/
-		}
-
-	    .on  { background:rgba(62, 149, 124, 1); }
-	    .off { background:rgba(230, 103, 103, 1); }
-	      
-	    .on_1  { background:rgba(103, 136, 230, 1); }
-	    .off_1 { background:rgba(215, 215, 215, 1); }
-	      
-	    .footer{
-	    	color:white;
-	    }
-
-		.button {
-			display: inline-block;
-			outline: none;
-			cursor: pointer;
-			border: solid 1px rgba(245, 244, 243, 1);
-			/*background: #478dad;*/
-			text-align: center;
-			text-decoration: none;
-			font: 14px/100% Arial, Helvetica, sans-serif;
-			padding: .5em 2em .55em;
-			text-shadow: 0 1px 1px rgba(0,0,0,.3);
-			-webkit-border-radius: .5em; 
-			-moz-border-radius: .5em;
-			border-radius: .3em;
-			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-			-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-			box-shadow: 0 1px 2px rgba(0,0,0,.2);
-		}
-
-		.button:hover {
-			background: #f47c20;
-			background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
-			background: -moz-linear-gradient(top,  #f88e11,  #f06015);
-			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
-		}
-		.button:active {
-			position: relative;
-			top: 1px;
-		}
-
-		.panel-default {
-		    background: #6C6363;
-    		border-color: #252424;
-		}
-
-		.panel-controlbuttons{
-			top: 70%;
-		    right: 71%;
-		    position: absolute;
-		    max-width: 20%;
-		    margin-left: 0%;
-		    margin-top: 10%;
-		    background-color: transparent;
-
-		}
-	</style>
 	    
 </head>
 
 <body>
 			
 	<script>
-			
+
 		function clearotherbuttons(selectedbutton){
 	        for (var i = 1; i <=5; i++) {
            		if(("btn"+i)!= selectedbutton)
@@ -96,7 +28,6 @@
 			}
 		}
 
-		
 		function toggleState(item){
            if(item.className == "button on") {
               item.className="button off";
@@ -121,9 +52,10 @@
            }
         }
 
-
 		//var rpi_ip= prompt("Please enter Rpi IP  ", "");
-		var rpi_ip="127.0.0.1";
+		var rpi_ip="127.0.0.1:5559";
+		var rpi_streaming_ip = "http://127.0.0.1:8081/stream/video.mjpeg";
+		var rpi_streaming_config_list = "http://127.0.0.1:8080/0/config/list";
 
 		var pin1 = "0";
 		var pin2 = "0";
@@ -133,8 +65,7 @@
 		var pin6 = "0";
 		var pin7 = "0";
 		var pin8 = "0";
-			    
-			    
+			       
 		function func1(move_var){  
 			    
 			 if(move_var=="top"){
@@ -293,98 +224,33 @@
 			 	pin7="0";
 			 	pin8="0";
 			 }
-			
 			document.getElementById('myFrame19').src=
-				"http://192.168.1.100/m2m/rpiramudroid/perform1.php?p1=" + pin1 + "&p2=" + pin2 + "&p3=" + pin3+ "&p4=" + pin4+ "&p5=" + pin5+ "&p6=" + pin6+ "&p7=" + pin7+ "&p8=" + pin8;
-			    
+				"http://"+rpi_ip+"/m2m/rpiramudroid/perform1.php?p1=" + pin1 + "&p2=" + pin2 + "&p3=" + pin3+ "&p4=" + pin4+ "&p5=" + pin5+ "&p6=" + pin6+ "&p7=" + pin7+ "&p8=" + pin8;    
 		}
 	</script>
-			
-	<!--
- 	<nav class="navbar navbar-default navbar-static-top">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html">Ramu Droid (Robot Navigation + Live Streaming) </a>
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="index.html">Home</a></li>
-					<li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="test.html">Index</a></li>
-							<li class="divider"></li>
-						</ul>
-					</li>
-					<li><a href="docs">Documentation</a></li>
-				</ul>
-				<div class="navbar-header navbar-right">
-					<ul class="nav navbar-nav">
-						<li> - </li>
-						<li> - </li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</nav> -->
-
 
 	<div class="tabContainer">
-
-	  <h2>Dynamic Tabs</h2>
-	  
-	  <ul class="nav nav-tabs">
-	    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-	    <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-	    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-	    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
-	  </ul>
-
-	  <div class="tab-content">
-	    <div id="home" class="tab-pane fade in active">
-	      <h3>HOME</h3>
-	      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-	    </div>
-	    <div id="menu1" class="tab-pane fade">
-	      <h3>Logs</h3>
-			<div class="panel panel-default">
-		
-				<br/> Rpi Robot Logs:<br/>								
-				<iframe id="myFrame19" src="#" width="80%" height="60" frameborder="1" style="align:centre"></iframe>	
-				
-				<br/> Ultrasonic Obstruction detection: </br/>
-				<iframe id="myFrame20" src="#" width="80%" height="60" frameborder="1" style="align:centre;margin-bottom: 40px;"></iframe>	
-
-			</div>
-	    </div>
-	    <div id="menu2" class="tab-pane fade">
-	      <h3>Menu 2</h3>
-	      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-	    </div>
-	    <div id="menu3" class="tab-pane fade">
-	      <h3>Menu 3</h3>
-	      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-	    </div>
-	  </div>
-	</div>
-
 
 	<!--
 	<canvas id="rpiCanvas" style="width:100%" ></canvas>
 	-->
 
 	<div class="container">
-		
-		<div class="container" id="streams">
+	
+		<div class="row">
+			<img id="streamFrame" src="" />
+		</div>
 
-			<div class="panel panel-default">		
 
-				<img id="streamFrame" src="http://192.168.1.100:8080/stream/video.mjpeg" style="width:100%"/>
+		<div class="container ButtonsClass">
 
+			<div class="row mediaControlBar">
+				<input type="button" id="btn2" value="Left" content="off" class="button off" />
+				<input type="button" id="btn3" value="Stop" content="off" class="button off" />
+				<input type="button" id="btn4" value="Right" content="off" class="button off"/>
+			</div>
+
+			<div class="row controlBar">
 				<table id="controls" class="panel-controlbuttons">
 					<tr>
 						<td></td>
@@ -404,7 +270,6 @@
 						<td></td>				
 					</tr>
 
-
 					<tr style="height: 80;">
 						<td>Clean : <input type="button" id="btn6" value="off" content="off" class="button off_1" onclick="toggleState_1(this);func1('clean');" /> </td>
 						<td>Lift Garbage : <input type="button" id="btn7" value="off" content="off" class="button off_1" onclick="toggleState_1(this);func1('lift');" /></td>
@@ -413,15 +278,39 @@
 				</table>
 			</div>
 
-		</div>
-		
-		<div class="container" id="details">
-			<div class="row">
-				<div class="col-md-12">	
-						---													
-				</div>
+			<div class="row bottomBar">
+			    <div class="col-xs-6 col-sm-3">
+			    	<iframe id="myFrame19" src="#" width="80%" height="60" frameborder="1" style="align:centre"></iframe>
+			    </div>
+			    <div class="col-xs-6 col-sm-3">
+			    	<iframe id="myFrame20" src="#" width="80%" height="60" frameborder="1" style="align:centre;margin-bottom: 40px;"></iframe>	
+			    </div>
+			    <div class="col-xs-6 col-sm-3">
+			    	<iframe id="motionConfFrame" src="#"></iframe>
+			    </div>
+			    <div class="col-xs-6 col-sm-3">
+
+			    </div>
 			</div>
+
+			<div class="row rightSideBar">
+			    <div class="col-xs-6 col-sm-3">
+			    	
+			    </div>
+			    <div class="col-xs-6 col-sm-3">
+			    	
+			    </div>
+			    <div class="col-xs-6 col-sm-3">
+
+			    </div>
+			    <div class="col-xs-6 col-sm-3">
+			    	<div id="detectMotion"></div>
+			    	<input type="button" id="detecMotionButton" value="no status"/>
+			    </div>
+			</div>
+
 		</div>
+
 	</div>
 
 	<div class="footer">
@@ -430,9 +319,57 @@
 			
 <script>
 
-	document.getElementById('myFrame19').src= "http://192.168.1.100/m2m/rpiramudroid/perform1.php?p1=" + 0 + 
+	function updateStatus(){
+		$("#detecMotionButton").html(result);
+	}
+
+	$("#detecMotionButton").click(function(){
+
+		/*	    
+		var pm_url = 'http://127.0.0.1:8080/0/detection/status';
+	    var photos = function (data) {
+	     alert(data);
+	    };
+	    $.ajax({
+	        url: pm_url,
+	        dataType: 'jsonp',
+	        jsonpCallback: 'photos',
+	        jsonp: true,
+	    });*/
+
+		$.ajax({url: "http://127.0.0.1:8080/0/detection/status", 
+        	success: function(result){
+        	    $("#detecMotionButton").html(result);
+        	}
+    	});
+		/*
+		$.ajax({
+		    url: "http://127.0.0.1:8080/0/detection/status",
+		    jsonp: "updateStatus",
+		    dataType: "jsonp",
+		    data: {
+		        q: "select title,abstract,url from search.news where query=\"cat\"",
+		        format: "json"
+		    },
+		 
+		    // Work with the response
+		    success: function( response ) {
+		        console.log( response ); // server response
+
+		    }
+		});*/
+
+    });
+
+	document.getElementById('myFrame19').src= "http://"+rpi_ip+"/m2m/rpiramudroid/perform1.php?p1=" + 0 + 
 	"&p2=" + 0 +"&p3=" + 0+ "&p4=" + 0+ "&p5=" + 0+ "&p6=" + 0+ "&p7=" + 0+ "&p8=" + 0;
-	 
+	
+	document.getElementById("streamFrame").src= rpi_streaming_ip;
+	document.getElementById("streamFrame").height= window.innerHeight;
+	//document.getElementById("streamFrame").width= 90/100*window.innerHeight;
+
+	document.getElementById("motionConfFrame").src=rpi_streaming_config_list;
+
 	function refreshCanvas(){
 		var canvas = document.getElementById('rpiCanvas');
 	  	var ctx =canvas.getContext("2d");
@@ -441,21 +378,15 @@
   	}
 
 	//document.getElementById('myFrame18').src="http://"+rpi_ip+":8081";
-/*	var streamFrame = document.getElementById('myFrame18');
-	streamFrame.src = "http://192.168.1.100:8080/stream";
-	streamFrame.setAttribute("style","height:100%");*/
 	var streamFrame=document.getElementById("streamFrame");
 	streamFrame.onload = function() { 
-		//alert('myframe is loaded'); 
       	//window.setInterval("refreshCanvas()", 10);
 	}; 
 
-	document.getElementById('myFrame20').src="http://192.168.1.100/m2m/rpiramudroid/perform2.php?&p8=" + 0;
+	document.getElementById('myFrame20').src="http://"+rpi_ip+"/m2m/rpiramudroid/perform2.php?&p8=" + 0;
 
-	//console.log(document.getElementById('myFrame18').contentWindow.document);
-
-
-/*if(document.getElementById('myFrame18').contentWindow.getElementsByTagName("img")!=undefined){
+/*
+if(document.getElementById('myFrame18').contentWindow.getElementsByTagName("img")!=undefined){
 
 	var imgStream= document.getElementById('myFrame18').contentWindow.getElementsByTagName("img")[0];
 

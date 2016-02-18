@@ -18,7 +18,6 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
 
     echo "Started CORS!";
 
-    
 $comPort = "/dev/ttyACM0"; //The com port address. This is a debian address
 
 $msg = '';
@@ -61,13 +60,13 @@ $msg = "You message has been sent! WOHOO!";
 
 <body>
 
-<form method="POST">
+    <form method="POST">
 
-<input type="submit" value="Send" name="hi">
+    <input type="submit" value="Send" name="hi">
 
-</form><br>
+    </form><br>
 
-<?=$msg?>
+    <?=$msg?>
 
 </body>
 
