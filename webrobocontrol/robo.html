@@ -53,9 +53,9 @@
         }
 
 		//var rpi_ip= prompt("Please enter Rpi IP  ", "");
-		var rpi_ip="127.0.0.1:5559";
-		var rpi_streaming_ip = "http://127.0.0.1:8081/stream/video.mjpeg";
-		var rpi_streaming_config_list = "http://127.0.0.1:8080/0/config/list";
+		var rpi_ip="192.168.1.100";
+		var rpi_streaming_ip = "http://192.168.1.100:8081/stream/video.mjpeg";
+		var rpi_streaming_config_list = "http://192.168.1.100:8080/0/config/list";
 
 		var pin1 = "0";
 		var pin2 = "0";
@@ -326,7 +326,7 @@
 	$("#detecMotionButton").click(function(){
 
 		/*	    
-		var pm_url = 'http://127.0.0.1:8080/0/detection/status';
+		var pm_url = 'http://192.168.1.100:8080/0/detection/status';
 	    var photos = function (data) {
 	     alert(data);
 	    };
@@ -337,14 +337,14 @@
 	        jsonp: true,
 	    });*/
 
-		$.ajax({url: "http://127.0.0.1:8080/0/detection/status", 
+		$.ajax({url: "http://192.168.1.100:8080/0/detection/status", 
         	success: function(result){
         	    $("#detecMotionButton").html(result);
         	}
     	});
 		/*
 		$.ajax({
-		    url: "http://127.0.0.1:8080/0/detection/status",
+		    url: "http://192.168.1.100:8080/0/detection/status",
 		    jsonp: "updateStatus",
 		    dataType: "jsonp",
 		    data: {
