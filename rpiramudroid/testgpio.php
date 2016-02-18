@@ -28,8 +28,7 @@ if (isset ( $_GET["p0"] ) && isset ( $_GET["p1"] ) && isset ( $_GET["p2"] ) && i
 		system("gpio mode 7 out");	
 		system("gpio write 7 ".$_GET["p7"] );
 		*/
-
-				
+		
 		echo("ok");
 } 
 
