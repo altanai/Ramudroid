@@ -10888,7 +10888,7 @@ function operation(move_var){
     $.ajax({ 
        type: "GET",
        dataType: "jsonp",
-       url: "testgpio.php?p0="+p0+"&p1=" + p1 + "&p2=" + p2 + "&p3=" + p3+ "&p4=" + p4+ "&p5=" + p5+ "&p6=" + p6+ "&p7=" + p7,
+       url: "testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8,
        success: function(data){        
          console.log(data);
        }
