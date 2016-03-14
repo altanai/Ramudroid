@@ -1,0 +1,207 @@
+<html>
+	
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel=stylesheet href="minScripts/mainStyle.css">
+    <script>
+    if(!location.hash.replace('#', '').length) {
+        location.href = location.href.split('#')[0] + '#' + (Math.random() * 100).toString().replace('.', '');
+        location.reload();
+    }
+    </script>
+    <script src="property.js"></script>
+    <script src="minScripts/presentationScript.js"> </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+</head>
+
+<body>
+			
+	<!-- .......................... Row 3 ................................ -->
+	<div class="container">
+	
+		<div class="row">
+			<img id="streamFrame" class="streamBox" src="" />
+		</div>
+		<!-- .......................... Row 3 ................................ -->
+
+
+		<div class="row mediaControlBar">
+			<h2>RamuDroid</h2>
+			<input type="button" id="btn2" value="Left" content="off" class="btn btn-primary off" />
+			<input type="button" id="btn3" value="Stop" content="off" class="btn btn-primary off" />
+			<input type="button" id="btn4" value="Right" content="off" class="btn btn-primary off"/>
+		</div>
+
+		<div class="row controlBar">
+			<table id="controls" class="panel-controlbuttons">
+				<tr>
+					<td></td>
+					<td><input type="button" id="btn1" value="Top" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn1');func1('top');" /></td>
+					<td></td>
+				</tr>
+				
+				<tr>
+					<td><input type="button" id="btn2" value="Left" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn2');func1('left');" /></td>
+					<td><input type="button" id="btn3" value="Stop" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn3');func1('stop');" /></td>
+					<td><input type="button" id="btn4" value="Right" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn4');func1('right');" /></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td><input type="button" id="btn5" value="Back" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn5');func1('back');" /></td>
+					<td></td>				
+				</tr>
+
+				<tr style="height: 80;">
+					<td>Clean : <input type="button" id="btn6" value="off" content="off" class="btn btn-success off_1" onclick="toggleState_1(this);func1('clean');" /> </td>
+					<td>Lift Garbage : <input type="button" id="btn7" value="off" content="off" class="btn btn-success off_1" onclick="toggleState_1(this);func1('lift');" /></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="row rightSideBar">
+		    <div>
+		    	<div type="button" id="webrtcCallChatButton" class="btn btn-default rightButton" value="WebRTC"> webrtcCallChatBox </div>
+		    </div>
+		    <div >
+		    	<div type="button" id="snnapshotButton" class="btn btn-default rightButton" value="Snapshot"/>snapshot </div>
+		    </div>
+		    <div>
+		    	<div  type="button" id="recordingButton" class="btn btn-default rightButton" value="no status"/>Record </div>
+		    </div>
+		    <div>
+		    	<div  type="button" id="share-screen" class="btn btn-default rightButton" value="Stream"/>Stream </div>
+		    </div>
+		     <div id="chart_div" style="width: 400px; height: 120px;"></div>
+		      <div id="chart" style="width: 400px; height: 120px;"></div>
+		</div>
+
+		<div class="row bottomBar">
+			<table>
+			<tr>
+			<td><iframe id="myFrame19" src=""  frameborder="1" ></iframe></td>
+			<td><iframe id="longitudeLatiudeFrame" src=""  frameborder="1" ></iframe></td>
+			<td><iframe id="mapFrame" src="" frameborder="1"></iframe></td>
+			<td>
+				<select id="maptypes">
+				  <option value="volvo" onclick="changeMap(map1)">Map1</option>
+				  <option value="saab" onclick="changeMap(map1)">Map2</option>
+				  <option value="opel"onclick="changeMap(map3)">Map3</option>
+				</select>
+			</td>
+			</tr>
+			</table>
+		</div>
+
+
+		<!-- .......................... Row 3 ................................ -->
+	    <div id="webrtcCallChatBox" class="row thirdPanelClass" hidden> 
+	        <div class="col-xs-12 videoBox merge" id="videoHold">
+	            <div class="row users-container merge" id="usersContainer">
+	                <div class="CardClass" id="card">
+	                    
+	                    <span id="numbersofusers" class="numbers-of-users" hidden>1</span>
+ 						<span id="username" class="userName" hidden>ramudroid</span>
+	                    
+	                    <!-- when no remote -->
+	                    <div id="local">
+								<video id="localVideo" autoplay="autoplay" muted="true" /></div>
+	                    </div>
+
+	                    <!-- when remote is connected -->
+	                    <div id ="remote">
+	                        <div class="col-sm-4 merge" class="leftVideoClass" id="leftVideo">
+	                            <video id="miniVideo" autoplay="autoplay" muted="true" />
+	                        </div>
+	                        <div class="col-sm-4 merge ">
+	                            <div id="chatbox" class="row chatBoard">
+	                                <div class="mainInputBox">   
+	                                    <button id="send" class="btn-primary buttonChatSend">Send</button>
+	                                    <input type=text style="width:70%;" id="chatInput" class="form-control" placeholder="Type message here">
+	                                </div>
+	                                <div class="chatMessagesClass">
+	                                    <div id="all-messages" style="padding:5px;"></div>
+	                                </div>
+	                                <p id="who-is-typing"></p>
+	                            </div>
+	                        </div>
+	                        <div class="col-sm-4 merge" class="rightVideoClass" id="rightVideo">
+	                            <video id="remoteVideo" autoplay="autoplay"></video>
+	                        </div>
+	                    </div>
+
+	                </div>
+	            </div>
+	        </div> 
+	    </div>
+
+	    <!-- .......................... Row 3 ................................ -->
+	    <div class="row fourthPanelClass" hidden> 
+
+	        <div class="col-xs-12 filesharingBox merge" >
+	            
+	            <div class="row">
+	                
+	                <div class="col-sm-6 filesharing1Box">
+	                    <p> File viewer  <span id="closeButton1" class="closeButton">X</span> </p>
+	                    <div id="widget-filesharing-container1" class="filesharingWidget"></div>                        
+	                </div>
+
+	                <div class="col-sm-6 filesharing2Box">
+	                    <p> File viewer  <span id="closeButton2" class="closeButton">X</span> </p>                    
+	                    <div id="widget-filesharing-container2"  class="filesharingWidget"></div>
+	                </div> 
+
+	            </div>
+
+	            <div class="row">
+	                <div class="fileinputClass" data-provides="fileinput">
+	                    <span class="btn btn-default btn-file"><input id="file" type="file" /></span>
+	                    <span class="fileinput-filename"></span>
+	                    <span class="fileinput-new"></span>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+	    <!-- .......................... Row 4 ................................ -->
+	    <div class="row fifthPanelClass" hidden> 
+	        <div class="col-xs-12 filesharingBox merge" >
+
+	            <div class="row">
+
+	                <div id="widget-filesharing1" class="col-sm-6  filesharing1Box">
+	                    <p> List of files shared by above person </p>
+	                    <div id="file-progress1"></div>
+	                </div>
+	                
+	                <div id="widget-filesharing2" class="col-sm-6  filesharing2Box">
+	                     <p> List of files shared by above person </p>
+	                    <div id="file-progress2"></div>
+	                </div> 
+
+	            </div>
+
+	        </div>
+	    </div>
+	    <!-- .......................... Row 4 ................................ -->
+	    <div class="row secondPanelClass" hidden> 
+
+	        <div class="col-sm-6 drawBox">
+	            <div id="widget-container" class="row drawBoard"></div>
+	        </div>
+	    </div>
+
+	</div>
+
+
+</body>
+	<script src="minScripts/mainScript.js"> </script>
+	<script src="scripts/guage.js"></script>
+
+
+	 <script src="http://jquery-csv.googlecode.com/git/src/jquery.csv.js"></script>
+</html>

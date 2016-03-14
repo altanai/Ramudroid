@@ -1,0 +1,97 @@
+<html>
+	
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel=stylesheet href="minScripts/mainStyle.css">
+    <script>
+    if(!location.hash.replace('#', '').length) {
+        location.href = location.href.split('#')[0] + '#' + (Math.random() * 100).toString().replace('.', '');
+        location.reload();
+    }
+    </script>
+
+    <script src="minScripts/presentationScript.js"> </script>
+</head>
+
+<body>
+			
+
+
+	<!-- .......................... Row 3 ................................ -->
+	<div class="container">
+	
+		<div class="row">
+			<img id="streamFrame" class="streamBox" src="" />
+		</div>
+		<!-- .......................... Row 3 ................................ -->
+
+
+		<div class="row mediaControlBar">
+			<h2>RamuDroid</h2>
+			<input type="button" id="btn2" value="Left" content="off" class="btn btn-primary off" />
+			<input type="button" id="btn3" value="Stop" content="off" class="btn btn-primary off" />
+			<input type="button" id="btn4" value="Right" content="off" class="btn btn-primary off"/>
+		</div>
+
+		<div class="row controlBar">
+			<table id="controls" class="panel-controlbuttons">
+				<tr>
+					<td></td>
+					<td><input type="button" id="btn1" value="Top" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn1');func1('top');" /></td>
+					<td></td>
+				</tr>
+				
+				<tr>
+					<td><input type="button" id="btn2" value="Left" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn2');func1('left');" /></td>
+					<td><input type="button" id="btn3" value="Stop" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn3');func1('stop');" /></td>
+					<td><input type="button" id="btn4" value="Right" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn4');func1('right');" /></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td><input type="button" id="btn5" value="Back" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn5');func1('back');" /></td>
+					<td></td>				
+				</tr>
+
+				<tr style="height: 80;">
+					<td>Clean : <input type="button" id="btn6" value="off" content="off" class="btn btn-success off_1" onclick="toggleState_1(this);func1('clean');" /> </td>
+					<td>Lift Garbage : <input type="button" id="btn7" value="off" content="off" class="btn btn-success off_1" onclick="toggleState_1(this);func1('lift');" /></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="row rightSideBar">
+		    <div>
+		    	<div type="button" id="webrtcCallChatButton" class="btn btn-default rightButton" value="WebRTC"> webrtcCallChatBox </div>
+		    </div>
+		    <div >
+		    	<div type="button" id="snnapshotButton" class="btn btn-default rightButton" value="Snapshot"/>snapshot </div>
+		    </div>
+		    <div>
+		    	<div  type="button" id="recordingButton" class="btn btn-default rightButton" value="no status"/>Record </div>
+		    </div>
+		    <div>
+		    	<div  type="button" id="share-screen" class="btn btn-default rightButton" value="Stream"/>Stream </div>
+		    </div>
+		</div>
+
+		<div class="row bottomBar">
+			<table>
+			<tr>
+			<td><iframe id="myFrame19" src=""  frameborder="1" ></iframe></td>
+			<td><iframe id="longitudeLatiudeFrame" src=""  frameborder="1" ></iframe></td>
+			<td><iframe id="mapFrame" src="" frameborder="1"></iframe></td>
+			</tr>
+			</table>
+		</div>
+
+
+
+	</div>
+
+
+</body>
+	<script src="minScripts/mainScript.js"> </script>
+</html>

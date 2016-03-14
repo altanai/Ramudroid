@@ -3,5 +3,5 @@
 logs
 
 # Dependency directory
-webrobocontrol
+webrobocontrol/node_modules
 

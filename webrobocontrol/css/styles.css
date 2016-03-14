@@ -1,0 +1,432 @@
+body{
+        margin: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #DCDCDC;
+    background-color: #2D2A2A;
+}
+.slash:after {
+    content: "\\";
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    left: 2px;
+    position: absolute;
+    top: -11px;
+    transform: rotate(-30deg)
+}
+
+#time{
+  color: #000;
+  background-color: #blue;
+}
+
+.video {
+        background: rgba(0, 0, 0, 0.99);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width .5s ease
+        width: 300px;
+}
+
+.modal-body {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 auto;
+    text-align: center
+}
+
+.modal-body input {
+    font-weight: 0
+}
+
+.modal-footer {
+    text-align: left
+}
+
+.localMessageclass{
+    background-color:rgba(71, 220, 176, 0.6);
+        color: #968787;
+        float:right;
+}
+.remoteMessageClass{
+    background-color:rgba(71, 141, 220, 0.47);
+        color: #968787;
+    float:left;
+}
+
+.chatusername {
+    font-size: 13px;
+    color: #9D0C0C;
+    font-weight: 600;
+    font-stretch: expanded;
+    font-style: italic
+}
+.userchatmsg {
+    font-size: 16px;
+    color: #000;
+    font-weight: lighter;
+    font-style: oblique;
+    text-rendering: optimizeSpeed;
+    white-space: pre-line;
+    word-wrap: break-word;
+    color:white
+}
+
+.popup-box {
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    height:40%;    
+    width: 300px;
+    margin-bottom:  68px;
+}
+.user-activity {
+    line-height: 1.28;
+    color: #3D3D3D;
+    min-height: 50px;
+    width: 75%;
+    box-shadow: 3px 2px 6px #ccc;
+    padding: 5px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    position: relative
+}
+
+
+.max_vid {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(0, 0, 0, .8);
+    border-radius: 20px;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700
+}
+.glyphicon {
+    line-height: 38px!important
+}
+#fullScreen {
+    display: none;
+    position: relative;
+    background-color: orange
+}
+#inlineVidWrap {
+    position: absolute;
+    bottom: 30px;
+    left: 30px
+}
+.inlineVid {
+    width: 200px;
+    border: 1px solid #00f;
+    margin: 0 20px;
+    display: inline-block
+}
+:fullscreen {
+    position: fixed!important;
+    top: 0!important;
+    right: 0!important;
+    bottom: 0!important;
+    left: 0!important;
+    margin: 0!important;
+    box-sizing: border-box!important;
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: contain!important
+}
+:-webkit-full-screen {
+    background: orange;
+    width: 100%;
+    height: 100%
+}
+video {
+    width: 100%!important;
+    margin: 0!important;
+    background-color: #000;
+    border-radius: 65px;
+}
+
+:-moz-placeholder {
+    color: #c9c9c9 !important;
+    font-size: 13px;
+}
+
+::-webkit-input-placeholder {
+    color: #ccc;
+    font-size: 13px;
+}
+
+.filesharing1Box{
+    background-color: rgba(71, 220, 176, 0.6);
+    color: #968787;
+}
+
+#file-progress1{
+    color:#FFF;
+    height:20px;
+}
+
+.filesharing2Box{
+    background-color: rgba(71, 141, 220, 0.47);
+    color: #968787;
+}
+#file-progress2{
+    color:#FFF;
+    height:20px
+}
+
+.viewerIframeClass{
+    width:100%;
+    height: 100%;
+}
+.cursor1Class{
+    box-sizing: border-box; 
+    -moz-box-sizing: border-box
+    width: 0px !important;
+    border-bottom: 20px solid rgba(71, 220, 176, 0.6);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.cursor2Class{
+    box-sizing: border-box; 
+    -moz-box-sizing: border-box
+    width: 0px !important;
+    border-bottom: 20px solid rgba(71, 141, 220, 0.47);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+
+#timerli{
+    background-color: #55D1F5;
+    color: white;
+    size: 14;
+    font-size: 20;
+    font-weight: bold;
+}
+#countdownMinutes{
+  background-color: white;
+    color: #616150;
+    padding: 4px 4px 4px 4px;
+}
+#countdownSecond{
+  background-color: white;
+    color: #616150;
+    padding: 4px 4px 4px 4px;
+}
+
+.bodyWhole{
+  height: 150%; background:#F3F3F3 
+}
+
+.userName{
+  color: #000;
+}
+
+.currentUrl{
+  width:450px;
+}
+
+.number-of-users{
+  color:#FFF
+}
+
+.countdown{
+  color: #000
+}
+
+.chatBox{
+    background-color: rgba(85, 209, 245, 0.39);
+    height: 30%;
+}
+
+.buttonChatSend{
+    margin-right: 20px;
+    float:right;
+    width:20%;
+}
+.chatMessagesClass{
+    overflow-y: scroll;
+}
+.mainInputBox{
+    width:100%;
+    height:10%;
+}
+.drawBox{
+    height: 30%;
+}
+
+.drawBoard{
+    margin-top: 0px;
+}
+.videoBox{
+    /*left: 10%;*/
+        background: rgba(12, 10, 10, 0.24);
+    max-width: 40%;
+    float: right;
+}
+
+.filesharingBox{
+    color: #A28686;
+    font-size: 20px;
+    padding: 10px 10px 10px 10px;
+    margin: 0px 0px 0px 0px;
+}
+
+.snapshotButton{
+    color: black; 
+    float: right;    
+    padding-right: 40px; 
+    line-height: 1.4; 
+    font-size:35px
+}
+
+.videoContainer{
+    /*left:10%;*/
+    margin: 0 20px 0 20px;
+    padding: 10px;
+    border: 0;
+    background: transparent;
+}
+
+.centre{
+    margin: 0 auto;width: 90%;"
+}
+
+.fileinputClass{
+    background: transparent;
+    border: none;
+}
+
+.local-media,
+.remote-media {
+    max-width: 100%;
+    max-height: 70%;
+}
+.local-media-small,
+.remote-media-small {
+    width: 20%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+
+#local {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: scale(-1, 1);
+}
+#remote {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: rotateY(180deg);
+    width: 100%;
+}
+
+#localVideo {
+    -webkit-transition-duration: 2s;
+    -webkit-transition-property: opacity;
+    opacity: 0;
+    /*width: 100%;*/
+}
+#remoteVideo {
+    -webkit-transition-duration: 2s;
+    -webkit-transition-property: opacity;
+    opacity: 0;
+    /*width: 100%;*/
+}
+
+.leftVideoClass , .rightVideoClass{
+    background: transparent;
+    border: transparent;
+    width: 48%;
+}
+
+.merge{
+    background: transparent;
+    border: none;
+}
+
+.closeButton{
+    float:right !important;
+}
+
+.thirdPanleClass{
+        display: block;
+    float: right;
+    right: 0px;
+    margin-left: 0px;
+    position: absolute;
+    top: 170px;
+}
+/*.secondPanelClass , .thirdPanelClass , .fourthPanelClass , .fifthPanelClass{
+    margin-bottom: 0px;
+    padding: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -20px;
+}
+*/
+.filesharingWidget{
+    overflow: auto;
+}
+
+.iframeClassfileviewer{
+    width: 69%;
+    border: 0;
+    border-left: 1px solid black;
+    height: inherit;
+}
+
+.fileBoxClass{
+ padding: 10px 10px 10px 10px;
+    background: rgba(255, 255, 255, 0.39);
+    margin-bottom: 2px;
+    margin-top: 2px;
+ }   
+
+ .mediaControlBar{
+         padding-left: 40%;
+    position: absolute;
+    z-index: 1;
+    top: 0; }
+
+ .controlBar{
+    max-width: 10%;
+    float: left;
+    top: 90px;
+    position: absolute;
+ }
+
+ .rightSideBar{
+    max-width: 10%;
+    float: right !important;
+    top: 0px !important;
+    margin-top: 0px;
+    position: absolute;
+    margin-left: 57%;
+ }
+
+ .bottomBar{
+        position: fixed;
+    bottom: 0;
+ }
+
+ .streamBox{
+        margin-top: 50px;
+        width: 75%;
+    background: black;
+ }
+
+ .rightButton{
+    margin-bottom: 5px;
+    margin-top: 5px;
+ }
