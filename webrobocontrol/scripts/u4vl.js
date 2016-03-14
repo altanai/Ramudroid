@@ -107,8 +107,8 @@
                     //server= "10.42.0.235";
                     console.log(option);
                     server=option.rpiserver;
-                    //var protocol = location.protocol === "https:" ? "wss:" : "ws:";
-                    var protocol="ws:";
+                    var protocol = location.protocol === "https:" ? "wss:" : "ws:";
+                    //var protocol="ws:";
                     ws = new WebSocket(protocol + '//' + server + '/stream/webrtc');
 
                     function offer(stream) {
