@@ -12,7 +12,6 @@
     </script>
     <script src="property.js"></script>
     <script src="minScripts/presentationScript.js"> </script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
 
@@ -22,7 +21,7 @@
 	<div class="container">
 	
 		<div class="row">
-			<!-- <img id="streamFrame" class="streamBox" src="" /> -->
+			<img id="streamFrame" class="streamBox" src="" />
 		</div>
 		<!-- .......................... Row 3 ................................ -->
 
@@ -38,25 +37,25 @@
 			<table id="controls" class="panel-controlbuttons">
 				<tr>
 					<td></td>
-					<td><input type="button" id="btn1" value="Top" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn1');func1('top');" /></td>
+					<td><input type="button" id="btn1" value="Top" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn1');operation('top');" /></td>
 					<td></td>
 				</tr>
 				
 				<tr>
-					<td><input type="button" id="btn2" value="Left" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn2');func1('left');" /></td>
-					<td><input type="button" id="btn3" value="Stop" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn3');func1('stop');" /></td>
-					<td><input type="button" id="btn4" value="Right" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn4');func1('right');" /></td>
+					<td><input type="button" id="btn2" value="Left" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn2');operation('left');" /></td>
+					<td><input type="button" id="btn3" value="Stop" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn3');operation('stop');" /></td>
+					<td><input type="button" id="btn4" value="Right" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn4');operation('right');" /></td>
 				</tr>
 
 				<tr>
 					<td></td>
-					<td><input type="button" id="btn5" value="Back" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn5');func1('back');" /></td>
+					<td><input type="button" id="btn5" value="Back" content="off" class="btn btn-success off" onclick="toggleState(this);clearotherbuttons('btn5');operation('back');" /></td>
 					<td></td>				
 				</tr>
 
 				<tr style="height: 80;">
-					<td>Clean : <input type="button" id="btn6" value="off" content="off" class="btn btn-success off_1" onclick="toggleState_1(this);func1('clean');" /> </td>
-					<td>Lift Garbage : <input type="button" id="btn7" value="off" content="off" class="btn btn-success off_1" onclick="toggleState_1(this);func1('lift');" /></td>
+					<td>Clean : <input type="button" id="btn6" value="off" content="off" class="btn btn-success off_1" onclick="toggleState_1(this);operation('clean');" /> </td>
+					<td>Lift Garbage : <input type="button" id="btn7" value="off" content="off" class="btn btn-success off_1" onclick="toggleState_1(this);operation('lift');" /></td>
 					<td></td>
 				</tr>
 			</table>
@@ -81,7 +80,6 @@
 		    <div id="chart_div" style="width: 400px; height: 120px;"></div>
 
 		    <div id="chart" style="width: 400px; height: 120px;"></div>
-
 		</div>
 
 		<div class="row bottomBar">
@@ -200,65 +198,78 @@
 	        </div>
 	    </div>
 
+	    <!-- .......................... Modal ................................ -->
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">settings</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+
+			  <!-- Modal content-->
+			  <div class="modal-content">
+			    <div class="modal-header">
+			      <button type="button" class="close" data-dismiss="modal">&times;</button>
+			      <h4 class="modal-title">Modal Header</h4>
+			    </div>
+			    <div class="modal-body">
+			        <fieldset>
+			            <legend><b>Cast local Audio/Video sources to remote peer</b></legend>
+			            <div>
+			                <span>Audio:</span>
+			                <label><input type="checkbox" onclick="singleselection('audio_cast', 'cast_mic');" id="cast_mic" name="audio_cast" value="microphone">microphone/other input</label>
+			                <label><input type="checkbox" id="echo_cancellation" name="audio_processing" title="disable any audio processing when casting music" checked>echo cancellation</label>
+			                <!--label><input type="checkbox" onclick="singleselection('audio_cast', 'cast_tab');" id="cast_tab" name="audio_cast" value="system">tab</label-->
+			            </div>
+			            <div>
+			                <span>Video:</span>
+			                <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_camera');" id="cast_camera" name="video_cast" value="camera">camera</label>
+			                <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_screen');" id="cast_screen" name="video_cast" value="screen">screen</label>
+			                <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_window');" id="cast_window" name="video_cast" value="screen">window</label>
+			                <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_application');" id="cast_application" name="video_cast" value="application">application</label>
+			            </div>
+			        </fieldset>
+		        <fieldset>
+		            <legend><b>Remote peer options</b></legend>
+		            <div>
+		                <span>Video:</span>
+		                <label><input type="checkbox" onclick="remote_hw_vcodec_selection();"  id="remote_hw_vcodec" name="remote_hw_vcodec" value="remote_hw_vcodec" title="try to force the use of the hardware codec for both encoding and decoding if enabled and supported">force use of hardware codec for</label>
+		                <select id="remote_vformat" name="remote_vformat" onclick="remote_hw_vcodec_format_selection();" title="available resolutions and frame rates at the min., max. and start configured bitrates for adaptive streaming which will be scaled from the base 720p 30fps">
+		                    <option value="10">320x240 30 fps</option>
+		                    <option value="20">352x288 30 fps</option>
+		                    <option value="30">640x480 30 fps</option>
+		                    <option value="40">960x720 30 fps</option>
+		                    <option value="50">1024x768 30 fps</option>
+		                    <option value="60" selected="selected">1280x720 30 fps, kbps min.1500 max.4000 start2000</option>
+		                    <option value="70">1280x768 30 fps</option>
+		                    <option value="80">1280x960 30 fps</option>
+		                    <option value="90">1600x768 30 fps</option>
+		                    <option value="100">1920x1072 15 fps</option>
+		                </select>
+		                <p id="note1_"><small>NOTE: if your browser does not support the hardware codec yet, try Firefox with the codec plugin enabled.</small></p>
+		            </div>
+		        </fieldset>
+		        <div id="commands">
+		            <details open>
+		                <summary><b>Advanced options</b></summary>
+		                <fieldset>
+		                    <span>Remote Peer/Signalling Server Address: </span><input required type="text" id="signalling_server" value="10.42.0.235:8080" title="<host>:<port>, default address is autodetected"/><br>
+		                    <span>Optional ICE Servers (STUN/TURN): </span><input type="text" id="ice_servers" value="" title="array of RTCIceServer objects as valid JSON string"/>
+		                </fieldset>
+		            </details>
+		            <button id="start" style="background-color: green; color: white" onclick="start();">Go!</button>
+		            <button disabled id="stop" style="background-color: red; color: white" onclick="stop();">Stop</button>
+		        </div><br>
+			    </div>
+			    <div class="modal-footer">
+			      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			    </div>
+			  </div>
+			  
+			</div>
+		</div>
 
 
-        <fieldset>
-            <legend><b>Cast local Audio/Video sources to remote peer</b></legend>
-            <div>
-                <span>Audio:</span>
-                <label><input type="checkbox" onclick="singleselection('audio_cast', 'cast_mic');" id="cast_mic" name="audio_cast" value="microphone">microphone/other input</label>
-                <label><input type="checkbox" id="echo_cancellation" name="audio_processing" title="disable any audio processing when casting music" checked>echo cancellation</label>
-                <!--label><input type="checkbox" onclick="singleselection('audio_cast', 'cast_tab');" id="cast_tab" name="audio_cast" value="system">tab</label-->
-            </div>
-            <div>
-                <span>Video:</span>
-                <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_camera');" id="cast_camera" name="video_cast" value="camera">camera</label>
-                <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_screen');" id="cast_screen" name="video_cast" value="screen">screen</label>
-                <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_window');" id="cast_window" name="video_cast" value="screen">window</label>
-                <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_application');" id="cast_application" name="video_cast" value="application">application</label>
-                <p id="note1"><small>NOTE: except camera, screen, window or application casting is supported from Firefox 44 on and over HTTPS only.</small></p>
-                <p id="note2"><small>NOTE: except camera, to enable screen, window or application casting open <i>about:config</i> URL
-                        and set <i>media.getusermedia.screensharing.enabled</i> to <i>true</i>
-                        and permanently add the current domain to the list in <i>media.getusermedia.screensharing.allowed_domains.</i></small>
-                </p>
-                <p id="note3"><small>NOTE: if you want to cast music, for better audio quality disable <i>echo-cancellation.</i></small></p>
-                <p id="note4"><small>NOTE: if you want to cast music, for better audio quality disable <i>echo-cancellation</i>,
-                        and <i>aec</i>, <i>noise-suppression</i>, <i>agc</i> in the browser configuration <i>(about:config).</i></small>
-                </p>
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend><b>Remote peer options</b></legend>
-            <div>
-                <span>Video:</span>
-                <label><input type="checkbox" onclick="remote_hw_vcodec_selection();"  id="remote_hw_vcodec" name="remote_hw_vcodec" value="remote_hw_vcodec" title="try to force the use of the hardware codec for both encoding and decoding if enabled and supported">force use of hardware codec for</label>
-                <select id="remote_vformat" name="remote_vformat" onclick="remote_hw_vcodec_format_selection();" title="available resolutions and frame rates at the min., max. and start configured bitrates for adaptive streaming which will be scaled from the base 720p 30fps">
-                    <option value="10">320x240 30 fps</option>
-                    <option value="20">352x288 30 fps</option>
-                    <option value="30">640x480 30 fps</option>
-                    <option value="40">960x720 30 fps</option>
-                    <option value="50">1024x768 30 fps</option>
-                    <option value="60" selected="selected">1280x720 30 fps, kbps min.1500 max.4000 start2000</option>
-                    <option value="70">1280x768 30 fps</option>
-                    <option value="80">1280x960 30 fps</option>
-                    <option value="90">1600x768 30 fps</option>
-                    <option value="100">1920x1072 15 fps</option>
-                </select>
-                <p id="note1_"><small>NOTE: if your browser does not support the hardware codec yet, try Firefox with the codec plugin enabled.</small></p>
-            </div>
-        </fieldset>
-        <div id="commands">
-            <details open>
-                <summary><b>Advanced options</b></summary>
-                <fieldset>
-                    <span>Remote Peer/Signalling Server Address: </span><input required type="text" id="signalling_server" value="10.42.0.235:8080" title="<host>:<port>, default address is autodetected"/><br>
-                    <span>Optional ICE Servers (STUN/TURN): </span><input type="text" id="ice_servers" value="" title="array of RTCIceServer objects as valid JSON string"/>
-                </fieldset>
-            </details>
-            <button id="start" style="background-color: green; color: white" onclick="start();">Go!</button>
-            <button disabled id="stop" style="background-color: red; color: white" onclick="stop();">Stop</button>
-        </div><br>
-        
+
 	</div>
 
 
@@ -267,5 +278,5 @@
 	<script src="scripts/guage.js"></script>
 
 
-	 <script src="http://jquery-csv.googlecode.com/git/src/jquery.csv.js"></script>
+
 </html>

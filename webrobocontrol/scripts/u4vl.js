@@ -103,10 +103,10 @@
                     document.getElementById("start").disabled = true;
                     document.documentElement.style.cursor ='wait';
 
-                    //server = document.getElementById("signalling_server").value.toLowerCase();
+                    server = document.getElementById("signalling_server").value.toLowerCase();
                     //server= "10.42.0.235";
                     console.log(option);
-                    server=option.rpiserver;
+                    //server=option.rpiserver;
                     var protocol = location.protocol === "https:" ? "wss:" : "ws:";
                     //var protocol="ws:";
                     ws = new WebSocket(protocol + '//' + server + '/stream/webrtc');

@@ -992,7 +992,7 @@ var pin6 = "0";
 var pin7 = "0";
 var pin8 = "0";
                    
-function func1(move_var){  
+function operation(move_var){  
         
     if(move_var=="top"){
         console.log(" top");
@@ -1142,8 +1142,9 @@ function func1(move_var){
             pin7="1";
         }
         pin8="0";
-     }
-     else{
+    }
+     
+    else{
      //even if it doesnt match anything , just stop 
         console.log(" stop");
         pin1="0";
@@ -1154,9 +1155,17 @@ function func1(move_var){
         pin6="0";
         pin7="0";
         pin8="0";
-     }
-    document.getElementById('myFrame19').src=
-        "http://"+rpi_ip+"/m2m/rpiramudroid/perform1.php?p1=" + pin1 + "&p2=" + pin2 + "&p3=" + pin3+ "&p4=" + pin4+ "&p5=" + pin5+ "&p6=" + pin6+ "&p7=" + pin7+ "&p8=" + pin8;    
+    }
+    //document.getElementById('myFrame19').src="http://"+rpi_ip+"/m2m/rpiramudroid/perform1.php?p1=" + pin1 + "&p2=" + pin2 + "&p3=" + pin3+ "&p4=" + pin4+ "&p5=" + pin5+ "&p6=" + pin6+ "&p7=" + pin7+ "&p8=" + pin8;    
+
+    $.ajax({ 
+       type: "GET",
+       dataType: "jsonp",
+       url: "testgpio.php?p0="+p0+"&p1=" + p1 + "&p2=" + p2 + "&p3=" + p3+ "&p4=" + p4+ "&p5=" + p5+ "&p6=" + p6+ "&p7=" + p7,
+       success: function(data){        
+         console.log(data);
+       }
+    });
 }
 
 document.getElementById('myFrame19').src= rpi_movement_ip;
