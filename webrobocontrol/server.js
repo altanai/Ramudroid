@@ -90,3 +90,25 @@ function onNewNamespace(channel, sender) {
 }
 
 app.listen(8084);
+
+
+var api = require('./api/restserver.js');
+
+WebSocketServer = require('ws').Server;
+
+var wss = new WebSocketServer({
+    server: app
+  });
+
+wss.on('connection', function connection(ws) {
+  
+  ws.on('message', function incoming(message) {
+    console.log('received: %s', message);
+  });
+
+  ws.send('something');
+});
+
+wss.on("close", function (code, reason) {
+    console.log("Connection closed")
+});

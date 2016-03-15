@@ -1,9 +1,7 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat'); 
-var babel = require('gulp-babel');
 var cat = require('gulp-cat');  
 var addsrc = require('gulp-add-src');
-var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css'); 
 var base64 = require('gulp-base64');
@@ -62,6 +60,7 @@ gulp.task('js',function() {
         "scripts/screen.js",
         "scripts/screensharingScript.js",
         "scripts/u4vl.js",
+        "scripts/rpiramudroid.js",
         "scripts/start.js",
         "scripts/maps.js",
         "https://www.gstatic.com/charts/loader.js",

@@ -107,9 +107,10 @@
                     //server= "10.42.0.235";
                     console.log(option);
                     //server=option.rpiserver;
-                    var protocol = location.protocol === "https:" ? "wss:" : "ws:";
-                    //var protocol="ws:";
-                    ws = new WebSocket(protocol + '//' + server + '/stream/webrtc');
+                    //var protocol = location.protocol === "https:" ? "wss:" : "ws:";
+                    var protocol="wss:";
+                    //ws = new WebSocket(protocol + '//' + server + '/stream/webrtc');
+                    ws= new WebSocket("wss://localhost:8084");
 
                     function offer(stream) {
                         createPeerConnection();
