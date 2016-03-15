@@ -92,9 +92,14 @@ function onNewNamespace(channel, sender) {
 app.listen(8084);
 
 
+
+//----------------------------- REST Server 
 var api = require('./api/restserver.js');
 
-WebSocketServer = require('ws').Server;
+
+
+// --------------------------------Secure Websocket Server
+WebSocketServer = require('ws');
 
 var wss = new WebSocketServer({
     server: app

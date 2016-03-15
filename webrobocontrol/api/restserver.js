@@ -207,7 +207,6 @@ function getCleanTray(req, res, callback) {
   *
  */
 function getDataUltrasonic(req, res, callback) { 
-    
     res.send("ultrasonic");
     return;
 } 
@@ -226,7 +225,6 @@ function getDataUltrasonic(req, res, callback) {
   *
  */
 function getDataGPS(req, res, callback) { 
-    
     res.send("gps");
     return;
 } 
