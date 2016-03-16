@@ -3,7 +3,7 @@
 <title>Arduino control</title>
 </head>
 <body>
-<h2>Serail port Arduino to rpi</h2>
+<h2>Serial port Arduino to rpi</h2>
 <?php
 	include 'PhpSerial.php';
     $serial = new phpSerial();

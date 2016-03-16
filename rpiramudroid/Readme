@@ -1,0 +1,1 @@
+cat /dev/ttyUSB0 > /var/www/m2m/rpiramudroid/capturefile
