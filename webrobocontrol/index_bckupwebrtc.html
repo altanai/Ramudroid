@@ -21,7 +21,18 @@
   <div class="container">
   
     <div class="row">
-      <img id="streamFrame" class="streamBox" src="" />
+            <div class="overlayWrapper">
+                <video id="remote-video" autoplay="" width="640" height="480">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="overlay">remote</p>
+            </div>
+            <div class="overlayWrapper" hidden>
+                <video id="local-video" autoplay="" width="320" height="240" hidden>
+                    Your browser does not support the video tag.
+                </video>
+                <p class="overlay">local</p>
+            </div>
     </div>
     <!-- .......................... Row 3 ................................ -->
 

@@ -104,13 +104,12 @@
                     document.documentElement.style.cursor ='wait';
 
                     server = document.getElementById("signalling_server").value.toLowerCase();
-                    //server= "10.42.0.235";
                     console.log(option);
                     //server=option.rpiserver;
-                    //var protocol = location.protocol === "https:" ? "wss:" : "ws:";
-                    var protocol="wss:";
-                    //ws = new WebSocket(protocol + '//' + server + '/stream/webrtc');
-                    ws= new WebSocket("wss://localhost:8084");
+                    var protocol = location.protocol === "https:" ? "wss:" : "ws:";
+      
+                    ws = new WebSocket(protocol + '//' + server + '/stream/webrtc');
+
 
                     function offer(stream) {
                         createPeerConnection();

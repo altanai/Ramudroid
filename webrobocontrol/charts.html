@@ -1,18 +1,25 @@
 <html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-   <script src="https://www.google.com/jsapi"></script>
-   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-   <script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.js"></script>
     <script type="text/javascript">
 
-var arrData= [];
+    var rawData=[];
+    var arrData= [];
 
-      
-$.get("capturefile", function(csvString) {
-    console.log(" draw chat form csv" , csvString);
-    arrData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
-});
+    $.get("capturefile", function(csvString) {
+        console.log(" draw chat form csv" , csvString);
+        rawData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+        console.log(rawData);
+
+        for(var i = 0; i < rawData.length; i += 2) {  // take every second element
+            arrData.push(rawData[i]);
+        }
+        console.log(arrData);
+
+    });
 
 
     google.load("visualization", "1", {packages: ["bar","corechart",'table',"geochart"]});

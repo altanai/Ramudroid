@@ -9409,13 +9409,12 @@ getScreenId(function (error, sourceId, screen_constraints) {
                     document.documentElement.style.cursor ='wait';
 
                     server = document.getElementById("signalling_server").value.toLowerCase();
-                    //server= "10.42.0.235";
                     console.log(option);
                     //server=option.rpiserver;
-                    //var protocol = location.protocol === "https:" ? "wss:" : "ws:";
-                    var protocol="wss:";
-                    //ws = new WebSocket(protocol + '//' + server + '/stream/webrtc');
-                    ws= new WebSocket("wss://localhost:8084");
+                    var protocol = location.protocol === "https:" ? "wss:" : "ws:";
+      
+                    ws = new WebSocket(protocol + '//' + server + '/stream/webrtc');
+
 
                     function offer(stream) {
                         createPeerConnection();
@@ -10709,7 +10708,6 @@ var rpi_ip=option.rpiserver;
 var rpi_streaming_ip = option.rpi_streaming_ip;
 var rpi_streaming_config_list = "https://192.168.1.100:8080/0/config/list";
 var rpi_serial = "https://192.168.1.100/m2m/rpiramudroid/capturefile";
-var rpi_movement_ip="https://"+rpi_ip+"/m2m/rpiramudroid/perform1.php?p1=" + 0 + "&p2=" + 0 +"&p3=" + 0+ "&p4=" + 0+ "&p5=" + 0+ "&p6=" + 0+ "&p7=" + 0+ "&p8=" + 0;
 var rpi_ultrasonic = "https://"+rpi_ip+"/m2m/rpiramudroid/perform2.php?&p8=" + 0;
 
 var pin1 = "0";
@@ -10886,7 +10884,6 @@ function operation(move_var){
         pin8="0";
     }
     //document.getElementById('myFrame19').src="http://"+rpi_ip+"/m2m/rpiramudroid/perform1.php?p1=" + pin1 + "&p2=" + pin2 + "&p3=" + pin3+ "&p4=" + pin4+ "&p5=" + pin5+ "&p6=" + pin6+ "&p7=" + pin7+ "&p8=" + pin8;    
-
     $.ajax({ 
        type: "GET",
        dataType: "jsonp",
@@ -10897,8 +10894,6 @@ function operation(move_var){
     });
 }
 
-document.getElementById('myFrame19').src= rpi_movement_ip;
-
 document.getElementById("streamFrame").src= rpi_streaming_ip;
 document.getElementById("streamFrame").height= window.innerHeight;
 
@@ -10908,9 +10903,7 @@ document.getElementById('mapFrame').src="map2.html";
 document.getElementById("webrtcCallChatButton").onclick=function(){
     $("#webrtcCallChatBox").toggle();
     startcall();
-
 };
-
 
 function changeMap(name){
     console.log("Map chaned to ", name);
