@@ -978,9 +978,9 @@ function toggleState_1(item){
 
 var rpi_ip=option.rpiserver;
 var rpi_streaming_ip = option.rpi_streaming_ip;
-var rpi_streaming_config_list = "https://192.168.1.100:8080/0/config/list";
+/*var rpi_streaming_config_list = "https://192.168.1.100:8080/0/config/list";
 var rpi_serial = "https://192.168.1.100/m2m/rpiramudroid/capturefile";
-var rpi_ultrasonic = "https://"+rpi_ip+"/m2m/rpiramudroid/perform2.php?&p8=" + 0;
+var rpi_ultrasonic = "https://"+rpi_ip+"/m2m/rpiramudroid/perform2.php?&p8=" + 0;*/
 
 var pin1 = "0";
 var pin2 = "0";
@@ -1166,18 +1166,10 @@ function operation(move_var){
     });
 }
 
-document.getElementById("streamFrame").src= rpi_streaming_ip;
+/*document.getElementById("streamFrame").src= rpi_streaming_ip;
 document.getElementById("streamFrame").height= window.innerHeight;
 
 document.getElementById('longitudeLatiudeFrame').src=rpi_serial;
-document.getElementById('mapFrame').src="map2.html";
+document.getElementById('mapFrame').src="map2.html";*/
 
-document.getElementById("webrtcCallChatButton").onclick=function(){
-    $("#webrtcCallChatBox").toggle();
-    startcall();
-};
-
-function changeMap(name){
-    console.log("Map chaned to ", name);
-    document.getElementById("mapFrame").src=name+".html";
-}
+startcall();

@@ -56,15 +56,8 @@ gulp.task('js',function() {
         "scripts/RTCMultiConnection.js",
         "scripts/canvas-designer-widget.js",
         "scripts/BandwidthHandler.js",
-        "scripts/getScreenId.js",
-        "scripts/screen.js",
-        "scripts/screensharingScript.js",
-        "scripts/u4vl.js",
         "scripts/rpiramudroid.js",
         "scripts/start.js",
-        "scripts/maps.js",
-        "https://www.gstatic.com/charts/loader.js",
-        "https://evanplaice.github.io/jquery-csv/src/jquery.csv.js"
     ]; 
     gulp.src(appJsList)
         //.pipe(uglify())

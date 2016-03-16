@@ -1,5 +1,4 @@
-            //var signalling_server_hostname = location.hostname || "10.42.0.235";
-            var signalling_server_hostname = option.rpiserver;
+            var signalling_server_hostname = location.hostname || "10.42.0.235";
             var signalling_server_address = signalling_server_hostname + ':' + (location.port || 80);
             var isFirefox = typeof InstallTrigger !== 'undefined';// Firefox 1.0+
 
@@ -102,14 +101,10 @@
                     document.getElementById("stop").disabled = false;
                     document.getElementById("start").disabled = true;
                     document.documentElement.style.cursor ='wait';
-
                     server = document.getElementById("signalling_server").value.toLowerCase();
-                    console.log(option);
-                    //server=option.rpiserver;
-                    var protocol = location.protocol === "https:" ? "wss:" : "ws:";
-      
-                    ws = new WebSocket(protocol + '//' + server + '/stream/webrtc');
 
+                    var protocol = location.protocol === "https:" ? "wss:" : "ws:";
+                    ws = new WebSocket(protocol + '//' + server + '/stream/webrtc');
 
                     function offer(stream) {
                         createPeerConnection();
@@ -320,7 +315,7 @@
                     remoteVideo.webkitRequestFullScreen();
                 } else if(remoteVideo.mozRequestFullScreen){
                     remoteVideo.mozRequestFullScreen();
-        	}
+            }
             }
 
             function remote_hw_vcodec_selection() {

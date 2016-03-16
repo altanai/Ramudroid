@@ -99,7 +99,7 @@ var api = require('./api/restserver.js');
 
 
 // --------------------------------Secure Websocket Server
-WebSocketServer = require('ws');
+/*WebSocketServer = require('ws');
 
 var wss = new WebSocketServer({
     server: app
@@ -116,4 +116,4 @@ wss.on('connection', function connection(ws) {
 
 wss.on("close", function (code, reason) {
     console.log("Connection closed")
-});
+});*/
