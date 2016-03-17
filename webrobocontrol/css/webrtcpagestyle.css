@@ -1,35 +1,56 @@
+/*html, body {
+    height: 100%;
+}*/
  body{
-        background: black;
+    background: black;
     color: grey;
  }
 
-            #container {
-                display: flex;
-                flex-flow: row nowrap;
-                align-items: flex-end;
-            }
-            video {
-                background: #eee none repeat scroll 0 0;
-                border: 1px solid #aaa;
-            }
-            .overlayWrapper {
-                position: relative;
-            }
-            .overlayWrapper .overlay {
-                position: absolute;
-                top: 0;
-                left: 5px;
-            }
-            p {
-                margin: 0.125em;
-            }
+#container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+}
+video {
+    background: #eee none repeat scroll 0 0;
+    border: 1px solid #aaa;
+}
+.overlayWrapper {
+    position: relative;
+}
+.overlayWrapper .overlay {
+    position: absolute;
+    top: 0;
+    left: 5px;
+}
+p {
+    margin: 0.125em;
+}
 
-              .modal-header, h4, .close {
+.modal-header, h4, .close {
       background-color: #5cb85c;
       color:white !important;
       text-align: center;
       font-size: 30px;
-  }
-  .modal-footer {
+}
+
+.modal-footer {
       background-color: #f9f9f9;
-  }
+}
+
+#map {
+    height: 50%;
+    width: 40%;
+    margin: 0;
+    padding: 0;
+}
+
+.controlBar{
+        /* float: left; */
+    left: 268px;
+    max-width: 100px;
+    /* float: left; */
+    top: 90px;
+    position: absolute;
+    z-index: 2;
+}

@@ -117,10 +117,6 @@ function drawChart(chartType, containerID, arrData, options) {
             region: 'IT',
             displayMode: 'markers',
             colorAxis: {colors: ['green', 'blue']},
-            backgroundColor: 'black',
-            chartArea: {
-                        backgroundColor: 'black'
-                    },
             crosshair: {
                   orientation: 'vertical'
             },
@@ -142,3 +138,4 @@ function drawChart(chartType, containerID, arrData, options) {
 
    chart.draw(data, options);
 }
+

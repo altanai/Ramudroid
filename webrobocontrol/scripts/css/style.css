@@ -530,3 +530,6 @@ ul.nav-tabs {
   }
 
 } /* /@media print */
+      #map {
+        height: 100%;
+      }
