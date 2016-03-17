@@ -148,10 +148,10 @@ body{
     height: 100%
 }
 video {
-    width: 100%!important;
+    /*width: 100%!important;*/
     margin: 0!important;
     background-color: #000;
-    border-radius: 65px;
+    border-radius: 15px;
 }
 
 :-moz-placeholder {

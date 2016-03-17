@@ -12,6 +12,13 @@
     }
     </script>
     <script src="minScripts/presentationScript.js"> </script>
+    <style>
+    body{ overflow-x:hidden;overflow-y:hidden; }
+
+    #controllocalVideo{
+        width:400px;
+    }
+    </style>
 </head>
 
 <body id="pagebody" class="bodyWhole">
@@ -19,8 +26,8 @@
     <div  class="container-fluid">
 
         <!-- ................................ top panel ....................... -->
-        <div class="row topPanelClass" >    
-            <div id="topIconHolder" >
+        <div class="row topPanelClass" hidden>    
+            <div id="topIconHolder" hidden>
                 <ul>
                     <li> <span id="screenShareButton" class="btn btn-success glyphicon glyphicon-expand topPanelButton"> Screenshare </span> </li>
                     <li> <span id="drawButton" class="btn btn-success glyphicon glyphicon-edit topPanelButton"> Whiteborad </span> </li>
@@ -57,17 +64,15 @@
                         
                         <!-- when no remote -->
                         <div id="local">
-                            <div class="col-sm-4 merge" > </div>
-                            <div class="col-sm-4 merge "> <video id="localVideo" autoplay="autoplay" muted="true" /></div>
-                            <div class="col-sm-4 merge" > </div>
+                            <div> <video id="localVideo" style="width:400px" autoplay="autoplay" muted="true" /></div>
                         </div>
 
                         <!-- when remote is connected -->
                         <div id ="remote">
-                            <div class="col-sm-4 merge" class="leftVideoClass" id="leftVideo">
-                                <video id="miniVideo" autoplay="autoplay" muted="true" />
+                            <div class="col-sm-4 merge leftVideoClass" id="leftVideo">
+                                <video id="miniVideo" autoplay="autoplay" style="width:300px;  position: absolute; left: -154px;"  muted="true" />
                             </div>
-                            <div class="col-sm-4 merge "  id="chatbox">
+                            <div class="col-sm-4 merge"  id="chatbox" hidden >
                                 <div class="row">
                                     <div class="mainInputBox">   
                                         <button id="send" class="form-control btn-primary buttonChatSend">Send</button>
@@ -79,19 +84,17 @@
                                     <p id="who-is-typing" hidden></p>
                                 </div>
                             </div>
-                            <div class="col-sm-4 merge" class="rightVideoClass" id="rightVideo">
-                                <video id="remoteVideo" autoplay="autoplay"></video>
+                            <div class="col-sm-4 merge rightVideoClass"id="rightVideo">
+                                <video id="remoteVideo"  autoplay="autoplay"  style="width:300px; position: absolute; left: -154px; top: 250px;" ></video>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div> 
         </div>
 
         <!-- .......................... Row 3 ................................ -->
-        <div class="row fourthPanelClass"> 
+        <div class="row fourthPanelClass" hidden> 
 
             <div class="col-xs-12 filesharingBox merge" >
                 
@@ -135,7 +138,7 @@
 
         <!-- .......................... Row 4 ................................ -->
         
-        <div class="row fifthPanelClass"> 
+        <div class="row fifthPanelClass" hidden>  
             <div class="col-xs-12 filesharingBox merge" >
 
                 <div class="row">
@@ -157,8 +160,8 @@
 
         <!-- ....................................................................... -->
 
-        <div id="cursor1" class="cursor1Class" style="width:0"></div>
-        <div id="cursor2" class="cursor2Class" style="width:0"></div>
+        <div id="cursor1" class="cursor1Class" style="width:0" hidden></div>
+        <div id="cursor2" class="cursor2Class" style="width:0" hidden></div>
     
     </div>
 

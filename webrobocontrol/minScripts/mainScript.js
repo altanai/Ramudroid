@@ -8249,7 +8249,8 @@ var BandwidthHandler = (function() {
 })();
 
 function shownotification(message){
-    alert(message);
+   // alert(message);
+   console.log(message);
 }
 
 function getElement(e) {
@@ -8589,7 +8590,7 @@ function attachControlButtons(videoElement, streamid , snapshotViewer){
         fullScreenButton.setAttribute("data-placement", "bottom");
         fullScreenButton.setAttribute("data-toggle", "tooltip");
         fullScreenButton.setAttribute("data-container", "body");
-        fullScreenButton.className="pull-right fa fa-arrows-alt";
+        fullScreenButton.className="pull-right fa fa-arrows-alt fa-4x";
         fullScreenButton.onclick=function(event){
             referenceNode.webkitEnterFullScreen();
         };
@@ -8602,7 +8603,7 @@ function attachControlButtons(videoElement, streamid , snapshotViewer){
         videoButton.setAttribute("data-placement", "bottom");
         videoButton.setAttribute("data-toggle", "tooltip");
         videoButton.setAttribute("data-container", "body");
-        videoButton.className="pull-right fa fa-video-camera videoButtonClass";        
+        videoButton.className="pull-right fa fa-video-camera fa-4x videoButtonClass ";        
         videoButton.onclick= function(event) {
             if("mute" == this.getAttribute("data-val") ){
                 this.setAttribute("data-val", "unmute"); 
@@ -8626,7 +8627,7 @@ function attachControlButtons(videoElement, streamid , snapshotViewer){
         audioButton.setAttribute("data-placement", "bottom");
         audioButton.setAttribute("data-toggle", "tooltip");
         audioButton.setAttribute("data-container", "body");
-        audioButton.className="pull-right fa fa-microphone";
+        audioButton.className="pull-right fa fa-microphone fa-4x";
         audioButton.onclick = function() {
             if("mute" == this.getAttribute("data-val") ){
                 this.setAttribute("data-val", "unmute"); 
@@ -8645,7 +8646,7 @@ function attachControlButtons(videoElement, streamid , snapshotViewer){
         //add the snaspshot button
         var snapshotButton=document.createElement("div");
         snapshotButton.id="snapshotButton";
-        snapshotButton.className="pull-right fa fa-camera";
+        snapshotButton.className="pull-right fa fa-camera fa-4x";
         snapshotButton.onclick = function() {
             var snaspshot=document.createElement("img");
             rtcMultiConnection.streams[streamid].takeSnapshot(function(snapshot) {
@@ -8679,7 +8680,6 @@ rtcMultiConnection.onstream = function(e) {
         $("#remote").hide();
         $("#controlremoteVideo").hide();
         $("#controlminiVideo").hide();
-
         $("#localVideo").show();
         localStream = e.stream;
         attachMediaStream(localVideo, e.stream);
@@ -8696,7 +8696,6 @@ rtcMultiConnection.onstream = function(e) {
         numberOfRemoteVideos++;
         $("#localVideo").hide();
         $("#controllocalVideo").hide();
-
         $("#remote").show();
 
         if ( numberOfRemoteVideos == 1) {

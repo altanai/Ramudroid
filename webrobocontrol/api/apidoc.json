@@ -1,7 +1,7 @@
 {
-  "name": "Miljul API documentation",
+  "name": "Ramudroid API",
   "version": "0.3.0",
-  "description": "This documentat contains all REST API enedpoints",
+  "description": "",
   "title": "Custom apiDoc browser title",
   "url" : "",
   "sampleUrl": true,
