@@ -54,3 +54,8 @@ p {
     position: absolute;
     z-index: 2;
 }
+
+.topButtons{
+        margin-left: 5px;
+    margin-right: 5px;
+}
