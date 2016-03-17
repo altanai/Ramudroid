@@ -10,7 +10,6 @@
             arrData.push(rawData[i]);
         }
         console.log(arrData);
-
     });
 
 
@@ -30,17 +29,27 @@
 
 
 
-function drawChart(chartType, containerID, arrData, options) {
-
+function drawChart(chartType, containerID, arrayVals, options) {
+    console.log(arrayVals.length);
+    console.log(arrayVals[4].length );
+            
     var containerDiv = document.getElementById(containerID);
     var chart = false;
 
     if (chartType.toUpperCase() == 'BARCHART') {
-        var dataArray= arrData;
-        for(x=1 ;x< dataArray.length ; x++){
-          dataArray[x][4]=dataArray[x][4]/1000;
+
+        /*
+        var dataArray = arrayVals.map(function(item){
+            return item.splice(10,1);
+        });*/
+
+
+        for(x=1 ;x< arrayVals[x].length ; x++){
+            console.log("before ",arrayVals[x][4]);
+            arrayVals[x][4]=arrayVals[x][4]/1000;
+            console.log("after",arrayVals[x][4]);
         }
-        var data = google.visualization.arrayToDataTable(dataArray);
+        var data = google.visualization.arrayToDataTable(arrayVals);
 
         var options = {
             chart: {
@@ -62,7 +71,7 @@ function drawChart(chartType, containerID, arrData, options) {
     }
     else if (chartType.toUpperCase() == 'LINECHART') {
 
-         var data = new google.visualization.arrayToDataTable(arrData);
+         var data = new google.visualization.arrayToDataTable(arrayVals);
          //console.log(data);
 
          var view = new google.visualization.DataView(data);
@@ -99,7 +108,7 @@ function drawChart(chartType, containerID, arrData, options) {
 
         var dataArray=[];
 
-        dataArray = arrData.map(function(item){
+        dataArray = arrayVals.map(function(item){
             // the 0,2 tells the splice function to remove (skip) the last item in this array
             return item.splice(0,2);
         });
@@ -109,7 +118,6 @@ function drawChart(chartType, containerID, arrData, options) {
           dataArray[x][1]=dataArray[x][0];
           dataArray[x][2]=dataArray[x][1];
           dataArray[x][0]="Bangalore";
-
         }
 
         var data = google.visualization.arrayToDataTable(dataArray);

@@ -20,6 +20,9 @@
         <script src="https://www.google.com/jsapi"></script>
         <script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.js"></script>
 
+
+        <link rel=stylesheet href="css/ar.css">
+    
     </head>
     <body>
 
@@ -31,10 +34,11 @@
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Remote Navigation</a></li>
-          <li><button class="btn btn-primary topButtons" onclick="callup()">Call up</button></li>
-          <li><button class="btn btn-primary topButtons" onclick="motioncontrol()">Motion Control</button></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Resources</a></li> 
+          <li><button class="btn btn-primary topButtons" onclick="callup()">Call up</button></li>
+          <li><button class="btn btn-primary topButtons" onclick="motioncontrol()">Motion Control</button></li>
+
           <li><a href="#">.</a></li> 
         </ul>
       </div>
@@ -44,27 +48,34 @@
     <div id="container">
 
         <div class="row">
-            <div class="col-sm-2">
-                <canvas id="edgeCanvas">Your browser doesn't support canvas.</canvas>
+            <div class="col-sm-4" style="width:420px">
+                <div id="map" style="height: 420px; width: 400px; margin-top: 54px;"></div>
             </div>
             <div  class="col-sm-6">
-                    <div class="overlayWrapper">
+                <div class="overlayWrapper">
+
+                    <div id="frame">
                         <video id="remote-video" autoplay="" width="640" height="480">
                             Your browser does not support the video tag.
                         </video>
-                        <p class="overlay">remote</p>
+                        <canvas id="overlay" width="640" height="480"></canvas>
                     </div>
-                    <div class="overlayWrapper" hidden>
-                        <video id="local-video" autoplay="" width="320" height="240">
-                            Your browser does not support the video tag.
-                        </video>
-                        <p class="overlay">local</p>
-                    </div>
+                    <p class="overlay">remote</p>
+                    <div id="orientation"></div>
+                    <p id="error"></p>
+                </div>
+                <div class="overlayWrapper" hidden>
+                    <video id="local-video" autoplay="" width="320" height="240">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="overlay">local</p>
+                </div>
+            </div>
+            <div class="col-sm-2" style=" left: -110px;">
+                <div class="col-sm-4" id="barchartDiv" style="width: 400px; height: 300px;"></div>
+                <canvas id="edgeCanvas">Your browser doesn't support canvas.</canvas>
             </div>
 
-            <div class="col-sm-4">
-                <div id="map" style="height: 420px; width: 400px; margin-top: 54px;"></div>
-            </div>
         </div>
 
         <div class="row controlBar">
@@ -106,9 +117,10 @@
         
 
     <div class="row" style="margin-top: 10px;">
-      <div class="col-sm-4" id="barchartDiv" style="width: 500px; height: 300px;"></div>
+      <div class="col-sm-4" id="linechartDiv" style="width: 400px; height: 300px;"></div>
       <div class="col-sm-4" id="linechartDiv" style="width: 400px; height: 300px;"></div>
       <div class="col-sm-4" id="geochartDiv" style="width: 400px; height: 300px;"></div>
+      <div class="col-sm-4" id="linechartDiv" style="width: 400px; height: 300px;"></div>
     </div>
 
     <a hidden target="_top" href="/">home</a>&nbsp;<a href="/panel" target="_blank" title="change the image settings on-the-fly">control panel</a>
@@ -223,5 +235,11 @@ function motioncontrol(){
 <script type="text/javascript" src="scripts/mapscript.js"></script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5XwNf1ScsIZVK5ixBCeUkUEhHUxSOiI8&callback=initMap"></script>
+
+
+<script src="scripts/requestanimationframedirection2.js"></script>
+<script src="scripts/geo-calc.js"></script>
+<script src="scripts/directionscript.js"></script>
+
 
 </html>
