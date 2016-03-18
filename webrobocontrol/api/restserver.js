@@ -23,7 +23,7 @@ var pin8 = "0";
   * @apiDescription 
   * move left
   *
-  * @apiSampleRequest https://localhost:8066/move/left
+  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/move/left
   *
  */
 function getMoveLeft(req, res, next) { 
@@ -37,9 +37,9 @@ function getMoveLeft(req, res, next) {
     pin6="0";
     pin7="0";
     pin8="0";
-res.redirect("https://localhost/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
+    res.redirect("http://192.168.0.168/m2m/rpiramudroid/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
 
-//   res.send(send(pin1,pin2,pin3,pin4,pin4,pin5,pin6,pin7,pin8));
+    //   res.send(send(pin1,pin2,pin3,pin4,pin4,pin5,pin6,pin7,pin8));
     return;
 }
 
@@ -51,7 +51,7 @@ res.redirect("https://localhost/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + 
   * @apiDescription 
   * move right
   *
-  * @apiSampleRequest https://localhost:8066/move/right
+  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/move/right
   *
  */
 function getMoveRight(req, res, callback) { 
@@ -66,7 +66,7 @@ function getMoveRight(req, res, callback) {
         pin7="0";
         pin8="0";
 
-res.redirect("https://localhost/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
+res.redirect("http://192.168.0.168/m2m/rpiramudroid/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
 
     return;
 }
@@ -78,7 +78,7 @@ res.redirect("https://localhost/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + 
   * @apiDescription 
   * move front
   *
-  * @apiSampleRequest https://localhost:8066/move/front
+  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/move/front
   *
  */
 function getMoveFront(req, res, callback) { 
@@ -91,7 +91,7 @@ function getMoveFront(req, res, callback) {
     pin6="0";
     pin7="0";
     pin8="0";
-    res.redirect("https://localhost/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
+    res.redirect("http://192.168.0.168/m2m/rpiramudroid/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
     return;
 }
 
@@ -102,7 +102,7 @@ function getMoveFront(req, res, callback) {
   * @apiDescription 
   * move back
   *
-  * @apiSampleRequest https://localhost:8066/move/back
+  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/move/back
   *
  */
 function getMoveBack(req, res, callback) { 
@@ -116,8 +116,7 @@ function getMoveBack(req, res, callback) {
     pin6="0";
     pin7="0";
     pin8="0";
-    res.redirect("https://localhost/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
-
+    res.redirect("http://192.168.0.168/m2m/rpiramudroid/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
     /*  
     res.json({ 
         type: true, 
@@ -134,7 +133,7 @@ function getMoveBack(req, res, callback) {
   * @apiDescription 
   * Stop
   *
-  * @apiSampleRequest https://localhost:8066/move/stop
+  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/move/stop
   *
  */
 function getMoveStop(req, res, callback) { 
@@ -148,7 +147,7 @@ function getMoveStop(req, res, callback) {
     pin7="0";
     pin8="0";
 
-    res.redirect("https://localhost/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
+    res.redirect("http://192.168.0.168/m2m/rpiramudroid/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
 
     return;
 } 
@@ -161,12 +160,12 @@ function getMoveStop(req, res, callback) {
   * @apiDescription 
   * Brushes
   *
-  * @apiSampleRequest https://localhost:8066/clean/brushes
+  * @apiSampleRequest https://192.168.0.168/m2m/rpiramudroid/clean/brushes
   *
  */
 function getCleanBrushes(req, res, callback) { 
     pin5="1";
-    res.redirect("https://localhost/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
+    res.redirect("http://192.168.0.168/m2m/rpiramudroid/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
     return;
 } 
 
@@ -177,7 +176,7 @@ function getCleanBrushes(req, res, callback) {
   * @apiDescription 
   * Tray
   *
-  * @apiSampleRequest https://localhost:8066/clean/tray
+  * @apiSampleRequest http://localhost:8066/clean/tray
   *
  */
 function getCleanTray(req, res, callback) { 
@@ -185,7 +184,7 @@ function getCleanTray(req, res, callback) {
     pin6="1";
     pin7="0";
 
-    res.redirect("https://localhost/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
+    res.redirect("http://192.168.0.168/m2m/rpiramudroid/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
 
     return;
 } 
@@ -203,7 +202,7 @@ function getCleanTray(req, res, callback) {
   * @apiDescription 
   * ultrasonic
   *
-  * @apiSampleRequest https://localhost:8066/data/ultrasonic
+  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/data/ultrasonic
   *
  */
 function getDataUltrasonic(req, res, callback) { 
@@ -221,7 +220,7 @@ function getDataUltrasonic(req, res, callback) {
   * @apiDescription 
   * gps
   *
-  * @apiSampleRequest https://localhost:8066/data/gps
+  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/data/gps
   *
  */
 function getDataGPS(req, res, callback) { 
