@@ -54,12 +54,13 @@ function drawChart(chartType, containerID, arrayVals, options) {
         view.setColumns([0,1]);
 
         var options = {
-            title: "Latitude Longitude Distance",
+            title: "Humidity",
             hAxis: {title: data.getColumnLabel(0), minValue: data.getColumnRange(0).min, maxValue: data.getColumnRange(0).max},
             vAxis: {title: data.getColumnLabel(1), minValue: data.getColumnRange(1).min, maxValue: data.getColumnRange(1).max},
             legend: 'none',
             backgroundColor: 'black',
             chartArea: {
+                        color:"white",
                         backgroundColor: 'black'
                     },
             crosshair: {
@@ -76,17 +77,20 @@ function drawChart(chartType, containerID, arrayVals, options) {
     }
 
     else if (chartType.toUpperCase() == 'BUBBLECHART') {
+
+        for( var x=1 ;x<arrayVals.length;x++ ){
+            arrayVals[x][2]=String(arrayVals[x][2]);
+        }
+
         var data = new google.visualization.arrayToDataTable(arrayVals);
         var view = new google.visualization.DataView(data);
-        view.setColumns([8,9,10]);
+        view.setColumns([2,3,4]);
         
-        view[0]=["Sat","Prec","Chars"];
-        for( var x=1 ;x<=view.length;x++ ){
-            view[x][0]=String(view[x][0]);
-        }
-        console.log(view);
+        //view[0]=["Sat","Prec","Chars"];
+        //console.log(view);
         var options = {
-          colorAxis: {colors: ['yellow', 'red']}
+            title: "Temperature",
+            colorAxis: {colors: ['yellow', 'red']}
         };
 
         var chart = new google.visualization.BubbleChart(containerDiv);
@@ -99,11 +103,11 @@ function drawChart(chartType, containerID, arrayVals, options) {
 
         var data = new google.visualization.arrayToDataTable(arrayVals);
         var view = new google.visualization.DataView(data);
-        view.setColumns([0,1]);
+        view.setColumns([4 ,5]);
 
         var options = {
-          title: 'Company Performance',
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          title: 'Heat',
+          hAxis: {title: 'Heat',  titleTextStyle: {color: '#333'}},
           vAxis: {minValue: 0}
         };
 
