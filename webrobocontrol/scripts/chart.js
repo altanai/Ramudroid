@@ -89,6 +89,11 @@ function drawChart(chartType, containerID, arrayVals, options) {
         //view[0]=["Sat","Prec","Chars"];
         //console.log(view);
         var options = {
+            backgroundColor: 'black',
+            chartArea: {
+                        color:"white",
+                        backgroundColor: 'black'
+            },
             title: "Temperature",
             colorAxis: {colors: ['yellow', 'red']}
         };
@@ -106,9 +111,14 @@ function drawChart(chartType, containerID, arrayVals, options) {
         view.setColumns([4 ,5]);
 
         var options = {
-          title: 'Heat',
-          hAxis: {title: 'Heat',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
+            backgroundColor: 'black',
+            chartArea: {
+                        color:"white",
+                        backgroundColor: 'black'
+            },
+            title: 'Heat',
+            hAxis: {title: 'Heat',  titleTextStyle: {color: '#333'}},
+            vAxis: {minValue: 0}
         };
 
         var chart = new google.visualization.AreaChart(containerDiv);

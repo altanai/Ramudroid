@@ -1,6 +1,7 @@
 <?php
 system("gpio mode 2 out");
 system("gpio mode 3 out");
+system("gpio mode 23 out");	
 system("gpio mode 24 out");			
 system("gpio mode 25 out");	
 system("gpio mode 26 out");	
@@ -35,4 +36,6 @@ else {
 	echo ("fail"); 
 }
 
+/*dont use pin 21 and 22 gpio as they show reversed results - pull up
+*/
 ?>
