@@ -22,6 +22,6 @@ function projectedPOI(here,obj) {
     var objNorth = {latitude:obj.latitude,longitude:here.longitude};
     var dNorth = (here.latitude > obj.latitude ? - 1 : 1) * distance(here, objNorth);
     var angle = (360 + (here.longitude > obj.longitude ? -1 : 1) * Math.acos(dNorth/d) * 180 / Math.PI) % 360;
-    console.log(angle);
+   // console.log(angle);
    return {distance:d, angle:angle, label:obj.label};
 }

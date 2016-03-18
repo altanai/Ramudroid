@@ -8,7 +8,8 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        
+
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -20,7 +21,8 @@
         <script src="https://www.google.com/jsapi"></script>
         <script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.js"></script>
 
-
+        <script type="text/javascript" src="scripts/loaddatacsv.js"></script>
+        
         <link rel=stylesheet href="css/ar.css">
     
     </head>
@@ -112,15 +114,15 @@
         <button id="pause" class="btn btn-default"  onclick="pause();" title="pause or resume local player">Pause/Resume</button>
         <button id="mute" class="btn btn-default"  onclick="mute();" title="mute or unmute remote audio source">Mute/Unmute</button>
         <button id="fullscreen" class="btn btn-default"  onclick="fullscreen();">Fullscreen</button>
-        <button type="button" class="btn btn-default" id="webrtcSettings">Settings</button>
+        <button type="button" class="btn btn-default" id="webrtcSettings">WebRTC Settings</button>
+        <button type="button" class="btn btn-default" id="cpuSettings">Robot's CPU</button>
     </div>
         
 
     <div class="row" style="margin-top: 10px;">
       <div class="col-sm-4" id="linechartDiv" style="width: 400px; height: 300px;"></div>
-      <div class="col-sm-4" id="linechartDiv" style="width: 400px; height: 300px;"></div>
-      <div class="col-sm-4" id="geochartDiv" style="width: 400px; height: 300px;"></div>
-      <div class="col-sm-4" id="linechartDiv" style="width: 400px; height: 300px;"></div>
+      <div class="col-sm-4" id="bubblechartDiv" style="width: 400px; height: 300px;"></div>
+      <div class="col-sm-4" id="areachartDiv" style="width: 400px; height: 300px;"></div>
     </div>
 
     <a hidden target="_top" href="/">home</a>&nbsp;<a href="/panel" target="_blank" title="change the image settings on-the-fly">control panel</a>
@@ -205,6 +207,26 @@
         </div>
     </div> 
 
+    <!-- cpu modal -->
+    <div class="modal fade" id="cpuModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">RamuDroid Rpi CPU Info</h4>
+          </div>
+          <div class="modal-body">
+            <div id="cpuinfoDiv" style="white-space: pre;"> CPU info</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
 </div>
 
 
@@ -216,7 +238,21 @@ $(document).ready(function(){
     $("#webrtcSettings").click(function(){
         $("#webrtcModal").modal();
     });
+    $("#cpuSettings").click(function(){
 
+        $.ajax({
+            async:false,
+            url: 'cpuinfo',
+            dataType: 'text',
+            success: function(data) 
+            {
+                console.log(data);
+                document.getElementById("cpuinfoDiv").innerHTML=data;
+            }
+        });
+
+        $("#cpuModal").modal();
+    });
 });
 </script>
 
@@ -231,15 +267,59 @@ function motioncontrol(){
 }
 </script>
 
-<script type="text/javascript" src="scripts/chart.js"></script>
-<script type="text/javascript" src="scripts/mapscript.js"></script>
+<script>
+    jQuery(window).load(function () {
+       
+        setTimeout(function () {
+            //alert('page is loaded and 1 minute has passed');  
+            console.log(" page loaded " ,arrData[0]);
+            console.log(arrData[1]);
+            console.log(arrData[2]); 
+               // relaodJs("mapscript.js");
+        }, 60000); 
+    });
+
+    function reload_js(src) {
+        $('script[src="' + src + '"]').remove();
+        $('<script>').attr('src', src).appendTo('head');
+    }
+
+/*function loadJSFiles(){
+    var old_src = $(this).attr('src');
+    $(this).attr('src', '');
+    setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
+}*/
+
+
+/*function loadJSFiles(){
+    var jsArray=["chartScript","mapcript", "directionscript"];
+    for(x in jsArray){
+            var old_src = $("#"+jsArray[x]).attr('src');
+            $(this).attr('src', '');
+            setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
+    }
+}*/
+
+/*function load_js()
+{
+  var head= document.getElementsByTagName('head')[0];
+  var script= document.createElement('script');
+  script.type= 'text/javascript';
+  script.src= 'source_file.js';
+  head.appendChild(script);
+}*/
+
+</script>
+<script id="chartScript" type="text/javascript" src="scripts/chart.js"></script>
+<script id="mapscript" type="text/javascript" src="scripts/mapscript.js"></script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5XwNf1ScsIZVK5ixBCeUkUEhHUxSOiI8&callback=initMap"></script>
 
-
 <script src="scripts/requestanimationframedirection2.js"></script>
 <script src="scripts/geo-calc.js"></script>
-<script src="scripts/directionscript.js"></script>
+<script id="directionscript" src="scripts/directionscript.js"></script>
 
+
+<script src="scripts/cpudata.js"></script>
 
 </html>

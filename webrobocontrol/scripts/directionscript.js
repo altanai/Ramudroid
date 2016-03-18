@@ -78,9 +78,6 @@
  }
 */
 
-
-
-
  var ctx = document.getElementById("overlay").getContext("2d");
  ctx.textAlign = "center";
  ctx.textBaseline = "middle";
@@ -122,21 +119,26 @@ function drawPOIInfo() {
 
 
 
-
-
-
-
-
-  //navigator.geolocation.getCurrentPosition(gotPosition);
+//navigator.geolocation.getCurrentPosition(gotPosition);
  
 var dataArray=[];
-
-dataArray = arrData.map(function(item){
+dataArray=arrData;
+/*dataArray = arrData.map(function(item){
     return item.splice(6,2);
 });
-console.log(dataArray.length);
+console.log(dataArray.length);*/
 
 for(var x=1 ; x< dataArray.length ; x++ ){
-    gotPosition(dataArray[x][0],dataArray[x][1]);
-    console.log("here got poition " ,dataArray[x]);
+    if(precision(dataArray[x][6]) > 4 || precision(dataArray[x][7])>4){
+        gotPosition(dataArray[x][6],dataArray[x][7]);
+        //console.log("here got poition " ,dataArray[x]);
+    }
+}
+
+
+function precision(a) {
+  if (!isFinite(a)) return 0;
+  var e = 1, p = 0;
+  while (Math.round(a * e) / e !== a) { e *= 10; p++; }
+  return p;
 }

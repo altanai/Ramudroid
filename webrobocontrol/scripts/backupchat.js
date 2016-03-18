@@ -10,11 +10,7 @@
     });
 
     google.setOnLoadCallback(function() {
-       drawChart('bubbleChart', 'bubblechartDiv', arrData, null);
-    });
-
-    google.setOnLoadCallback(function() {
-       drawChart('areaChart', 'areachartDiv', arrData, null);
+       drawChart('geoChart', 'geochartDiv', arrData, null);
     });
 
 
@@ -26,6 +22,17 @@ function drawChart(chartType, containerID, arrayVals, options) {
 
     if (chartType.toUpperCase() == 'BARCHART') {
 
+        /*
+        var dataArray = arrayVals.map(function(item){
+            return item.splice(10,1);
+        });*/
+
+
+        for(x=1 ;x< arrayVals[x].length ; x++){
+            //console.log("before ",arrayVals[x][4]);
+            arrayVals[x][4]=arrayVals[x][4]/1000;
+            //console.log("after",arrayVals[x][4]);
+        }
         var data = google.visualization.arrayToDataTable(arrayVals);
 
         var options = {
@@ -46,14 +53,16 @@ function drawChart(chartType, containerID, arrayVals, options) {
         //chart.draw(data, options);
         chart.draw(data, google.charts.Bar.convertOptions(options));
     }
-
+    
     else if (chartType.toUpperCase() == 'LINECHART') {
 
-        var data = new google.visualization.arrayToDataTable(arrayVals);
-        var view = new google.visualization.DataView(data);
-        view.setColumns([0,1]);
+         var data = new google.visualization.arrayToDataTable(arrayVals);
+         //console.log(data);
 
-        var options = {
+         var view = new google.visualization.DataView(data);
+         view.setColumns([0,1]);
+
+         var options = {
             title: "Latitude Longitude Distance",
             hAxis: {title: data.getColumnLabel(0), minValue: data.getColumnRange(0).min, maxValue: data.getColumnRange(0).max},
             vAxis: {title: data.getColumnLabel(1), minValue: data.getColumnRange(1).min, maxValue: data.getColumnRange(1).max},
@@ -75,46 +84,50 @@ function drawChart(chartType, containerID, arrayVals, options) {
         chart.draw(view, options);
     }
 
-    else if (chartType.toUpperCase() == 'BUBBLECHART') {
-        var data = new google.visualization.arrayToDataTable(arrayVals);
-        var view = new google.visualization.DataView(data);
-        view.setColumns([8,9,10]);
-        
-        view[0]=["Sat","Prec","Chars"];
-        for( var x=1 ;x<=view.length;x++ ){
-            view[x][0]=String(view[x][0]);
-        }
-        console.log(view);
-        var options = {
-          colorAxis: {colors: ['yellow', 'red']}
-        };
-
-        var chart = new google.visualization.BubbleChart(containerDiv);
-        chart.draw(view, options);
-    }
     else if (chartType.toUpperCase() == 'PIECHART') {
-       chart = new google.visualization.PieChart(containerDiv);
+        chart = new google.visualization.PieChart(containerDiv);
     }
-    else if (chartType.toUpperCase() == 'AREACHART') {
+    
+    else if (chartType.toUpperCase() == 'GEOCHART'){
 
-        var data = new google.visualization.arrayToDataTable(arrayVals);
-        var view = new google.visualization.DataView(data);
-        view.setColumns([0,1]);
+        var dataArray=[];
 
+        dataArray = arrayVals.map(function(item){
+            // the 0,2 tells the splice function to remove (skip) the last item in this array
+            return item.splice(0,2);
+        });
+        
+        dataArray[0]=['City',   'Latitude' , 'Longitude'];
+        for ( x in dataArray ){
+          dataArray[x][1]=dataArray[x][0];
+          dataArray[x][2]=dataArray[x][1];
+          dataArray[x][0]="Bangalore";
+        }
+
+        var data = google.visualization.arrayToDataTable(dataArray);
         var options = {
-          title: 'Company Performance',
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
+            region: 'IT',
+            displayMode: 'markers',
+            colorAxis: {colors: ['green', 'blue']},
+            crosshair: {
+                  orientation: 'vertical'
+            },
+            animation: {
+                  startup: true,
+                  duration: 5000
+            },
         };
 
-        var chart = new google.visualization.AreaChart(containerDiv);
-        chart.draw(view, options);
+        chart = new google.visualization.GeoChart(containerDiv);
+        chart.draw(data, options);
+
+        //chart = new google.visualization.Table(containerDiv);
     }
 
     if (chart == false) {
         return false;
     }
 
-
+   chart.draw(data, options);
 }
 
