@@ -12,7 +12,7 @@ if (isset ( $_GET["p0"] ) && isset ( $_GET["p1"] ) && isset ( $_GET["p2"] ) && i
 			
 	system("gpio write 2 ".$_GET["p0"] );		
 	
-	system("gpio write 3".$_GET["p1"] );
+	system("gpio write 3 ".$_GET["p1"] );
 
 	system("gpio write 23 ".$_GET["p2"] );
 			
