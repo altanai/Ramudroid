@@ -44,10 +44,10 @@ function operation(move_var){
         
     if(move_var=="top"){
         console.log(" top");
-        pin1="1";
-        pin2="0";
-        pin3="1";
-        pin4="0";
+            pin1="0";
+            pin2="1";
+            pin3="0";
+            pin4="1";
         pin5="0";
         pin6="0";
         pin7="0";
@@ -56,10 +56,10 @@ function operation(move_var){
      
     else if(move_var=="right"){
         console.log(" right");
-        pin1="1";
-        pin2="0";
-        pin3="0";
-        pin4="0";
+            pin1="1";
+            pin2="0";
+            pin3="0";
+            pin4="1";
         pin5="0";
         pin6="0";
         pin7="0";
@@ -68,10 +68,10 @@ function operation(move_var){
     
     else if(move_var=="left"){
         console.log(" left");
-        pin1="0";
-        pin2="0";
-        pin3="1";
-        pin4="0";
+            pin1="0";
+            pin2="1";
+            pin3="1";
+            pin4="0";
         pin5="0";
         pin6="0";
         pin7="0";
@@ -80,10 +80,10 @@ function operation(move_var){
     
     else if(move_var=="back"){
         console.log(" back");
-        pin1="0";
-        pin2="1";
-        pin3="0";
-        pin4="1";
+            pin1="1";
+            pin2="0";
+            pin3="1";
+            pin4="0";
         pin5="0";
         pin6="0";
         pin7="0";
@@ -107,16 +107,16 @@ function operation(move_var){
         
         //get status of top
         if(document.getElementById('btn1').getAttribute('content')=="on"){
-            pin1="1";
-            pin2="0";
-            pin3="1";
-            pin4="0";
+            pin1="0";
+            pin2="1";
+            pin3="0";
+            pin4="1";
         }
         
         //get status of left
         else if(document.getElementById('btn2').getAttribute('content')=="on"){
             pin1="0";
-            pin2="0";
+            pin2="1";
             pin3="1";
             pin4="0";
         }
@@ -135,16 +135,16 @@ function operation(move_var){
             pin1="1";
             pin2="0";
             pin3="0";
-            pin4="0";
+            pin4="1";
         }
         
         
         //get sttaus of back
         else if(document.getElementById('btn4').getAttribute('content')=="on"){
-            pin1="0";
-            pin2="1";
-            pin3="0";
-            pin4="1";
+            pin1="1";
+            pin2="0";
+            pin3="1";
+            pin4="0";
         }
         
         //default case of stop
