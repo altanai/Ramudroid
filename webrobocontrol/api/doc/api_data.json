@@ -64,7 +64,7 @@
     "description": "<p>Brushes</p>",
     "sampleRequest": [
       {
-        "url": "http://192.168.0.168/m2m/rpiramudroid/clean/brushes"
+        "url": "http://127.0.0.1:8066/clean/brushes"
       }
     ],
     "version": "0.0.0",
@@ -80,7 +80,7 @@
     "description": "<p>Tray</p>",
     "sampleRequest": [
       {
-        "url": "http://localhost:8066/clean/tray"
+        "url": "http://127.0.0.1:8066/clean/tray"
       }
     ],
     "version": "0.0.0",
@@ -96,7 +96,7 @@
     "description": "<p>gps</p>",
     "sampleRequest": [
       {
-        "url": "http://192.168.0.168/m2m/rpiramudroid:8066/data/gps"
+        "url": "http://127.0.0.1:8066/data/gps"
       }
     ],
     "version": "0.0.0",
@@ -112,7 +112,7 @@
     "description": "<p>ultrasonic</p>",
     "sampleRequest": [
       {
-        "url": "http://192.168.0.168/m2m/rpiramudroid:8066/data/ultrasonic"
+        "url": "http://127.0.0.1:8066/data/ultrasonic"
       }
     ],
     "version": "0.0.0",
@@ -128,7 +128,7 @@
     "description": "<p>move back</p>",
     "sampleRequest": [
       {
-        "url": "http://192.168.0.168/m2m/rpiramudroid:8066/move/back"
+        "url": "http://127.0.0.1:8066/move/back"
       }
     ],
     "version": "0.0.0",
@@ -144,7 +144,7 @@
     "description": "<p>move left</p>",
     "sampleRequest": [
       {
-        "url": "http://192.168.0.168/m2m/rpiramudroid:8066/move/left"
+        "url": "http://127.0.0.1:8066/move/left"
       }
     ],
     "version": "0.0.0",
@@ -160,7 +160,7 @@
     "description": "<p>move right</p>",
     "sampleRequest": [
       {
-        "url": "http://192.168.0.168/m2m/rpiramudroid:8066/move/right"
+        "url": "http://127.0.0.1:8066/move/right"
       }
     ],
     "version": "0.0.0",
@@ -176,7 +176,7 @@
     "description": "<p>Stop</p>",
     "sampleRequest": [
       {
-        "url": "http://192.168.0.168/m2m/rpiramudroid:8066/move/stop"
+        "url": "http://127.0.0.1:8066/move/stop"
       }
     ],
     "version": "0.0.0",
@@ -192,7 +192,7 @@
     "description": "<p>move front</p>",
     "sampleRequest": [
       {
-        "url": "http://192.168.0.168/m2m/rpiramudroid:8066/move/front"
+        "url": "http://127.0.0.1:8066/move/front"
       }
     ],
     "version": "0.0.0",

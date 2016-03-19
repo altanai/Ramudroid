@@ -3,8 +3,6 @@ var restify = require('restify');
 var http    = require("http");
 var fs = require('fs');
 
-/*require( "./api/ramudroidapi.js" );*/
-
 
 var pin1 = "0";
 var pin2 = "0";
@@ -23,7 +21,7 @@ var pin8 = "0";
   * @apiDescription 
   * move left
   *
-  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/move/left
+  * @apiSampleRequest http://127.0.0.1:8066/move/left
   *
  */
 function getMoveLeft(req, res, next) { 
@@ -39,7 +37,9 @@ function getMoveLeft(req, res, next) {
     pin8="0";
     res.redirect("http://192.168.0.168/m2m/rpiramudroid/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
 
-    //   res.send(send(pin1,pin2,pin3,pin4,pin4,pin5,pin6,pin7,pin8));
+    res.send({
+      msg: "moved left ",
+      sendCoammnd :"http://192.168.0.168/m2m/rpiramudroid/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8});
     return;
 }
 
@@ -51,22 +51,20 @@ function getMoveLeft(req, res, next) {
   * @apiDescription 
   * move right
   *
-  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/move/right
+  * @apiSampleRequest http://127.0.0.1:8066/move/right
   *
  */
 function getMoveRight(req, res, callback) { 
-  //res.redirect('https://www.foo.com/1', next);
-
-        pin1="1";
-        pin2="0";
-        pin3="0";
-        pin4="0";
-        pin5="0";
-        pin6="0";
-        pin7="0";
-        pin8="0";
-
-res.redirect("http://192.168.0.168/m2m/rpiramudroid/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
+      pin1="1";
+      pin2="0";
+      pin3="0";
+      pin4="0";
+      pin5="0";
+      pin6="0";
+      pin7="0";
+      pin8="0";
+//   res.send(send(pin1,pin2,pin3,pin4,pin4,pin5,pin6,pin7,pin8));
+      res.redirect("http://192.168.0.168/m2m/rpiramudroid/testgpio.php?p0="+pin1+"&p1=" + pin2 + "&p2=" + pin3 + "&p3=" + pin4+ "&p4=" + pin5+ "&p5=" + pin6+ "&p6=" + pin7+ "&p7=" + pin8, callback);
 
     return;
 }
@@ -78,7 +76,7 @@ res.redirect("http://192.168.0.168/m2m/rpiramudroid/testgpio.php?p0="+pin1+"&p1=
   * @apiDescription 
   * move front
   *
-  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/move/front
+  * @apiSampleRequest http://127.0.0.1:8066/move/front
   *
  */
 function getMoveFront(req, res, callback) { 
@@ -102,7 +100,7 @@ function getMoveFront(req, res, callback) {
   * @apiDescription 
   * move back
   *
-  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/move/back
+  * @apiSampleRequest http://127.0.0.1:8066/move/back
   *
  */
 function getMoveBack(req, res, callback) { 
@@ -133,7 +131,7 @@ function getMoveBack(req, res, callback) {
   * @apiDescription 
   * Stop
   *
-  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/move/stop
+  * @apiSampleRequest http://127.0.0.1:8066/move/stop
   *
  */
 function getMoveStop(req, res, callback) { 
@@ -160,7 +158,7 @@ function getMoveStop(req, res, callback) {
   * @apiDescription 
   * Brushes
   *
-  * @apiSampleRequest https://192.168.0.168/m2m/rpiramudroid/clean/brushes
+  * @apiSampleRequest http://127.0.0.1:8066/clean/brushes
   *
  */
 function getCleanBrushes(req, res, callback) { 
@@ -176,7 +174,7 @@ function getCleanBrushes(req, res, callback) {
   * @apiDescription 
   * Tray
   *
-  * @apiSampleRequest http://localhost:8066/clean/tray
+  * @apiSampleRequest http://127.0.0.1:8066/clean/tray
   *
  */
 function getCleanTray(req, res, callback) { 
@@ -202,7 +200,7 @@ function getCleanTray(req, res, callback) {
   * @apiDescription 
   * ultrasonic
   *
-  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/data/ultrasonic
+  * @apiSampleRequest http://127.0.0.1:8066/data/ultrasonic
   *
  */
 function getDataUltrasonic(req, res, callback) { 
@@ -220,7 +218,7 @@ function getDataUltrasonic(req, res, callback) {
   * @apiDescription 
   * gps
   *
-  * @apiSampleRequest http://192.168.0.168/m2m/rpiramudroid:8066/data/gps
+  * @apiSampleRequest http://127.0.0.1:8066/data/gps
   *
  */
 function getDataGPS(req, res, callback) { 
@@ -232,12 +230,15 @@ function getDataGPS(req, res, callback) {
 
 //-----------------------------------REST server --------------------------------
 
-var options = {
+/*var options = {
   key: fs.readFileSync('sslcert/server.key'),
   cert: fs.readFileSync('sslcert/server.crt'),
   ca: fs.readFileSync('sslcert/ca.crt'),
 };
-var server = restify.createServer(options);
+var server = restify.createServer(options);*/
+
+var server = restify.createServer();
+
 server.pre(restify.pre.sanitizePath());
 
 server.use(

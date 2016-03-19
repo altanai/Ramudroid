@@ -3,7 +3,7 @@ system("gpio mode 2 out");
 system("gpio mode 3 out");
 system("gpio mode 23 out");	
 system("gpio mode 24 out");			
-system("gpio mode 25 out");	
+system("gpio mode 22 out");	
 system("gpio mode 26 out");	
 system("gpio mode 27 out");	
 
@@ -18,7 +18,7 @@ if (isset ( $_GET["p0"] ) && isset ( $_GET["p1"] ) && isset ( $_GET["p2"] ) && i
 			
 	system("gpio write 24 ".$_GET["p3"] );
 	
-	system("gpio write 25 ".$_GET["p4"] );
+	system("gpio write 22 ".$_GET["p4"] );
 
 	system("gpio write 26 ".$_GET["p5"] );
 	
@@ -29,11 +29,11 @@ if (isset ( $_GET["p0"] ) && isset ( $_GET["p1"] ) && isset ( $_GET["p2"] ) && i
 	system("gpio write 7 ".$_GET["p7"] );
 	*/
 	
-	echo("ok");
+	echo("{sttaus:'ok'}");
 } 
 
 else {
-	echo ("fail"); 
+	echo ("{sttaus:'fail'}"); 
 }
 
 /*dont use pin 21 and 22 gpio as they show reversed results - pull up

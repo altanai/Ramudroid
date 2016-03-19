@@ -268,15 +268,22 @@ function motioncontrol(){
 </script>
 
 <script>
+
+    jQuery(window ).unload(function() {
+        refreshAllPins()
+        /*return "Handler for .unload() called.";*/
+    });
+
     jQuery(window).load(function () {
-       
+        refreshAllPins();
+        /*
         setTimeout(function () {
             //alert('page is loaded and 1 minute has passed');  
             console.log(" page loaded " ,arrData[0]);
             console.log(arrData[1]);
             console.log(arrData[2]); 
                // relaodJs("mapscript.js");
-        }, 60000); 
+        }, 60000); */
     });
 
     function reload_js(src) {
