@@ -18,3 +18,12 @@ Communication between the web client , mobile client , cloud server , robots and
 ![alt web console ] (http://s32.postimg.org/xroj6320l/Ramudroidwebconsole.jpg)
 
 ##Wiring Pi
+GPIO access library written in C for the BCM2835 used in the Raspberry Pi
+
+> git clone git://git.drogon.net/wiringPi
+> cd wiringPi
+> git pull origin
+> cd wiringPi
+> ./build
+> gpio -v
+> gpio readall
