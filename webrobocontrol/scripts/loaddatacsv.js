@@ -2,6 +2,7 @@
     var arrData= [["Distance","Humidity","TempC","TempF","HeatIndexC","HeatIndexF","Latitude","Longitude","Sat","Prec","Chars","Sentences","CasumErr"]];
 
     $.get("capturefile", function(csvString) {
+    //$.get("http://192.168.0.168/m2m/webrobocontrol/capturefile", function(csvString) {
         //console.log(" draw chat form csv->" , csvString);
         
         rawData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
