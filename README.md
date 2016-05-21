@@ -8,7 +8,6 @@ Following are the resuable compoenets of this project :
 # m2mcommunication
 Communication between the web client , mobile client , cloud server , robots and other control points is primarily on REST over Internet or Wifi. For the mobile clients in vicinity if the robot they may even connevt via BLE ( blue tooth low enery ).
 
-
 ## Live streaming and image analysis
 
 ##Rpi core control unit
