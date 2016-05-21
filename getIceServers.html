@@ -1,0 +1,52 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script>
+/*function createCORSRequest(method, url) {
+    var xhr = new XMLHttpRequest();
+    if ("withCredentials" in xhr) {
+        xhr.open(method, url, true);
+    } else if (typeof XDomainRequest != "undefined") {
+        xhr = new XDomainRequest();
+        xhr.open(method, url);
+    } else {
+        xhr = null;
+    }
+    return xhr;
+}
+var url = 'https://api.xirsys.com/getIceServers';
+var xhr = createCORSRequest('POST', url);
+xhr.onload = function () {
+    window.parent.postMessage({
+        iceServers: JSON.parse(xhr.responseText).d.iceServers
+    }, '*');
+};
+xhr.onerror = function () {
+    console.error('Woops, there was an error making xhr request.');
+};
+
+xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+window.addEventListener('message', function (event) {
+    if (!event.data || typeof event.data !== 'string') return;
+    if(event.data == 'get-ice-servers') {
+        xhr.send('ident=satishdhote&secret=685dd77a-2ab8-11e5-a606-ac9d9baa0d4d&domain=www.villageexperts.com&application=default&room=default&secure=1');
+    }
+});*/
+
+
+$(document).ready(function() {
+                $.get("https://service.xirsys.com/ice",
+                    {
+                        ident: "satishdhote",
+                        secret: "07e291ca-c387-11e5-9e90-92cac6d3a4e7",
+                        domain: "www.villageexperts.com",
+                        application: "webrtc",
+                        room: "service",
+                        secure: 1
+                    },
+                    function(data, status) {
+                        alert("Data: " + data + "nnStatus: " + status);
+                        console.log("Data: " , data , "nnStatus: " + status);
+                    });
+                });
+
+</script>
