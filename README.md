@@ -9,6 +9,7 @@ Following are the resuable compoenets of this project :
 Communication between the web client , mobile client , cloud server , robots and other control points is primarily on REST over Internet or Wifi. For the mobile clients in vicinity if the robot they may even connevt via BLE ( blue tooth low enery ).
 
 ## Live streaming and image analysis
+![alt Ramudroid v6.5] (http://s20.postimg.org/cf0t9nnkt/live_Streaming_1.png)
 
 ##Rpi core control unit
 ![alt Ramudroid v6.5] (http://s32.postimg.org/tkx97ih9x/Ramudroid_blacknwhite.jpg)
