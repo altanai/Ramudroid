@@ -32,12 +32,12 @@
           <a class="navbar-brand" href="#">RamuDroid</a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Remote Navigation</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Resources</a></li> 
+          <li ><a href="#">Remote Navigation</a></li>
+          <li ><a href="about.html">About</a></li>
+          <li><a href="resources.html">Resources</a></li> 
+          <li><a href="team.html">Team</a></li> 
           <li><button class="btn btn-primary topButtons" onclick="callup()">Call up</button></li>
           <li><button class="btn btn-primary topButtons" onclick="motioncontrol()">Motion Control</button></li>
-
           <li><a href="#">.</a></li> 
         </ul>
       </div>
@@ -47,9 +47,11 @@
     <div id="container">
 
         <div class="row">
+
             <div class="col-sm-4" style="width:420px">
                 <div id="map" style="height: 420px; width: 400px; margin-top: 54px;"></div>
             </div>
+
             <div  class="col-sm-6">
                 <div class="overlayWrapper">
 
@@ -69,10 +71,6 @@
                     </video>
                     <p class="overlay">local</p>
                 </div>
-            </div>
-            <div class="col-sm-2" style=" left: -110px;">
-                <div class="col-sm-4" id="barchartDiv" style="width: 400px; height: 300px;"></div>
-                <canvas id="edgeCanvas">Your browser doesn't support canvas.</canvas>
             </div>
 
         </div>
@@ -104,17 +102,22 @@
             </tr>
           </table>
         </div>
-
     </div>
 
     <div id="controls"  class="mediaControlBar">
-        <button id="pause" class="btn btn-default"  onclick="pause();" title="pause or resume local player">Pause/Resume</button>
-        <button id="mute" class="btn btn-default"  onclick="mute();" title="mute or unmute remote audio source">Mute/Unmute</button>
-        <button id="fullscreen" class="btn btn-default"  onclick="fullscreen();">Fullscreen</button>
-        <button type="button" class="btn btn-default" id="webrtcSettings">WebRTC Settings</button>
-        <button type="button" class="btn btn-default" id="cpuSettings">Robot's CPU</button>
+        <button id="pause" class="btn btn-default btn-mediaControlBar"  onclick="pause();" title="pause or resume local player">Pause/Resume</button>
+        <button id="mute" class="btn btn-default btn-mediaControlBar"  onclick="mute();" title="mute or unmute remote audio source">Mute/Unmute</button>
+        <button id="fullscreen" class="btn btn-default btn-mediaControlBar"  onclick="fullscreen();">Fullscreen</button>
+        <button type="button" class="btn btn-default btn-mediaControlBar" id="webrtcSettings">WebRTC Settings</button>
+        <button type="button" class="btn btn-default btn-mediaControlBar" id="cpuSettings">Robot's CPU</button>
     </div>
         
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-sm-4" id="barchartDiv" style="width: 400px; height: 300px;"></div>
+        <canvas id="edgeCanvas" hidden>Your browser doesn't support canvas.</canvas>
+        <div id="capturefile" class="col-sm-6 capturefileLogsDiv" >
+        </div>
+    </div>
 
     <div class="row" style="margin-top: 10px;">
       <div class="col-sm-4" id="linechartDiv" style="width: 400px; height: 300px;"></div>
@@ -222,8 +225,6 @@
       </div>
     </div>
 
-
-
 </div>
 
 
@@ -250,6 +251,15 @@ $(document).ready(function(){
 
         $("#cpuModal").modal();
     });
+
+    $.ajax({
+        url : "capturefile",
+        dataType: "text",
+        success : function (data) {
+            $("#capturefile").html(data);
+        }
+    });
+
 });
 </script>
 

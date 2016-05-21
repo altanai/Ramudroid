@@ -61,7 +61,19 @@ p {
 }
 
 .mediaControlBar{
-        float: right;
     width: 200px;
     margin: 5px;
+    position: absolute;
+    top: 50px;
+    right: 0px;
+}
+
+.btn-mediaControlBar{
+    margin-top:20px;
+}
+
+.capturefileLogsDiv{
+        height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
