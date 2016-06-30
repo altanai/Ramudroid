@@ -6,6 +6,8 @@ Ramudroid is a bot to clean roads and outdoor environments. It is battery-powere
 Following are the resuable compoenets of this project :
 
 # m2mcommunication
+
+[![Join the chat at https://gitter.im/altanai/m2mcommunication](https://badges.gitter.im/altanai/m2mcommunication.svg)](https://gitter.im/altanai/m2mcommunication?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Communication between the web client , mobile client , cloud server , robots and other control points is primarily on REST over Internet or Wifi. For the mobile clients in vicinity if the robot they may even connevt via BLE ( blue tooth low enery ).
 
 ## Live streaming and image analysis
