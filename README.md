@@ -1,6 +1,8 @@
 
 ![alt Ramudroid ](http://s32.postimg.org/ew6oy64fp/Copy_of_Ramudroid_Logo_White_1.jpg)
 
+[![Gitter](https://badges.gitter.im/altanai/m2mcommunication.svg)](https://gitter.im/altanai/m2mcommunication?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 Ramudroid is a bot to clean roads and outdoor environments. It is battery-powered. For brains, there's a Raspberry Pi on board. It's got wireless connectivity. There's a camera for real-time image sensing of the environment
 
 Following are the resuable compoenets of this project :
