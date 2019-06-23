@@ -1,5 +1,5 @@
 
-![alt Ramudroid ](http://s32.postimg.org/ew6oy64fp/Copy_of_Ramudroid_Logo_White_1.jpg)
+![alt Ramudroid ](https://altanaitelecom.files.wordpress.com/2016/03/ramudroid-image.png?w=500)
 
 [![Gitter](https://badges.gitter.im/altanai/m2mcommunication.svg)](https://gitter.im/altanai/m2mcommunication?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
