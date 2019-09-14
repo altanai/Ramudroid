@@ -1,0 +1,8 @@
+title: Ramudroid
+description: Ramudroid  m2m communication design hardware architecture livestream
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-minimal
+
+gems:
+  - jekyll-mentions
