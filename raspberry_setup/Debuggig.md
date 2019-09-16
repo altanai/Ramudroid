@@ -19,4 +19,5 @@ mmal: mmal_component_create_core: could not create component 'vc.ril.camera' (1)
 mmal: Failed to create camera component
 mmal: main: Failed to create camera component
 mmal: Camera is not detected. Please check carefully the camera module is installed correctly
-**solution** 
+**solution**  don’t have the camera interface enabled or camera is not connected correctly to the Raspberry Pi:
+
