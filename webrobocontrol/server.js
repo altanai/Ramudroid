@@ -90,7 +90,7 @@ function onNewNamespace(channel, sender) {
 }
 
 app.listen(8084);
-console.log(" webserver and socket.io server listsing on   8084");
+console.log(" webserver and socket.io server listsing on 8084");
 
 
 //----------------------------- REST Server 

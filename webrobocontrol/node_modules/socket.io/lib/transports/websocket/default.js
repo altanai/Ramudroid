@@ -9,7 +9,7 @@
  */
 
 var Transport = require('../../transport')
-  , EventEmitter = process.EventEmitter
+  , EventEmitter = require('events').EventEmitter
   , crypto = require('crypto')
   , parser = require('../../parser');
 

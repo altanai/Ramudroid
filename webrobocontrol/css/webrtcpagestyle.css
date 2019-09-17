@@ -6,6 +6,15 @@
     color: grey;
  }
 
+.navbar-brand{
+    display: contents;
+    height: -webkit-fill-available;
+}
+
+.navbar-brand img{
+    height: 50px;
+}
+
 #container {
     display: flex;
     flex-flow: row nowrap;
