@@ -16,16 +16,19 @@ Raspberry Pi UART transmit (TXD) and receive (RXD) pins are assigned to GPIO14 a
 ```
 these pins use 3.3V logic levels so you can’t connect them directly to devices that uses 5V like an Arduino UNO or a PC.
 
+## SPI 
+
+SPI (Serial Peripheral Interface) 
 
 ## I2C
 
-I2C (Inter Integrated Circuit) is a synchronous serial protocol that communicates data between two devices.
+I2C (Inter Integrated Circuit) is a synchronous serial and hardware protocol that communicates data between two devices.
 master-slave protocol 
 used for communication over short distance.
 I2C device has 7-bit or 10-bit unique address
 applications like reading RTC (Real time clock), accessing external EEPROM memory. It is also used in sensor modules like gyro, magnetometer etc.
 also called as Two Wire Interface (TWI) protocol.
-
+uses two bidirectional open-drain lines, Serial Data Line (SDA) and Serial Clock Line (SCL), and resistors
 
 ## GPIO 
 

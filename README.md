@@ -27,6 +27,10 @@ For intercomponents
 To effectively limit the usuage of power on frontal clenaing brushes , it is cucial to target garbage/litter and active the motors only when suited target is found. 
 Implemnting edge image analysis based on opencv filters and classifiers to detect garbage
 
+Ref : https://github.com/altanai/computervision
+https://github.com/altanai/opencv_extra
+
+
 ### 3. Live streaming and augmented reality
 
 ![alt Ramudroid v6.5](http://s20.postimg.org/cf0t9nnkt/live_Streaming_1.png)
