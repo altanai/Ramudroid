@@ -75,6 +75,10 @@ export FLASK_ENV=development
 flask run -h 0.0.0.0
 ```
 
+run in https mode 
+```
+sudo env FLASK_ENV=development FLASK_APP=motors.py flask run -h 0.0.0.0 --cert=adhoc
+```
 
 ## Debugging 
 

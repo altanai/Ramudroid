@@ -14,7 +14,13 @@ ser.baudrate = 115200                   #Set baud rate to 9600 or 115200
 # ser.open()
 
 from flask import Flask, render_template, request
+from flask.ext.cors import CORS, cross_origin
+#from flask_cors import CORS
+
 app = Flask(__name__, template_folder='templates')
+cors = CORS(app, resources={r"/move": {"origins": "*"}})
+app.config['CORS_HEADERS'] = 'Content-Type'
+# CORS(app)
 
 @app.route("/")
 def index():
@@ -28,7 +34,6 @@ def index():
 
 @app.route("/move/<actiontype>")
 def action(actiontype):
-	print(" ........... received input ")
 	cmd = 0 
 	if actiontype == 'stop':
 		cmd = "1"

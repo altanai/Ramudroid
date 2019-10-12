@@ -1,12 +1,15 @@
 # WebRTC stream from Rapsberry Pi B+
 
-
-
-
 ## Requirnments 
 
 Uv4l and extra 
 for installaing uv4l refer to dir rpi_setup 
+
+## Run
+Run a http server 
+```
+http-server -a localhost -p 8001 -c-1
+```
 
 ## Debug 
 

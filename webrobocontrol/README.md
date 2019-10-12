@@ -31,5 +31,8 @@ Since we are using self signed certificate , it may ask to accept advanced secur
 
 ## Debugging 
 
-**Issue1** : EventEmitter.prototype; ^ TypeError: Cannot read property 'prototype' of undefined
+### Issue 1: EventEmitter.prototype; ^ TypeError: Cannot read property 'prototype' of undefined
 **solution** Update socketio via npm update
+
+
+### Issue 2 Access to fetch at 'https://192.168.0.5:5000/move/back' from origin 'https://127.0.0.1:8084' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.

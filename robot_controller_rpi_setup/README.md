@@ -40,6 +40,12 @@ Linux kernal version
 4.14.71-v7+
 ```
 
+## Minicom 
+
+communicate with embedded target devices,
+
+sudo apt-get install minicom
+
 ## Universal asynchronous receiver/transmitter (UART) 
 
 utilize the board’s UART feature in order to connect to a PC or to other microcontrollers and peripherals.
