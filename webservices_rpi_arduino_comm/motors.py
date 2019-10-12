@@ -25,7 +25,7 @@ def index():
 
 	return render_template('index.html', **templateData)
 
-@app.route("/<action>")
+@app.route("/<cmd>")
 def action(cmd):
 
 	if action == 'stop':
