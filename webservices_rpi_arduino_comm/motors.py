@@ -25,15 +25,25 @@ def index():
 
 	return render_template('index.html', **templateData)
 
-@app.route("/<cmd>")
-def action(cmd):
-
-	if action == 'stop':
+@app.route("/<actiontype>")
+def action(actiontype):
+	print(" ........... received input ")
+	cmd = 0 
+	if actiontype == 'stop':
 		cmd = "1"
 		print(" o stop ")
-	if action == 'forward':
+	elif actiontype == 'forward':
 		cmd = "2"
 		print(" ^ forward ")
+	else:
+   		print(" X unmatched")
+
+	if ser.is_open:
+		cmd = cmd + '\r\n'
+	
+	if ser.in_waiting == 0:
+    	time.sleep(5)
+    	ser.write(cmd.encode())
 
 	time.sleep(5)
 	ser.write(cmd.encode()) 
