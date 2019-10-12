@@ -6,7 +6,8 @@ import time
 import serial
 ser = serial.Serial ("/dev/ttyAMA0")    #Open named port 
 ser.baudrate = 115200                   #Set baud rate to 9600 or 115200
-ser.timeout = 1
+ser.writeTimeout = 0
+ser.timeout = 30
 ser.bytesize = serial.EIGHTBITS
 ser.parity = serial.PARITY_NONE
 ser.stopbits = serial.STOPBITS_ONE
@@ -38,12 +39,9 @@ def action(actiontype):
 	else:
    		print(" X unmatched")
 
-	if ser.is_open:
-		cmd = cmd + '\r\n'
-	
-	if ser.in_waiting == 0:
-		time.sleep(5)
-		ser.write(cmd.encode())
+	cmd = cmd + '\r\n'
+	time.sleep(5)
+	ser.write(cmd.encode())
 
 	#ser.close()
 	templateData = {

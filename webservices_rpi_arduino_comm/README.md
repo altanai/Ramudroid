@@ -19,10 +19,43 @@ or RPIO
 pip install RPi.GPIO
 ```
 
+### UART serial comm
+
+check for ports under /dev 
+```
+ls /dev
+argon-h264mem  cpu_dma_latency  gpiomem       loop1             mmcblk0p1           ppp    ram2    serial0  tty11  tty21  tty31  tty41  tty51  tty61      urandom  vcs6   vcsm-cma     video0
+argon-hevcmem  cuse             hidraw0       loop2             mmcblk0p2           ptmx   ram3    serial1  tty12  tty22  tty32  tty42  tty52  tty62      v4l      vcs7   vcsu         video10
+argon-intcmem  disk             hidraw1       loop3             mmcblk0p5           pts    ram4    shm      tty13  tty23  tty33  tty43  tty53  tty63      vc-mem   vcsa   vcsu1        video11
+argon-vp9mem   dri              hidraw2       loop4             mmcblk0p6           ram0   ram5    snd      tty14  tty24  tty34  tty44  tty54  tty7       vchiq    vcsa1  vcsu2        video12
+autofs         fb0              hwrng         loop5             mmcblk0p7           ram1   ram6    stderr   tty15  tty25  tty35  tty45  tty55  tty8       vcio     vcsa2  vcsu3        watchdog
+block          fd               initctl       loop6             mqueue              ram10  ram7    stdin    tty16  tty26  tty36  tty46  tty56  tty9       vcs      vcsa3  vcsu4        watchdog0
+btrfs-control  full             input         loop7             net                 ram11  ram8    stdout   tty17  tty27  tty37  tty47  tty57  ttyAMA0    vcs1     vcsa4  vcsu5        zero
+bus            fuse             kmsg          mapper            network_latency     ram12  ram9    tty      tty18  tty28  tty38  tty48  tty58  ttyS0      vcs2     vcsa5  vcsu6
+cachefiles     gpiochip0        log           mem               network_throughput  ram13  random  tty0     tty19  tty29  tty39  tty49  tty59  ttyprintk  vcs3     vcsa6  vcsu7
+char           gpiochip1        loop-control  memory_bandwidth  null                ram14  raw     tty1     tty2   tty3   tty4   tty5   tty6   uhid       vcs4     vcsa7  vga_arbiter
+console        gpiochip2        loop0         mmcblk0           port                ram15  rfkill  tty10    tty20  tty30  tty40  tty50  tty60  uinput     vcs5     vcsm   vhci
+pi@raspberrypi:~/Ramudroid/webservices_rpi_arduino_comm $ 
+
+```
+
+Enable raspi-config - > Interfacing options -> p6 serial -> enable  
+![alt Raspi config uart](https://github.com/altanai/Ramudroid/blob/master/webservices_rpi_arduino_comm/Screenshot%202019-10-12%20at%201.08.54%20PM.png?raw=true)
+
+alternatively enable_uart shoudl be 1 in /boot/config.txt
+such as 
+```
+# NOOBS Auto-generated Settings:^M
+hdmi_force_hotplug=1^M
+start_x=1
+gpu_mem=128
+enable_uart=1
+```
+
 ## Run 
 
-$ export FLASK_APP=move.py
-$ export FLASK_ENV=production
+export FLASK_APP=move.py
+export FLASK_ENV=production
 
 ```
 $ env FLASK_ENV=development FLASK_APP=move.py flask run
@@ -35,6 +68,7 @@ $ env FLASK_ENV=development FLASK_APP=move.py flask run
  * Debugger PIN: 293-266-999
 
 ```
+
 
 ## Debugging 
 
