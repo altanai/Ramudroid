@@ -4,13 +4,13 @@ Raspberry Pi GPIO Status and Control for Ramudroid movement
 
 import time
 import serial
-ser = serial.Serial ("/dev/ttyS0")    #Open named port 
+ser = serial.Serial ("/dev/serial0")    #Open named port 
 ser.baudrate = 115200                   #Set baud rate to 9600 or 115200
-ser.writeTimeout = 0
-ser.timeout = 30
-ser.bytesize = serial.EIGHTBITS
-ser.parity = serial.PARITY_NONE
-ser.stopbits = serial.STOPBITS_ONE
+# ser.writeTimeout = 0
+# ser.timeout = 30
+# ser.bytesize = serial.EIGHTBITS
+# ser.parity = serial.PARITY_NONE
+# ser.stopbits = serial.STOPBITS_ONE
 # ser.open()
 
 from flask import Flask, render_template, request
@@ -36,12 +36,27 @@ def action(actiontype):
 	elif actiontype == 'forward':
 		cmd = "2"
 		print(" ^ forward ")
+	elif actiontype == 'back':
+		cmd = "3"
+		print(" v back ")
+	elif actiontype == 'left':
+		cmd = "4"
+		print(" < left ")
+	elif actiontype == 'right':
+		cmd = "5"
+		print(" > right ")
+	elif actiontype == 'brushon':
+		cmd = "6"
+		print(" Brush On *** ")
+	elif actiontype == 'brushoff':
+		cmd = "7"
+		print(" Brush Off ooo ")
 	else:
    		print(" X unmatched")
 
 	# cmd = cmd + '\r\n'
 	time.sleep(5)
-	ser.write(repr(cmd).encode('utf-8'))
+	ser.write(str.encode(cmd))
 
 	return "done"
 

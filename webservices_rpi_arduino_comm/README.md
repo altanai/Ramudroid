@@ -21,6 +21,8 @@ pip install RPi.GPIO
 
 ### UART serial comm
 
+UART is a asynchronous serial communication protocol ie it transmits the individual bits from byte in a sequential fashion , without the sender having to send a clock signal to the receiver. 
+
 check for ports under /dev 
 ```
 ls /dev
@@ -70,7 +72,7 @@ or set them sepratelya nd run
 ```
 export FLASK_APP=motors.py
 export FLASK_ENV=development
-
+flask run -h 0.0.0.0
 ```
 
 
