@@ -1,11 +1,15 @@
 '''
 Raspberry Pi GPIO Status and Control for Ramudroid movement
 '''
-import RPi.GPIO as GPIO
 
+import time
 import serial
 ser = serial.Serial ("/dev/ttyAMA0")    #Open named port 
 ser.baudrate = 115200                   #Set baud rate to 9600 or 115200
+ser.timeout = 1
+ser.bytesize = serial.EIGHTBITS
+ser.parity = serial.PARITY_NONE
+ser.stopbits = serial.STOPBITS_ONE
 # ser.open()
 
 from flask import Flask, render_template, request
@@ -15,35 +19,29 @@ app = Flask(__name__, template_folder='templates')
 def index():
 
 	templateData = {
-              	'title' 	: 'Motors output Status!',
-              	'action'	: "none"
-        }
+      	'title' 	: 'Motors output Status!',
+      	'action'	: "none"
+    }
 
 	return render_template('index.html', **templateData)
 
-@app.route("/stop")
-def stop():
-	cmd = "1"
-	print(" o stop ")
+@app.route("/<action>")
+def action(cmd):
+
+	if action == 'stop':
+		cmd = "1"
+		print(" o stop ")
+	if action == 'forward':
+		cmd = "2"
+		print(" ^ forward ")
+
+	time.sleep(5)
 	ser.write(cmd.encode()) 
 	#ser.close()
 	templateData = {
-              	'title' 	: 'GPIO output Status!',
-              	'action'  	: 'stop',
-        }
-
-	return render_template('index.html', **templateData)
-
-@app.route("/forward")
-def forward():
-	cmd = "2"
-	print(" ^ forward ")
-	ser.write(cmd.encode())
-	#ser.close()
-	templateData = {
-              	'title' 	: 'GPIO output Status!',
-              	'action'  	: 'forward',
-        }
+      	'title' 	: 'GPIO output Status!',
+      	'action'  	: action
+    }
 
 	return render_template('index.html', **templateData)
 
