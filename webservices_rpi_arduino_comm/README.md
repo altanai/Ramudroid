@@ -54,9 +54,7 @@ enable_uart=1
 
 ## Run 
 
-export FLASK_APP=move.py
-export FLASK_ENV=production
-
+either give env from cmd line 
 ```
 $ env FLASK_ENV=development FLASK_APP=move.py flask run
  * Serving Flask app "move.py" (lazy loading)
@@ -66,6 +64,12 @@ $ env FLASK_ENV=development FLASK_APP=move.py flask run
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 293-266-999
+```
+
+or set them sepratelya nd run 
+```
+export FLASK_APP=motors.py
+export FLASK_ENV=development
 
 ```
 
