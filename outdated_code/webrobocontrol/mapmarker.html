@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <link rel=stylesheet href="css/webrtcpagestyle.css">
+  </head>
+  <body>
+    <div id="map"></div>
+    
+<!--
+    <style>
+      html, body {
+        height: 100%;
+      }
+      #map {
+        height: 50%;
+        width: 40%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+
+     <script>
+
+      function initMap() {
+        var myLatLng = {lat: -25.363, lng: 131.044};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+
+
+      function dropPins(allPoints, map){
+        var infowindow = new google.maps.InfoWindow(); 
+        for (var i = 0; i < allPoints.length; i++){
+          var myLatlng = new google.maps.LatLng(allPoints[i].latitude, allPoints[i].longitude);
+          var marker = new google.maps.Marker({
+              position: myLatlng,
+              map: map,
+              animation: google.maps.Animation.DROP
+          });
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent("<ul><li>Latitude " + allPoints[i].latitude + "</li><li>Longitude " + allPoints[i].longitude + "</li></ul>");
+            infowindow.open(map, marker);
+          };
+        })(marker, i));  
+        }
+      }
+    </script> -->
+<script src="scripts/mapscript.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5XwNf1ScsIZVK5ixBCeUkUEhHUxSOiI8&callback=initMap">
+    </script>
+  </body>
+</html>

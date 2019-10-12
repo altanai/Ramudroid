@@ -1,10 +1,40 @@
 # Python Flash Server 
 
-install python flash framework 
+Ramudroid Exposes webservices for outside world include web console 
+Webservices are translated to 
+- SPI commands to be shared with Arduino to manually control driving unit  or 
+- GPIO pins to control cleaning unit 
+
+## Setup
+Install dependencies
+```
+pip install -r requirements.tx
+```
+or manually install required libs like for install python flash framework 
 ```
 sudo apt-get install python3-flask
 ```
+or RPIO
+```
+pip install RPi.GPIO
+```
 
+## Run 
+
+$ export FLASK_APP=move.py
+$ export FLASK_ENV=production
+
+```
+$ env FLASK_ENV=development FLASK_APP=move.py flask run
+ * Serving Flask app "move.py" (lazy loading)
+ * Environment: development
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 293-266-999
+
+```
 
 ## Debugging 
 
@@ -54,3 +84,7 @@ Agent pid 943
 pi@raspberrypi:~ $ ssh-add ~/.ssh/id_rsa
 Identity added: /home/pi/.ssh/id_rsa (pi@raspberrypi)
 ```
+
+**Issue3**  * Serving Flask app "move" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.

@@ -3,7 +3,7 @@ Raspberry Pi GPIO Status and Control for Ramudroid movement
 '''
 import RPi.GPIO as GPIO
 from flask import Flask, render_template, request
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
@@ -91,4 +91,4 @@ def action(rtype, action):
 	return render_template('index.html', **templateData)
 
 if __name__ == "__main__":
-   app.run(host='0.0.0.0', port=80, debug=True)
+   app.run(host='192.168.0.5', port=80, debug=True)

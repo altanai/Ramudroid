@@ -13,10 +13,6 @@
 
         <script type="text/javascript" src="scripts/u4vl.js"></script>
         <link rel=stylesheet href="css/webrtcpagestyle.css">
-    
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script src="https://www.google.com/jsapi"></script>
-        <script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.js"></script>
 
         <script type="text/javascript" src="scripts/loaddatacsv.js"></script>
         
@@ -262,74 +258,22 @@ $(document).ready(function(){
 });
 </script>
 
-
 <script>
-function callup() {
-    window.open("https://localhost:8084/call2.html", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=400, height=400");
-}
-
-function motioncontrol(){
-    window.open("https://localhost:8084/motioncontrol.html", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=400, height=400");    
-}
-</script>
-
-<script>
-
     jQuery(window ).unload(function() {
         refreshAllPins()
-        /*return "Handler for .unload() called.";*/
     });
 
     jQuery(window).load(function () {
         refreshAllPins();
-        /*
-        setTimeout(function () {
-            //alert('page is loaded and 1 minute has passed');  
-            console.log(" page loaded " ,arrData[0]);
-            console.log(arrData[1]);
-            console.log(arrData[2]); 
-               // relaodJs("mapscript.js");
-        }, 60000); */
     });
 
     function reload_js(src) {
         $('script[src="' + src + '"]').remove();
         $('<script>').attr('src', src).appendTo('head');
     }
-
-/*function loadJSFiles(){
-    var old_src = $(this).attr('src');
-    $(this).attr('src', '');
-    setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
-}*/
-
-
-/*function loadJSFiles(){
-    var jsArray=["chartScript","mapcript", "directionscript"];
-    for(x in jsArray){
-            var old_src = $("#"+jsArray[x]).attr('src');
-            $(this).attr('src', '');
-            setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
-    }
-}*/
-
-/*function load_js()
-{
-  var head= document.getElementsByTagName('head')[0];
-  var script= document.createElement('script');
-  script.type= 'text/javascript';
-  script.src= 'source_file.js';
-  head.appendChild(script);
-}*/
-
 </script>
-<script id="chartScript" type="text/javascript" src="scripts/chart.js"></script>
-<script id="mapscript" type="text/javascript" src="scripts/mapscript.js"></script>
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD58bxpSqImZwLSeOChCxZAvCuBD-EBirU&callback=initMap"></script>
 
 <script src="scripts/requestanimationframedirection2.js"></script>
-<script src="scripts/geo-calc.js"></script>
 <script id="directionscript" src="scripts/directionscript.js"></script>
 
 <script src="scripts/cpudata.js"></script>
