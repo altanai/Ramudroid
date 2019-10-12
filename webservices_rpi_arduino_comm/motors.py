@@ -26,7 +26,7 @@ def index():
 
 	return render_template('index.html', **templateData)
 
-@app.route("/<actiontype>")
+@app.route("/move/<actiontype>")
 def action(actiontype):
 	print(" ........... received input ")
 	cmd = 0 
@@ -43,13 +43,7 @@ def action(actiontype):
 	time.sleep(5)
 	ser.write(cmd.encode())
 
-	#ser.close()
-	templateData = {
-      	'title' 	: 'GPIO output Status!',
-      	'action'  	: action
-    }
-
-	return render_template('index.html', **templateData)
+	return "done"
 
 # @app.route("/<rtype>/<action>")
 # def action(rtype, action):
