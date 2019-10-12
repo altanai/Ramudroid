@@ -5,7 +5,8 @@ import RPi.GPIO as GPIO
 
 import serial
 ser = serial.Serial ("/dev/ttyAMA0")    #Open named port 
-ser.baudrate = 9600                   #Set baud rate to 9600 or 115200
+ser.baudrate = 115200                   #Set baud rate to 9600 or 115200
+ser.open()
 
 from flask import Flask, render_template, request
 app = Flask(__name__, template_folder='templates')
@@ -22,7 +23,9 @@ def index():
 
 @app.route("/stop")
 def stop():
-	ser.write(str.encode('1')) 
+	cmd = "1"
+	print(" o stop ")
+	ser.write(cmd.encode()) 
 	#ser.close()
 	templateData = {
               	'title' 	: 'GPIO output Status!',
@@ -33,7 +36,9 @@ def stop():
 
 @app.route("/forward")
 def forward():
-	ser.write(str.encode('2'))
+	cmd = "2"
+	print(" ^ forward ")
+	ser.write(cmd.encode())
 	#ser.close()
 	templateData = {
               	'title' 	: 'GPIO output Status!',
