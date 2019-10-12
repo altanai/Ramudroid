@@ -130,5 +130,94 @@ readall
  +-----+-----+---------+------+---+---Pi 3+--+---+------+---------+-----+-----+
 ```
 
+
+## Enabling ssh access
+```
+sudo systemctl enable
+ssh sudo systemctl start ssh
+```
+## Raspistill
+
+Used to test if camera module is enabled and working
+```
+raspistill -o img.jpg
+```
+
+## Raspivid
+```
+raspivid -o video.h264 -t 1000
+```
+
+Note : rapivid  outputs in h364 format .
+To convert that inot mp4 container , install MP4box
+```
+sudo apt-get install -y gpac
+```
+Capture 30 seconds of raw video at 640x480 and 150kB/s bit rate into a pivideo.h264 file
+```
+raspivid -t 30000 -w 640 -h 480 -fps 25 -b 1200000 -p 0,0,640,480 -o pivideo.h264 
+```
+Wrap the raw video with an MP4 container: 
+```
+MP4Box -add pivideo.h264 pivideo.mp4
+```
+
+## Motion
+
+
+
+## Uv4l 
+
+Installation 
+
+Find your Raspbian Linux distribution (e.g. Wheezy, Jessie, Stretch etc)
+
+For Jessie 
+curl http://www.linux-projects.org/listing/uv4l_repo/lpkey.asc | sudo apt-key add -
+
+Open the /etc/apt/sources.list and add 
+deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/stretch stretch main
+
+
+Update and Install 
+
+```
+sudo apt-get update
+sudo apt-get install uv4l uv4l-raspicam
+```
+Get extras 
+```
+sudo apt-get install uv4l-raspicam-extras
+```
+
+To edit Raspicam conf 
+```
+vi /etc/uv4l/uv4l-raspicam.conf 
+```
+
+Install other  webrtc lib for uv4l
+```
+sudo apt install uv4l-webrtc
+```
+
+Install Demos
+```
+sudo apt-get install uv4l-demos
+```
+
+Format
+uv4l [ uv4l-options ] –driver raspicam [ raspicam-options ]
+
+Start server
+```
+service uv4l_raspicam start 
+```
+Check for status
+```
+root@raspberrypi:/home/pi# service uv4l_raspicam status
+```
+
+
+
 **Ref**
 Raspbian : https://www.raspberrypi.org/downloads/raspbian/
