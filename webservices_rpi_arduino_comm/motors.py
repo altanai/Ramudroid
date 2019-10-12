@@ -41,7 +41,7 @@ def action(actiontype):
 
 	# cmd = cmd + '\r\n'
 	time.sleep(5)
-	ser.write(cmd.encode())
+	ser.write(repr(cmd).encode('utf-8'))
 
 	return "done"
 
