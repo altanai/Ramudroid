@@ -39,7 +39,7 @@ def action(actiontype):
 	else:
    		print(" X unmatched")
 
-	cmd = cmd + '\r\n'
+	# cmd = cmd + '\r\n'
 	time.sleep(5)
 	ser.write(cmd.encode())
 
