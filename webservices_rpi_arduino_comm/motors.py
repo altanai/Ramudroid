@@ -42,11 +42,9 @@ def action(actiontype):
 		cmd = cmd + '\r\n'
 	
 	if ser.in_waiting == 0:
-    	time.sleep(5)
-    	ser.write(cmd.encode())
+		time.sleep(5)
+		ser.write(cmd.encode())
 
-	time.sleep(5)
-	ser.write(cmd.encode()) 
 	#ser.close()
 	templateData = {
       	'title' 	: 'GPIO output Status!',
