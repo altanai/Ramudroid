@@ -5,6 +5,40 @@
 
 Raspbian is a popular Rpi OS which is sa spin off of the Linux distribution Debian
 
+## Rpi specs 
+
+Linux 
+```
+> uname -a
+Linux raspberrypi 4.14.71-v7+ #1145 SMP Fri Sep 21 15:38:35 BST 2018 armv7l GNU/Linux
+```
+
+Operating system
+
+for rpi 3 B+
+```
+$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Raspbian
+Description:	Raspbian GNU/Linux 9.4 (stretch)
+Release:	9.4
+Codename:	stretch
+```
+Rpi 4 
+```
+$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Raspbian
+Description:	Raspbian GNU/Linux 10 (buster)
+Release:	10
+Codename:	buster
+```
+
+Linux kernal version 
+```
+> uname -r
+4.14.71-v7+
+```
 
 ## Universal asynchronous receiver/transmitter (UART) 
 
@@ -136,6 +170,7 @@ readall
 sudo systemctl enable
 ssh sudo systemctl start ssh
 ```
+
 ## Raspistill
 
 Used to test if camera module is enabled and working
