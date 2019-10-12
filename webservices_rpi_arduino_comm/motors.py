@@ -22,7 +22,7 @@ def index():
 
 @app.route("/stop")
 def stop():
-	ser.write(1) # str.encode
+	ser.write(str.encode(1)) 
 	#ser.close()
 	templateData = {
               	'title' 	: 'GPIO output Status!',
@@ -33,7 +33,7 @@ def stop():
 
 @app.route("/forward")
 def forward():
-	ser.write(2)
+	ser.write(str.encode(2))
 	#ser.close()
 	templateData = {
               	'title' 	: 'GPIO output Status!',
