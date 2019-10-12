@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 
 import serial
 ser = serial.Serial ("/dev/ttyAMA0")    #Open named port 
-ser.baudrate = 115200                   #Set baud rate to 9600
+ser.baudrate = 9600                   #Set baud rate to 9600 or 115200
 
 from flask import Flask, render_template, request
 app = Flask(__name__, template_folder='templates')
