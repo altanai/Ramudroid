@@ -32,7 +32,7 @@ def stop():
 	return render_template('index.html', **templateData)
 
 @app.route("/forward")
-def stop():
+def forward():
 	ser.write('2')
 	#ser.close()
 	templateData = {
