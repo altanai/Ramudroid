@@ -68,8 +68,8 @@
             <button id='start' title="If you do not see any video stream, make sure your browser supports the codec used within this demo (see the source code for details, or try Firefox or Chrome)">Start Streaming</button>
             <button id='stop'>Stop Streaming</button>
         </div>
-        <video id='v'></video>
-        <canvas id='c'></canvas>
+        <video id='videowebrtc'></video>
+        <canvas id='canvaswebrtc'></canvas>
         <button id='effect'>Toggle Object Detection</button>
         <script>
             // Let's get a default address for the signalling server
@@ -83,7 +83,7 @@
             //         document.getElementById('address').value = "<host>:<port>/webrtc";
             //     }
             // }
-            document.getElementById('address').value="192.168.0.6:8080/stream/webrtc";
+            document.getElementById('address').value="192.168.0.5:8080/stream/webrtc";
         </script>
     </body>
 </html>

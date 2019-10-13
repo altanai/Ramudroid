@@ -5,8 +5,8 @@
         var isStreaming = false;
         var start = document.getElementById('start');
         var stop = document.getElementById('stop');
-        var video = document.getElementById('v');
-        var canvas = document.getElementById('c');
+        var video = document.getElementById('videowebrtc');
+        var canvas = document.getElementById('canvaswebrtc');
         var ctx = canvas.getContext('2d');
         var effect = document.getElementById('effect');
         var isEffectActive = false;
@@ -18,26 +18,31 @@
 
             if (!isStreaming) {
                 signalObj = new signal(wsurl,
-                        function (stream) {
-                            console.log('got a stream!');
-                            //var url = window.URL || window.webkitURL;
-                            //video.src = url ? url.createObjectURL(stream) : stream; // deprecated
-                            video.srcObject = stream;
-                            video.play();
-                        },
-                        function (error) {
-                            alert(error);
-                        },
-                        function () {
-                            console.log('websocket closed. bye bye!');
-                            video.srcObject = null;
-                            //video.src = ''; // deprecated
-                            ctx.clearRect(0, 0, canvas.width, canvas.height);
-                            isStreaming = false;
-                        },
-                        function (message) {
-                            alert(message);
-                        }
+                    //onStream, 
+                    function (stream) {
+                        console.log('got a stream!' , stream);
+                        //var url = window.URL || window.webkitURL;
+                        //video.src = url ? url.createObjectURL(stream) : stream; // deprecated
+                        video.srcObject = stream;
+                        console.log(" ------------- video ", video);
+                        video.play();
+                    },
+                    //onError
+                    function (error) {
+                        alert(error);
+                    },
+                    // onClose 
+                    function () {
+                        console.log('websocket closed');
+                        video.srcObject = null;
+                        //video.src = ''; // deprecated
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        isStreaming = false;
+                    },
+                    //onMessage
+                    function (message) {
+                        console.info(message);
+                    }
                 );
             }
         }, false);

@@ -82,7 +82,8 @@ sudo env FLASK_ENV=development FLASK_APP=motors.py flask run -h 0.0.0.0 --cert=a
 
 ## Debugging 
 
-**Issue1** git clone git@github.com:altanai/Ramudroid.git
+###Issue1
+git clone git@github.com:altanai/Ramudroid.git
 Cloning into 'Ramudroid'...
 git@github.com: Permission denied (publickey).
 fatal: Could not read from remote repository.
@@ -120,7 +121,8 @@ id_rsa  id_rsa.pub  known_hosts
 Now add the key to github projects "deploy Keys" such as https://github.com/altanai/Ramudroid/settings/keys 
 (only owner can this)
 
-**Issue2** Could not open a connection to your authentication agent.
+### Issue2
+Could not open a connection to your authentication agent.
 **solution** start the evl agent and add key 
 ```
 pi@raspberrypi:~ $  eval "$(ssh-agent -s)"   
@@ -129,6 +131,8 @@ pi@raspberrypi:~ $ ssh-add ~/.ssh/id_rsa
 Identity added: /home/pi/.ssh/id_rsa (pi@raspberrypi)
 ```
 
-**Issue3**  * Serving Flask app "move" (lazy loading)
+### Issue
+ * Serving Flask app "move" (lazy loading)
  * Environment: production
    WARNING: Do not use the development server in a production environment.
+ **solution** USe export FLASK_ENV=development

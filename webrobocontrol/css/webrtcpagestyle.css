@@ -1,4 +1,23 @@
-
+            #server {
+                display:block;
+                margin:0% auto 2%;
+            }
+            #startwebrtcstream {
+                display:inline-block;
+                margin:0% auto 2%;
+            }
+            #stopwebrtcstream {
+                display:inline-block;
+                margin:0% auto 2%;
+            }
+            video {
+                position:absolute;
+                visibility:hidden;
+                    background: #eee none repeat scroll 0 0;
+                border: 1px solid #aaa;
+            }
+            canvas { border:8px solid #fff;}
+            
 .navbar-brand{
     display: contents;
     height: -webkit-fill-available;
@@ -12,11 +31,9 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: flex-end;
+    margin-top: 50px;
 }
-video {
-    background: #eee none repeat scroll 0 0;
-    border: 1px solid #aaa;
-}
+
 .overlayWrapper {
     position: relative;
 }
@@ -38,13 +55,6 @@ p {
 
 .modal-footer {
       background-color: #f9f9f9;
-}
-
-#map {
-    height: 50%;
-    width: 40%;
-    margin: 0;
-    padding: 0;
 }
 
 .controlBar{

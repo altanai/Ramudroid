@@ -1,7 +1,6 @@
 var faceCascade;
 
 showImage = function (mat, canvas) {
-    alert("detected");
     var data = mat.data(); // output is a Uint8Array that aliases directly into the Emscripten heap
     var channels = mat.channels();
     //var channelSize = mat.elemSize1();

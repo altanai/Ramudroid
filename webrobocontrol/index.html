@@ -5,13 +5,12 @@
         <title>Ramudroid</title>
 
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="viewport" status="width=device-width, initial-scale=1, user-scalable=no">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-        <script type="text/javascript" src="scripts/u4vl.js"></script>
         <link rel=stylesheet href="css/webrtcpagestyle.css">
 
         <script type="text/javascript" src="scripts/loaddatacsv.js"></script>
@@ -21,6 +20,29 @@
         <!-- script that control motion and webservices -->
         <script src="scripts/rpiramudroid.js"></script>
 
+        <!-- webrtc and opencv -->
+
+        <script async src="webrtcscripts/cv.js"></script>
+        <script src='webrtcscripts/objectdetection.js'></script>
+        <script src='webrtcscripts/signalling.js'></script>
+        <script src='webrtcscripts/main.js'></script>
+        <script  type='text/javascript'>
+            var Module = {
+                preRun: [],
+                postRun: [],
+                print: (function () {
+                    return function (text) {
+                        text = Array.prototype.slice.call(arguments).join(' ');
+                        console.log(text);
+                    };
+                })(),
+                printErr: function (text) {
+                    text = Array.prototype.slice.call(arguments).join(' ');
+                    console.error(text);
+                }
+            };
+        </script>
+
     </head>
     <body>
 
@@ -28,7 +50,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#"> <img src ="images/ramudroid_logo_white.png"/> </a>
+          <a class="navbar-brand" href="#"> <img src ="img/ramudroid_logo_white.png"/> </a>
         </div>
         <ul class="nav navbar-nav">
           <li ><a href="#">Remote Navigation</a></li>
@@ -45,60 +67,44 @@
     <div id="container">
 
         <div class="row">
-
-            <div class="col-sm-4" style="width:420px">
-                <div id="map" style="height: 420px; width: 400px; margin-top: 54px;"></div>
-            </div>
-
-            <div  class="col-sm-6">
-                <div class="overlayWrapper">
-
-                    <div id="frame">
-                        <video id="remote-video" autoplay="" width="640" height="480">
-                            Your browser does not support the video tag.
-                        </video>
-                        <canvas id="overlay" width="640" height="480"></canvas>
-                    </div>
-                    <p class="overlay">remote</p>
-                    <div id="orientation"></div>
-                    <p id="error"></p>
+            <div class="col-sm-9">
+               <div>
+                    <input required type="text" id="address" value=""/>
+                    <button id='startwebrtcstream' >Start Streaming</button>
+                    <button id='stopwebrtcstream'>Stop Streaming</button>
                 </div>
-                <div class="overlayWrapper" hidden>
-                    <video id="local-video" autoplay="" width="320" height="240">
-                        Your browser does not support the video tag.
-                    </video>
-                    <p class="overlay">local</p>
-                </div>
+                <video id='videowebrtc'></video>
+                <canvas id='canvaswebrtc'></canvas>
+                <button id='effect'>Toggle Object Detection</button>
             </div>
-
         </div>
 
         <div class="row controlBar">
           <table id="controls" class="panel-controlbuttons">
             <tr>
               <td></td>
-              <td><input type="button" id="btn1" value="Top" content="off" class="btn btn-success off" onclick="togglebtn(this);clearotherbuttons('btn1');operation('forward');" /></td>
+              <td><input type="button" id="btn1" value="Forw" status="off" class="btn btn-success off" onclick="togglebtn(this);clearotherbuttons('btn1');operation('forward');" /></td>
               <td></td>
             </tr>
             
             <tr>
-              <td><input type="button" id="btn2" value="Left" content="off" class="btn btn-success off" onclick="togglebtn(this);clearotherbuttons('btn2');operation('left');" /></td>
+              <td><input type="button" id="btn2" value="Left" status="off" class="btn btn-success off" onclick="togglebtn(this);clearotherbuttons('btn2');operation('left');" /></td>
               
-              <td><input type="button" id="btn3" value="Stop" content="off" class="btn btn-success off" onclick="togglebtn(this);clearotherbuttons('btn3');operation('stop');" /></td>
+              <td><input type="button" id="btn3" value="Stop" status="off" class="btn btn-success off" onclick="togglebtn(this);clearotherbuttons('btn3');operation('stop');" /></td>
               
-              <td><input type="button" id="btn4" value="Right" content="off" class="btn btn-success off" onclick="togglebtn(this);clearotherbuttons('btn4');operation('right');" /></td>
+              <td><input type="button" id="btn4" value="Right" status="off" class="btn btn-success off" onclick="togglebtn(this);clearotherbuttons('btn4');operation('right');" /></td>
             </tr>
 
             <tr>
               <td></td>
-              <td><input type="button" id="btn5" value="Back" content="off" class="btn btn-success off" onclick="togglebtn(this);clearotherbuttons('btn5');operation('back');" /></td>
+              <td><input type="button" id="btn5" value="Back" status="off" class="btn btn-success off" onclick="togglebtn(this);clearotherbuttons('btn5');operation('back');" /></td>
               <td></td>       
             </tr>
 
             <tr style="height: 80;">
-              <td>Clean : <input type="button" id="btn6" value="off" content="off" class="btn btn-success off_1" onclick="toggleState_1(this);operation('brushon');" /> </td>
+              <td>Clean : <input type="button" id="btn6" value="off" status="off" class="btn btn-success off_1" onclick="toggleState_1(this);operation('brushon');" /> </td>
               
-              <td>Pause : <input type="button" id="btn7" value="off" content="off" class="btn btn-success off_1" onclick="toggleState_1(this);operation('brushoff');" /></td>
+              <td>Pause : <input type="button" id="btn7" value="off" status="off" class="btn btn-success off_1" onclick="toggleState_1(this);operation('brushoff');" /></td>
               <td></td>
             </tr>
           </table>
@@ -120,98 +126,12 @@
         </div>
     </div>
 
-    <div class="row" style="margin-top: 10px;">
-      <div class="col-sm-4" id="linechartDiv" style="width: 400px; height: 300px;"></div>
-      <div class="col-sm-4" id="bubblechartDiv" style="width: 400px; height: 300px;"></div>
-      <div class="col-sm-4" id="areachartDiv" style="width: 400px; height: 300px;"></div>
-    </div>
-
     <a hidden target="_top" href="/">home</a>&nbsp;<a href="/panel" target="_blank" title="change the image settings on-the-fly">control panel</a>
-
-    <!-- config modal -->
-
-    <div class="modal fade" id="webrtcModal" role="dialog">
-        <div class="modal-dialog">
-        
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header" style="padding:35px 50px;">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4><span class="glyphicon glyphicon-lock"></span> WebRTC Configuration </h4>
-            </div>
-            <div class="modal-body" style="padding:40px 50px;">
-
-            <fieldset>
-                <legend><b>Cast local Audio/Video sources to remote peer</b></legend>
-                <div>
-                    <span>Audio:</span>
-                    <label><input type="checkbox" onclick="singleselection('audio_cast', 'cast_mic');" id="cast_mic" name="audio_cast" value="microphone">microphone/other input</label>
-                    <label><input type="checkbox" id="echo_cancellation" name="audio_processing" title="disable any audio processing when casting music" checked>echo cancellation</label>
-                    <!--label><input type="checkbox" onclick="singleselection('audio_cast', 'cast_tab');" id="cast_tab" name="audio_cast" value="system">tab</label-->
-                </div>
-                <div>
-                    <span>Video:</span>
-                    <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_camera');" id="cast_camera" name="video_cast" value="camera">camera</label>
-                    <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_screen');" id="cast_screen" name="video_cast" value="screen">screen</label>
-                    <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_window');" id="cast_window" name="video_cast" value="screen">window</label>
-                    <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_application');" id="cast_application" name="video_cast" value="application">application</label>
-                    <p id="note1"><small>NOTE: except camera, screen, window or application casting is supported from Firefox 44 on and over HTTPS only.</small></p>
-                    <p id="note2"><small>NOTE: except camera, to enable screen, window or application casting open <i>about:config</i> URL
-                            and set <i>media.getusermedia.screensharing.enabled</i> to <i>true</i>
-                            and permanently add the current domain to the list in <i>media.getusermedia.screensharing.allowed_domains.</i></small>
-                    </p>
-                    <p id="note3"><small>NOTE: if you want to cast music, for better audio quality disable <i>echo-cancellation.</i></small></p>
-                    <p id="note4"><small>NOTE: if you want to cast music, for better audio quality disable <i>echo-cancellation</i>,
-                            and <i>aec</i>, <i>noise-suppression</i>, <i>agc</i> in the browser configuration <i>(about:config).</i></small>
-                    </p>
-                </div>
-            </fieldset>
-            
-            <fieldset>
-                <legend><b>Remote peer options</b></legend>
-                <div>
-                    <span>Video:</span>
-                    <label><input type="checkbox" onclick="remote_hw_vcodec_selection();"  id="remote_hw_vcodec" name="remote_hw_vcodec" value="remote_hw_vcodec" title="try to force the use of the hardware codec for both encoding and decoding if enabled and supported">force use of hardware codec for</label>
-                    <select id="remote_vformat" name="remote_vformat" onclick="remote_hw_vcodec_format_selection();" title="available resolutions and frame rates at the min., max. and start configured bitrates for adaptive streaming which will be scaled from the base 720p 30fps">
-                        <option value="10">320x240 30 fps</option>
-                        <option value="20">352x288 30 fps</option>
-                        <option value="30">640x480 30 fps</option>
-                        <option value="40">960x720 30 fps</option>
-                        <option value="50">1024x768 30 fps</option>
-                        <option value="60" selected="selected">1280x720 30 fps, kbps min.1500 max.4000 start2000</option>
-                        <option value="70">1280x768 30 fps</option>
-                        <option value="80">1280x960 30 fps</option>
-                        <option value="90">1600x768 30 fps</option>
-                        <option value="100">1920x1072 15 fps</option>
-                    </select>
-                    <p id="note1_"><small>NOTE: if your browser does not support the hardware codec yet, try Firefox with the codec plugin enabled.</small></p>
-                </div>
-            </fieldset>
-
-
-            <div id="commands">
-                <details open>
-                    <summary><b>Advanced options</b></summary>
-                    <fieldset>
-                        <span>Remote Peer/Signalling Server Address: </span><input required type="text" id="signalling_server" value="10.42.0.235:8080" title="<host>:<port>, default address is autodetected"/><br>
-                        <span>Optional ICE Servers (STUN/TURN): </span><input type="text" id="ice_servers" value="" title="array of RTCIceServer objects as valid JSON string"/>
-                    </fieldset>
-                </details>
-                <button id="start"  class="btn btn-success btn-default pull-left" onclick="start();">Go!</button>
-                <button disabled id="stop"  class="btn btn-danger btn-default pull-left" onclick="stop();">Stop</button>
-            </div> 
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Ok</button>
-            </div>
-          </div> 
-        </div>
-    </div> 
 
     <!-- cpu modal -->
     <div class="modal fade" id="cpuModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-status">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">RamuDroid Rpi CPU Info</h4>
@@ -228,7 +148,6 @@
 
 </div>
 
-
 </body>
 
 
@@ -237,6 +156,7 @@ $(document).ready(function(){
     $("#webrtcSettings").click(function(){
         $("#webrtcModal").modal();
     });
+
     $("#cpuSettings").click(function(){
 
         $.ajax({
@@ -261,6 +181,9 @@ $(document).ready(function(){
         }
     });
 
+
+    // address of Rpi
+    document.getElementById('address').value="192.168.0.5:8080/stream/webrtc";
 });
 </script>
 

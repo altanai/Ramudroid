@@ -258,6 +258,11 @@ Check for status
 root@raspberrypi:/home/pi# service uv4l_raspicam status
 ```
 
+### start https , ssl based streaming 
+```
+sudo uv4l --external-driver --device-name=video0 --server-option '--use-ssl=yes' --server-option '--ssl-private-key-file=/home/pi/selfsign.key' --server-option '--ssl-certificate-file=/home/pi/selfsign.crt' --verbosity=7 --server-option '--enable-webrtc-video=yes' --server-option '--enable-webrtc-audio=no' --server-option '--webrtc-receive-video=yes' --server-option '--webrtc-renderer-fullscreen=yes' --server-option '--webrtc-receive-datachannels=yes' --server-option '--webrtc-receive-audio=yes' --auto-video_nr --server-option '--enable-control-panel' --server-option '--enable-builtin-ui'
+```
+
 
 
 **Ref**
