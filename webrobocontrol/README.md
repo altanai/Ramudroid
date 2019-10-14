@@ -123,3 +123,12 @@ apt-get install openssl libssl-dev
 <warning> [server] Sorry, the device is either busy streaming to another peer or previous shutdown has not been completed yet
 **Solution** pkill uv4l
 or ctrl + c to stop the foreground process
+
+##Issue 5: 
+removing overlay on video from linux4you
+**Solution** Instead of using uv4l's raspicam driver to driver the raspberry pi camera, use the kernel-based bcm2835-v4l2 driver. 
+modprobe it and enable it using raspi-config, to have a /dev/video0 file.
+After the device file appears, you can start uv4l with these options:
+```
+uv4l --external-driver --device-name=video0
+```

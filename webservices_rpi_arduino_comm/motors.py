@@ -8,9 +8,9 @@ ser = serial.Serial ("/dev/serial0")    #Open named port
 ser.baudrate = 115200                   #Set baud rate to 9600 or 115200
 # ser.writeTimeout = 0
 # ser.timeout = 30
-# ser.bytesize = serial.EIGHTBITS
-# ser.parity = serial.PARITY_NONE
-# ser.stopbits = serial.STOPBITS_ONE
+ser.bytesize = serial.EIGHTBITS
+ser.parity = serial.PARITY_NONE
+ser.stopbits = serial.STOPBITS_ONE
 # ser.open()
 
 from flask import Flask, render_template, request
@@ -26,13 +26,13 @@ def index():
       	'title' 	: 'Motors output Status!',
       	'action'	: "none"
     }
-
 	return render_template('index.html', **templateData)
 
 @app.route("/move/<actiontype>")
 @cross_origin()
 def action(actiontype):
-	cmd = 0 
+	print("action "+ actiontype)
+	cmd = "0"
 	if actiontype == 'stop':
 		cmd = "1"
 		print(" o stop ")
@@ -58,10 +58,9 @@ def action(actiontype):
    		print(" X unmatched")
 
 	# cmd = cmd + '\r\n'
-	time.sleep(5)
-	ser.write(str.encode(cmd))
-
+	# time.sleep(1)
+	ser.write(cmd.encode("ascii"))
 	return "done"
 
 if __name__ == "__main__":
-   app.run(host='192.168.0.5', port=80, debug=True)
+   app.run(host='0.0.0.0', port=80, debug=True)

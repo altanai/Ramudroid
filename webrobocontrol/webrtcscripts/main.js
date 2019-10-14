@@ -24,6 +24,7 @@
                         console.log('got a stream!' , stream);
                         //var url = window.URL || window.webkitURL;
                         //video.src = url ? url.createObjectURL(stream) : stream; // deprecated
+                        console.log(" add stream to video ", video);
                         video.srcObject = stream;
                         video.play();
                     },
