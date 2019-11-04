@@ -18,7 +18,7 @@
     "gulp-expect-file": "^0.0.7",
     "gulp-util": "^3.0.7",
     "node-static": "^0.7.11",
-    "restify": "^4.3.4",
+    "restify": "^4.1.0",
     "restify-errors": "^4.3.0",
     "restify-plugins": "^1.6.0",
     "request": "^2.67.0",
