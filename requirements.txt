@@ -74,7 +74,7 @@ pytest-xdist==1.14
 python-dateutil==2.7.3
 pytz==2019.2
 readchar==0.7
-requests==2.10.0
+requests==2.20.0
 robotframework==3.0
 robotframework-ride==1.5.2.1
 robotframework-selenium2library==1.7.4
