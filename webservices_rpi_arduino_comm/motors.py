@@ -5,12 +5,12 @@ Raspberry Pi GPIO Status and Control for Ramudroid movement
 import time
 import serial
 ser = serial.Serial ("/dev/serial0")    #Open named port 
-ser.baudrate = 115200                   #Set baud rate to 9600 or 115200
+ser.baudrate = 115200                #Set baud rate to 9600 or 115200
 # ser.writeTimeout = 0
 # ser.timeout = 30
-# ser.bytesize = serial.EIGHTBITS
-# ser.parity = serial.PARITY_NONE
-# ser.stopbits = serial.STOPBITS_ONE
+ser.bytesize = serial.EIGHTBITS
+ser.parity = serial.PARITY_NONE
+ser.stopbits = serial.STOPBITS_ONE
 # ser.open()
 
 from flask import Flask, render_template, request
@@ -32,7 +32,8 @@ def index():
 @app.route("/move/<actiontype>")
 @cross_origin()
 def action(actiontype):
-	cmd = 0 
+	print("action "+ actiontype)
+	cmd = "0"
 	if actiontype == 'stop':
 		cmd = "1"
 		print(" o stop ")
@@ -57,9 +58,10 @@ def action(actiontype):
 	else:
    		print(" X unmatched")
 
-	# cmd = cmd + '\r\n'
-	time.sleep(5)
-	ser.write(str.encode(cmd))
+	#cmd = cmd + '\r\n'
+	time.sleep(1)
+	# print("send  "+ ascii(cmd))
+	ser.write(cmd.encode("ascii"))
 
 	return "done"
 
