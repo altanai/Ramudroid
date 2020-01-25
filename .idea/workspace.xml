@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cd108f9-98b2-4b07-b076-f4d0bc634074" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/sensors/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webservices_rpi_arduino_comm/.motors.py.swp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webservices_rpi_arduino_comm/requirnments.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Ramudroid.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ramudroid.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot_controller_rpi_setup/superscript.sh" beforeDir="false" afterPath="$PROJECT_DIR$/robot_controller_rpi_setup/superscript.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun.py" beforeDir="false" afterPath="$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webrobocontrol/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webrobocontrol/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webservices_rpi_arduino_comm/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/webservices_rpi_arduino_comm/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +24,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/superscript.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -58,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+            <state relative-caret-position="188">
+              <caret line="20" selection-start-line="20" selection-end-line="23" selection-end-column="13" />
               <folding>
                 <element signature="e#68#79#0" expanded="true" />
               </folding>
@@ -146,9 +147,9 @@
         <option value="$PROJECT_DIR$/robot_mcu_arduino_uno_setup/README.md" />
         <option value="$PROJECT_DIR$/robot_mcu_arduino_uno_setup/motorcontroller.c" />
         <option value="$PROJECT_DIR$/webservices_rpi_arduino_comm/test.py" />
-        <option value="$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun.py" />
         <option value="$PROJECT_DIR$/robot_controller_rpi_setup/README.md" />
         <option value="$PROJECT_DIR$/robot_controller_rpi_setup/superscript.sh" />
+        <option value="$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun.py" />
       </list>
     </option>
   </component>
@@ -255,7 +256,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2987952" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.112048194" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -544,20 +545,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-          <folding>
-            <element signature="e#68#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/superscript.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="20" selection-start-line="20" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <element signature="e#68#79#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
