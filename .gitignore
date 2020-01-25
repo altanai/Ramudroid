@@ -1,5 +1,7 @@
 #workspace IDE
 .idea/workspace.xml
+webservices_rpi_arduino_comm/__pycache__/
+
 
 # Logs
 logs
