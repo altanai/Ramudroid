@@ -5,8 +5,43 @@ Ramudroid is a bot to clean roads and outdoor environments. It is battery-powere
 
 [![Join the chat at https://gitter.im/altanai/m2mcommunication](https://badges.gitter.im/altanai/m2mcommunication.svg)](https://gitter.im/altanai/m2mcommunication?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+## Ramudorid's Hardware 
 
-Following are the modular compoenets of the project :
+List of components 
+
+### Processing and MicroController
+
+**Raspberry Pi 3B+/4 as Central Processing Unit**
+- runs webservices to recive remote navigation command
+- runs uv4l streaming server for webrtc 
+- opencv remote object identification 
+
+**Arduino Uno as Microcontroller**
+- receives commands from Rpi on serial interface
+- control motors for movement and cleaning
+
+### Driving Unit 
+
+**Pi NoIR Camera V2**
+Object and obstacle detection , uses Sony IMX219 8-megapixel sensor
+accessed through the MMAL and V4L APIs,
+
+**motor driver**
+
+
+### 5V DC gear motor 
+- 
+
+### Cleaning Unit 
+
+
+
+#### IR sensor to detect if garbage collectrion bin/tray is full
+infrared radiation can be found between the visible and microwave regions, wavelengths between 0.75 and 1000µm.
+
+## Software 
+
+Following are the modular components of the project :
 
 ### 1. m2mcommunication communication 
 
@@ -24,12 +59,11 @@ For intercomponents
 
 ### 2. Computer Vision, object traking, realtime video analysis
 
-To effectively limit the usuage of power on frontal clenaing brushes , it is cucial to target garbage/litter and active the motors only when suited target is found. 
+To effectively limit the usuage of power on frontal clenaing brushes, it is crucial to target garbage/litter and active the motors only when suited target is found. 
 Implemnting edge image analysis based on opencv filters and classifiers to detect garbage
 
 Ref : https://github.com/altanai/computervision
 https://github.com/altanai/opencv_extra
-
 
 ### 3. Live streaming and augmented reality
 

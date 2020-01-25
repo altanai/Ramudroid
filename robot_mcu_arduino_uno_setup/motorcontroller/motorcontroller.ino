@@ -21,18 +21,19 @@ void setup()
   pinMode(in4, OUTPUT);
   pinMode(brh, OUTPUT);
 
-    // initialize serial communication at 9600 bits per second:
+  // initialize serial communication at 9600 bits per second:
   Serial.begin(115200);
   digitalWrite(enA, HIGH);
   digitalWrite(enB, HIGH);
   digitalWrite(brh,HIGH);
 
 }
+
+// this function will run the motors in bakward direction at a fixed speed
 void backward()
 {
-  // this function will run the motors in bakward direction at a fixed speed
   // turn on motor A
-  Serial.println("back");
+  // Serial.println("back");
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
 
@@ -41,11 +42,11 @@ void backward()
   digitalWrite(in4, LOW);
 }
 
+// this function will run the motors in forward direction at a fixed speed
 void forward()
 {
-    // this function will run the motors in forward direction at a fixed speed
   // turn on motor A
-//  Serial.println("forward");
+  //  Serial.println("forward");
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
   // turn on motor B
@@ -53,9 +54,9 @@ void forward()
   digitalWrite(in4, HIGH);
 }
 
+// this function will run the motors in right direction at a fixed speed
 void right()
 {
-    // this function will run the motors in right direction at a fixed speed
   //  Serial.println("right");
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
@@ -63,19 +64,19 @@ void right()
   digitalWrite(in4, HIGH);
 }
 
+// this function will run the motors in left direction at a fixed speed
 void left()
 {
-    // this function will run the motors in left direction at a fixed speed
-    //Serial.println("left");
+  //Serial.println("left");
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
   digitalWrite(in3, HIGH);
   digitalWrite(in4, LOW);
 }
 
+// this function stop the motors
 void halt()
 {
-    // this function stop the motors
   // turn off motor 
   //Serial.println("stop");
   digitalWrite(in1, LOW);
@@ -89,27 +90,27 @@ void halt()
 void speed(int velocity)
 {
   if(velocity == 1)
-    {  
-        // set speed to 200 out of possible range 0~255
-      analogWrite(enA, 80);
-        // set speed to 200 out of possible range 0~255
-      analogWrite(enB, 200);
-    }
+  {  
+    // set speed to 200 out of possible range 0~255
+    analogWrite(enA, 80);
+    // set speed to 200 out of possible range 0~255
+    analogWrite(enB, 200);
+  }
   if(velocity == 2)
-      {
-       // set speed to 200 out of possible range 0~255
-        analogWrite(enA, 70);
-      // set speed to 200 out of possible range 0~255
-      analogWrite(enB, 160);
-      }
+  {
+    // set speed to 200 out of possible range 0~255
+    analogWrite(enA, 70);
+    // set speed to 200 out of possible range 0~255
+    analogWrite(enB, 160);
+  }
 
-   if(velocity == 3)
-      {
-       // set speed to 200 out of possible range 0~255
-        analogWrite(enA, 52);
-      // set speed to 200 out of possible range 0~255
-      analogWrite(enB, 120);
-      }
+  if(velocity == 3)
+  {
+    // set speed to 200 out of possible range 0~255
+    analogWrite(enA, 52);
+    // set speed to 200 out of possible range 0~255
+    analogWrite(enB, 120);
+  }
 }
 
 void serialRead(void)
@@ -148,8 +149,8 @@ void serialRead(void)
      }
     }
 }
+
 void loop()
 { 
   serialRead();
- 
 }    

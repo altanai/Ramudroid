@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Ramudroid.iml" filepath="$PROJECT_DIR$/.idea/Ramudroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../computer_vision/.idea/computer_vision.iml" filepath="$PROJECT_DIR$/../computer_vision/.idea/computer_vision.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../computer_vision_webrtc/.idea/computer_vision_webrtc.iml" filepath="$PROJECT_DIR$/../computer_vision_webrtc/.idea/computer_vision_webrtc.iml" />
+    </modules>
+  </component>
+</project>
