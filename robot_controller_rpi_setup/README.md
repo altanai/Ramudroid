@@ -1,5 +1,13 @@
 # Rpi Setup for Ramudroid
 
+**start in test mode**
+```bash
+env=test bash robot_controller_rpi_setup/superscript.sh
+```
+**start in prod mode**
+```bash
+env=prod bash robot_controller_rpi_setup/superscript.sh
+```
 
 ## Installing Raspbian OS
 
