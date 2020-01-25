@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cd108f9-98b2-4b07-b076-f4d0bc634074" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sensors/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webservices_rpi_arduino_comm/.motors.py.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webservices_rpi_arduino_comm/requirnments.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun.py" beforeDir="false" afterPath="$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webrobocontrol/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webrobocontrol/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webservices_rpi_arduino_comm/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/webservices_rpi_arduino_comm/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/motor_driver/motor_driver.ino" beforeDir="false" afterPath="$PROJECT_DIR$/motor_driver/motor_driver.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robot_controller_rpi_setup/superscript.sh" beforeDir="false" afterPath="$PROJECT_DIR$/robot_controller_rpi_setup/superscript.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webservices_rpi_arduino_comm/motors.py" beforeDir="false" afterPath="$PROJECT_DIR$/webservices_rpi_arduino_comm/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,50 +18,19 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rpi_object_detection_webrtc_stream/cv.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/superscript.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state relative-caret-position="135">
+              <caret line="9" column="72" lean-forward="true" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webservices_rpi_arduino_comm/imgs/Screenshot 2019-10-12 at 1.08.54 PM.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webservices_rpi_arduino_comm/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="255">
-                <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webservices_rpi_arduino_comm/motors.py">
+        <entry file="file://$PROJECT_DIR$/webservices_rpi_arduino_comm/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="20" selection-start-line="20" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="172">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#68#79#0" expanded="true" />
               </folding>
@@ -72,22 +39,69 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="150">
-                <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/webservices_rpi_arduino_comm/motors.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="57" column="45" lean-forward="true" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webrobocontrol/package-lock.json">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="25" lean-forward="true" selection-end-line="6074" />
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/motor_driver/motor_driver.ino">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="172" column="14" lean-forward="true" selection-start-line="172" selection-start-column="14" selection-end-line="172" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sensors/ardunio_ultrasonic_sensors/ultra_sonic.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sensors/ardunio_ultrasonic_sensors/range_detector.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sensors/ardunio_ultrasonic_sensors/Ultra_sonic.c.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="58" column="39" lean-forward="true" selection-end-line="77" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,11 +116,6 @@
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/imgs/Screenshot 2019-10-16 at 10.10.24 AM.png">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -148,8 +157,13 @@
         <option value="$PROJECT_DIR$/robot_mcu_arduino_uno_setup/motorcontroller.c" />
         <option value="$PROJECT_DIR$/webservices_rpi_arduino_comm/test.py" />
         <option value="$PROJECT_DIR$/robot_controller_rpi_setup/README.md" />
-        <option value="$PROJECT_DIR$/robot_controller_rpi_setup/superscript.sh" />
         <option value="$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun.py" />
+        <option value="$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun2.py" />
+        <option value="$PROJECT_DIR$/webservices_rpi_arduino_comm/motorcontroller.py" />
+        <option value="$PROJECT_DIR$/robot_controller_rpi_setup/superscript.sh" />
+        <option value="$PROJECT_DIR$/webservices_rpi_arduino_comm/motors.py" />
+        <option value="$PROJECT_DIR$/sensors/ardunio_ultrasonic_sensors/range_detector.py" />
+        <option value="$PROJECT_DIR$/motor_driver/motor_driver.ino" />
       </list>
     </option>
   </component>
@@ -177,13 +191,12 @@
             <path>
               <item name="Ramudroid" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ramudroid" type="462c0819:PsiDirectoryNode" />
-              <item name="robot_controller_rpi_setup" type="462c0819:PsiDirectoryNode" />
+              <item name="motor_driver" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Ramudroid" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ramudroid" type="462c0819:PsiDirectoryNode" />
               <item name="robot_controller_rpi_setup" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Ramudroid" type="b2602c69:ProjectViewProjectNode" />
@@ -194,6 +207,22 @@
               <item name="Ramudroid" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ramudroid" type="462c0819:PsiDirectoryNode" />
               <item name="rpi_webrtc_stream" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ramudroid" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ramudroid" type="462c0819:PsiDirectoryNode" />
+              <item name="sensors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ramudroid" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ramudroid" type="462c0819:PsiDirectoryNode" />
+              <item name="sensors" type="462c0819:PsiDirectoryNode" />
+              <item name="ardunio_ultrasonic_sensors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ramudroid" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ramudroid" type="462c0819:PsiDirectoryNode" />
+              <item name="webrobocontrol" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Ramudroid" type="b2602c69:ProjectViewProjectNode" />
@@ -256,7 +285,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.112048194" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2879518" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -292,9 +321,6 @@
           <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/motor_driver/motor_driver.ino">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../computer_vision/traffic_detection_CNN_model/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -501,16 +527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webservices_rpi_arduino_comm/read.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webservices_rpi_arduino_comm/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -521,16 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="150">
-            <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webrobocontrol/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -538,27 +544,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webservices_rpi_arduino_comm/motors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+    <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="60">
+            <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="55" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/superscript.sh">
+    <entry file="file://$PROJECT_DIR$/webservices_rpi_arduino_comm/read.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        <state relative-caret-position="45">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="20" selection-start-line="20" selection-end-line="23" selection-end-column="13" />
+        <state relative-caret-position="255">
+          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
           <folding>
             <element signature="e#68#79#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/superscript.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="72" lean-forward="true" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservices_rpi_arduino_comm/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#68#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robot_controller_rpi_setup/test/testrun2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="58" column="39" lean-forward="true" selection-end-line="77" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservices_rpi_arduino_comm/motors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="57" column="45" lean-forward="true" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sensors/ardunio_ultrasonic_sensors/Ultra_sonic.c.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sensors/ardunio_ultrasonic_sensors/ultra_sonic.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sensors/ardunio_ultrasonic_sensors/range_detector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motor_driver/motor_driver.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="172" column="14" lean-forward="true" selection-start-line="172" selection-start-column="14" selection-end-line="172" selection-end-column="14" />
         </state>
       </provider>
     </entry>
