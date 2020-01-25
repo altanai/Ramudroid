@@ -4,6 +4,8 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="computer_vision" />
+    <orderEntry type="module" module-name="computer_vision_webrtc" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="pytest" />
