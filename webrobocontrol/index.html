@@ -12,8 +12,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
         <link rel=stylesheet href="css/webrtcpagestyle.css">
-
-        <script type="text/javascript" src="scripts/loaddatacsv.js"></script>
         
         <link rel=stylesheet href="css/ar.css">
 
@@ -119,13 +117,6 @@
         <button type="button" class="btn btn-default btn-mediaControlBar" id="cpuSettings">Robot's CPU</button>
     </div>
         
-    <div class="row" style="margin-top: 10px;">
-        <div class="col-sm-4" id="barchartDiv" style="width: 400px; height: 300px;"></div>
-        <canvas id="edgeCanvas" hidden>Your browser doesn't support canvas.</canvas>
-        <div id="capturefile" class="col-sm-6 capturefileLogsDiv" >
-        </div>
-    </div>
-
     <a hidden target="_top" href="/">home</a>&nbsp;<a href="/panel" target="_blank" title="change the image settings on-the-fly">control panel</a>
 
     <!-- cpu modal -->
@@ -195,7 +186,7 @@ $(document).ready(function(){
 </script>
 
 <script src="scripts/requestanimationframedirection2.js"></script>
-<script id="directionscript" src="scripts/directionscript.js"></script>
+
 <script src="scripts/cpudata.js"></script>
 
 </html>

@@ -258,10 +258,26 @@ Check for status
 root@raspberrypi:/home/pi# service uv4l_raspicam status
 ```
 
+stop uv4l 
+```
+pkill uv4l
+service uv4l_raspicam stop
+```
+
 ### start https , ssl based streaming 
+
+create self signed cerst 
 ```
-sudo uv4l --external-driver --device-name=video0 --server-option '--use-ssl=yes' --server-option '--ssl-private-key-file=/home/pi/selfsign.key' --server-option '--ssl-certificate-file=/home/pi/selfsign.crt' --verbosity=7 --server-option '--enable-webrtc-video=yes' --server-option '--enable-webrtc-audio=no' --server-option '--webrtc-receive-video=yes' --server-option '--webrtc-renderer-fullscreen=yes' --server-option '--webrtc-receive-datachannels=yes' --server-option '--webrtc-receive-audio=yes' --auto-video_nr --server-option '--enable-control-panel' --server-option '--enable-builtin-ui'
+openssl genrsa -out selfsign.key 2048 && openssl req -new -x509 -key selfsign.key -out selfsign.crt -sha256
 ```
+give them in server options 
+```
+pi@raspberrypi:~ $ export OPENSSL_CONF=/etc/ssl/
+pi@raspberrypi:~ $ uv4l --external-driver --device-name=video0 --server-option '--use-ssl=yes' --server-option '--ssl-private-key-file=/home/pi/selfsign.key' --server-option '--ssl-certificate-file=/home/pi/selfsign.crt' --verbosity=7 --server-option '--enable-webrtc-video=yes' --server-option '--enable-webrtc-audio=no' --server-option '--webrtc-receive-video=yes' --server-option '--webrtc-renderer-fullscreen=yes' --server-option '--webrtc-receive-datachannels=yes' --server-option '--webrtc-receive-audio=yes' --auto-video_nr --server-option '--enable-control-panel' --server-option '--enable-builtin-ui'
+```
+
+
+## opencv
 
 
 

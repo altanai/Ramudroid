@@ -26,7 +26,6 @@ def index():
       	'title' 	: 'Motors output Status!',
       	'action'	: "none"
     }
-
 	return render_template('index.html', **templateData)
 
 @app.route("/move/<actiontype>")
@@ -58,12 +57,10 @@ def action(actiontype):
 	else:
    		print(" X unmatched")
 
-	#cmd = cmd + '\r\n'
-	time.sleep(1)
-	# print("send  "+ ascii(cmd))
+	# cmd = cmd + '\r\n'
+	# time.sleep(1)
 	ser.write(cmd.encode("ascii"))
-
 	return "done"
 
 if __name__ == "__main__":
-   app.run(host='192.168.0.5', port=80, debug=True)
+   app.run(host='0.0.0.0', port=80, debug=True)

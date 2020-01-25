@@ -23,7 +23,7 @@ function detectFace(canvas) {
     if (!faceCascade) {
         console.log("Creating the cascade classifier");
         faceCascade = new cv.CascadeClassifier();
-        faceCascade.load('../../test/data/haarcascade_frontalface_default.xml');
+        faceCascade.load('models/haarcascade_frontalface_default.xml');
         //faceCascade.load('../../test/data/haarcascade_fullbody.xml');
         //faceCascade.load('../../test/data/hogcascade_pedestrians.xml');
         //faceCascade.load('../../test/data/haarcascade_lowerbody.xml');

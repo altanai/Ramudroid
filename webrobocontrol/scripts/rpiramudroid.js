@@ -1,6 +1,8 @@
 // Scripts to communicate the webservices to backend rapsberry Pi CPU over flask framework
 // added cors realted headers 
 
+var rpiip = "192.168.0.5:5000"
+
 function togglebtn(item){
     console.log("togglebtn item -" , item);
     if(item.className == "btn btn-success") {
@@ -24,7 +26,6 @@ function clearotherbuttons(selectedbutton){
     }
 }
 
-var rpiip = "192.168.0.5:5000"
 async function operation(move_var){  
     console.log(" ------------- operation " , move_var);
 
