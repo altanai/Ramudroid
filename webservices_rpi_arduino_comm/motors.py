@@ -5,7 +5,7 @@ Raspberry Pi GPIO Status and Control for Ramudroid movement
 import time
 import serial
 ser = serial.Serial ("/dev/serial0")    #Open named port 
-ser.baudrate = 115200                   #Set baud rate to 9600 or 115200
+ser.baudrate = 115200                #Set baud rate to 9600 or 115200
 # ser.writeTimeout = 0
 # ser.timeout = 30
 ser.bytesize = serial.EIGHTBITS
