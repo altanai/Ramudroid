@@ -1,8 +1,7 @@
 if [[ $env == "test" ]]; then
-    sudo python /home/pi/Ramudroid/robot_controller_rpi/test/testrun.py
-    raspi
+    sudo python /home/pi/Ramudroid/robot_controller_rpi_setup/test/testrun.py
 elif [[ $env == "prod" ]]; then
-    sudo env FLASK_ENV=development FLASK_APP=/home/pi/Ramudroid/webservices_rpi_arduino_comm/motors.py flask run -h 0.0.0.0 --cert=adhoc
+    sudo env FLASK_ENV=development FLASK_APP=/home/pi/Ramudroid/webservices_rpi_arduino_comm/main.py flask run -h 0.0.0.0 --cert=adhoc
     service uv4l_raspicam stop
     export OPENSSL_CONF=/etc/ssl/
     uv4l --external-driver --device-name=video0 \
