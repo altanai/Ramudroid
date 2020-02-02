@@ -74,7 +74,7 @@ pytest-xdist==1.14
 python-dateutil==2.7.3
 pytz==2019.2
 readchar==0.7
-requests==2.10.0
+requests==2.20.0
 robotframework==3.0
 robotframework-ride==1.5.2.1
 robotframework-selenium2library==1.7.4
@@ -95,7 +95,7 @@ tabulate==0.8.2
 termcolor==1.1.0
 tox==3.2.1
 traitlets==4.2.2
-urllib3==1.23
+urllib3==1.24.2
 validators==0.12.1
 virtualenv==16.0.0
 Wave==0.0.2

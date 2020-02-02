@@ -95,7 +95,7 @@ tabulate==0.8.2
 termcolor==1.1.0
 tox==3.2.1
 traitlets==4.2.2
-urllib3==1.23
+urllib3==1.24.2
 validators==0.12.1
 virtualenv==16.0.0
 Wave==0.0.2
