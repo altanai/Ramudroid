@@ -119,8 +119,9 @@ else install it
 apt-get install openssl libssl-dev
 ```
 
-### Issue 4 :
+### Issue 4:
 <warning> [server] Sorry, the device is either busy streaming to another peer or previous shutdown has not been completed yet
+
 **Solution** pkill uv4l
 or ctrl + c to stop the foreground process
 
