@@ -77,7 +77,7 @@ https://github.com/altanai/opencv_extra
 
 ### 3. Live streaming and augmented reality
 
-![alt Ramudroid v6.5](http://s20.postimg.org/cf0t9nnkt/live_Streaming_1.png)
+https://youtu.be/O7b6NlOpLso
 
 ### 4. Robot's core control unit
 
@@ -98,7 +98,7 @@ gpio readall
 
 ### 5. Web Console for Ramudroid
 
-![alt Ramudroid webconsole ](https://altanaitelecom.files.wordpress.com/2016/03/screenshot-from-2016-03-19-04-28-53.png?w=728)
+![alt Ramudroid webconsole ](webrobocontrol/screenshots/webconsole1.png)
 
 ## Author 
 Altanai https://www.linkedin.com/in/altanai
