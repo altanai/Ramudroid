@@ -115,4 +115,4 @@ Ramudroid v5 https://altanaitelecom.wordpress.com/?s=Bot+to+clean+roads+and+outd
 Ramudorid v7 Surajdroid ( Ramudroid v7 Solar Powered ) - https://telecom.altanai.com/2018/12/09/surajdroid-ramudroid-v7-solar-powered/
 
 **License**
-GPL
+MIT
