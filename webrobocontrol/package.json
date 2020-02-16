@@ -4,7 +4,7 @@
   "description": "- Communicated to Ramudroid over REST apis and MQTT - Live streams ramudroid's camera intake and adds Augmented reality - Overlays GPS location on GIS system like google maps  - Displays real time statistics and anlytics  - compatible with chromium and mozilla browsers - device agnostic design using bootstrap templates",
   "main": "server.js",
   "dependencies": {
-    "apidoc": "^0.15.1",
+    "apidoc": "^0.20.0",
     "dotenv": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-add-src": "^0.2.0",
@@ -18,11 +18,10 @@
     "gulp-uglify": "^1.5.4",
     "gulp-util": "^3.0.8",
     "node-static": "^0.7.11",
-    "request": "^2.88.0",
+    "request": "^2.68.0",
     "restify": "^4.3.4",
     "restify-errors": "^4.3.0",
     "restify-plugins": "^1.6.0",
-    "request": "^2.68.0",
     "socket.io": "^0.9.19",
     "underscore": "^1.9.1"
   },
