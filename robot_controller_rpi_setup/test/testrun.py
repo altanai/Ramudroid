@@ -22,16 +22,16 @@ ser.stopbits = serial.STOPBITS_ONE
 print("go straight")
 ser.write("2".encode("ascii"))
 time.sleep(5)
-#
-# # encounter garbage to pick
-# print("encounter garbage to pick")
-# ser.write("6".encode("ascii"))
-# time.sleep(3)
-# ser.write("7".encode("ascii"))
-#
-# # go straight
-# print("go straight")
-# time.sleep(5)
+
+# encounter garbage to pick
+print("encounter garbage to pick")
+ser.write("6".encode("ascii"))
+time.sleep(3)
+ser.write("7".encode("ascii"))
+
+# go straight
+print("go straight")
+time.sleep(5)
 
 # avoid obstruction from right side
 print("avoid obstruction from right side")
@@ -39,28 +39,28 @@ ser.write("5".encode("ascii"))
 ser.write("2".encode("ascii"))
 time.sleep(2)
 
-# ser.write("4".encode("ascii"))
-# ser.write("2".encode("ascii"))
-# time.sleep(3)
-#
-# ser.write("4".encode("ascii"))
-# ser.write("2".encode("ascii"))
-# time.sleep(2)
-#
-# ser.write("5".encode("ascii"))
-# ser.write("2".encode("ascii"))
-#
-# # go straight
-# print("go straight")
-# time.sleep(5)
-#
-# # encounter garbage to pick
-# print("encounter garbage to pick")
-# ser.write("6".encode("ascii"))
-# time.sleep(3)
-# ser.write("7".encode("ascii"))
-#
-# # go straight and stop
-# print("go straight ans stop")
-# time.sleep(5)
-# ser.write("1".encode("ascii"))
+ser.write("4".encode("ascii"))
+ser.write("2".encode("ascii"))
+time.sleep(3)
+
+ser.write("4".encode("ascii"))
+ser.write("2".encode("ascii"))
+time.sleep(2)
+
+ser.write("5".encode("ascii"))
+ser.write("2".encode("ascii"))
+
+# go straight
+print("go straight")
+time.sleep(5)
+
+# encounter garbage to pick
+print("encounter garbage to pick")
+ser.write("6".encode("ascii"))
+time.sleep(3)
+ser.write("7".encode("ascii"))
+
+# go straight and stop
+print("go straight ans stop")
+time.sleep(5)
+ser.write("1".encode("ascii"))

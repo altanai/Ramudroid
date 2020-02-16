@@ -59,6 +59,8 @@ class Ramudroid:
             'right': self.turnRight(t),
             'left': self.turnLeft(t),
             'stop': self.stop(t),
+            'brushon': "",
+            'brushoff': ""
         }[action]
 
 rdroid = Ramudroid("debug", 7)

@@ -428,7 +428,8 @@ sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
 ```
 
 enabling from cmd line 
-sudo raspi-config - > interfaing options ->
+sudo raspi-config - > interfacing options ->
+
 
 
 

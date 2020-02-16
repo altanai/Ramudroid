@@ -5,14 +5,16 @@ Ramudroid is a bot to clean roads and outdoor environments. It is battery-powere
 
 [![Join the chat at https://gitter.im/altanai/m2mcommunication](https://badges.gitter.im/altanai/m2mcommunication.svg)](https://gitter.im/altanai/m2mcommunication?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-## Ramudorid's Hardware 
+## Ramudroid's Hardware 
+
+![alt Ramudroid v7.5](robot_controller_rpi_setup/imgs/Ramudroid_circuit_diagram.jpg)
 
 List of components 
 
 ### Processing and MicroController
 
 **Raspberry Pi 3B+/4 as Central Processing Unit**
-- runs webservices to recive remote navigation command
+- runs webservices to receive remote navigation command
 - runs uv4l streaming server for webrtc 
 - opencv remote object identification 
 
@@ -27,13 +29,21 @@ Object and obstacle detection , uses Sony IMX219 8-megapixel sensor
 accessed through the MMAL and V4L APIs,
 
 **motor driver**
+L298 Motor Driver 
 
-
-### 5V DC gear motor 
-- 
+**power**
+Lipo batteru 11.1 V or Solar Panel connection 12 V
 
 ### Cleaning Unit 
 
+**brushes motor**
+3 x 5V DC gear motor  
+
+**relay**
+5V single channel relay
+
+**power**
+Lipo batteru 11.1 V or Solar Panel connection 12 V
 
 
 #### IR sensor to detect if garbage collectrion bin/tray is full
@@ -43,7 +53,7 @@ infrared radiation can be found between the visible and microwave regions, wavel
 
 Following are the modular components of the project :
 
-### 1. m2mcommunication communication 
+### 1. m2m-communication communication 
 
 Communication between the web client , mobile client , cloud server and robot's  core unit is primarily on REST API's.
 Communication techniques used in the project are as follows 
@@ -57,7 +67,7 @@ For intercomponents
 - UART 
 - I2C
 
-### 2. Computer Vision, object traking, realtime video analysis
+### 2. Computer Vision, object tracking, realtime video analysis
 
 To effectively limit the usuage of power on frontal clenaing brushes, it is crucial to target garbage/litter and active the motors only when suited target is found. 
 Implemnting edge image analysis based on opencv filters and classifiers to detect garbage

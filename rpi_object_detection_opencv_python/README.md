@@ -85,6 +85,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D BUILD_TESTS=OFF \
     -D INSTALL_PYTHON_EXAMPLES=OFF \
     -D OPENCV_ENABLE_NONFREE=ON \
+    -D BUILD_opencv_python3=TRUE \
     -D CMAKE_SHARED_LINKER_FLAGS='-latomic' \
     -D BUILD_EXAMPLES=OFF ..
 ```
@@ -193,7 +194,7 @@ sudo /etc/init.d/dphys-swapfile start
 
 Now compile using all four cores:
 ```
-make -j4
+make -j$(nproc)
 ```
 and install
 ```
@@ -206,8 +207,9 @@ Reset swap size back to 100
 ## check opencv installaion 
 
 ```python
-import cv2
-print(cv2.__version__)
+>>> import cv2
+>>> print(cv2.__version__)
+3.4.6
 ```
 
 ## Debugging help 
@@ -227,9 +229,28 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D ENABLE_NEON=ON \
     -D ENABLE_VFPV3=ON \
     -D BUILD_TESTS=OFF \
+    -D INSTALL_C_EXAMPLES=OFF \
     -D INSTALL_PYTHON_EXAMPLES=OFF \
+    -D WITH_QT=OFF \
+    -D WITH_OPENGL=OFF \
     -D OPENCV_ENABLE_NONFREE=ON \
     -D CMAKE_SHARED_LINKER_FLAGS='-latomic' \
     -D BUILD_EXAMPLES=OFF ..
 ```
 
+**Issue 2** cv module error after build
+```bash
+ModuleNotFoundError: No module named 'cv2'
+```
+or
+```bash
+ File "<stdin>", line 1, in <module>
+  File "/root/.virtualenvs/cv/lib/python3.7/site-packages/cv2/__init__.py", line 3, in <module>
+    from .cv2 import *
+ImportError: /root/.virtualenvs/cv/lib/python3.7/site-packages/cv2/cv2.cpython-37m-arm-linux-gnueabihf.so: undefined symbol: __atomic_fetch_add_8
+```
+**solution** 
+```bash
+pip3 install opencv-python==3.4.6.27
+```
+Do not use  pip install opencv_contrib_python as doesnt work with rpi 

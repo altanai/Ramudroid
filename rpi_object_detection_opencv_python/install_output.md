@@ -1,0 +1,113 @@
+-- General configuration for OpenCV 3.4.9-dev =====================================
+--   Version control:               unknown
+-- 
+--   Platform:
+--     Timestamp:                   2020-01-22T10:44:41Z
+--     Host:                        Linux 4.19.75-v7l+ armv7l
+--     CMake:                       3.13.4
+--     CMake generator:             Unix Makefiles
+--     CMake build tool:            /usr/bin/make
+--     Configuration:               RELEASE
+-- 
+--   CPU/HW features:
+--     Baseline:                    VFPV3 NEON
+--       requested:                 DETECT
+--       required:                  VFPV3 NEON
+-- 
+--   C/C++:
+--     Built as dynamic libs?:      YES
+--     C++11:                       YES
+--     C++ Compiler:                /usr/bin/c++  (ver 8.3.0)
+--     C++ flags (Release):         -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -mfpu=neon -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
+--     C++ flags (Debug):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -mfpu=neon -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+--     C Compiler:                  /usr/bin/cc
+--     C flags (Release):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -mfpu=neon -fvisibility=hidden -O3 -DNDEBUG  -DNDEBUG
+--     C flags (Debug):             -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -mfpu=neon -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+--     Linker flags (Release):      -latomic  -Wl,--gc-sections -Wl,--as-needed  
+--     Linker flags (Debug):        -latomic  -Wl,--gc-sections -Wl,--as-needed  
+--     ccache:                      NO
+--     Precompiled headers:         NO
+--     Extra dependencies:          atomic dl m pthread rt
+--     3rdparty dependencies:
+-- 
+--   OpenCV modules:
+--     To be built:                 calib3d core dnn features2d flann highgui imgcodecs imgproc ml objdetect photo python2 python3 shape stitching superres ts video videoio videostab
+--     Disabled:                    world
+--     Disabled by dependency:      -
+--     Unavailable:                 cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev java js viz
+--     Applications:                perf_tests apps
+--     Documentation:               NO
+--     Non-free algorithms:         YES
+-- 
+--   GUI: 
+--     GTK+:                        YES (ver 3.24.5)
+--       GThread :                  YES (ver 2.58.3)
+--       GtkGlExt:                  NO
+--     VTK support:                 NO
+-- 
+--   Media I/O: 
+--     ZLib:                        /usr/lib/arm-linux-gnueabihf/libz.so (ver 1.2.11)
+--     JPEG:                        /usr/lib/arm-linux-gnueabihf/libjpeg.so (ver 62)
+--     WEBP:                        build (ver encoder: 0x020e)
+--     PNG:                         /usr/lib/arm-linux-gnueabihf/libpng.so (ver 1.6.36)
+--     TIFF:                        build (ver 42 - 4.0.10)
+--     JPEG 2000:                   /usr/lib/arm-linux-gnueabihf/libjasper.so (ver 1.900.1)
+--     OpenEXR:                     build (ver 2.3.0)
+--     HDR:                         YES
+--     SUNRASTER:                   YES
+--     PXM:                         YES
+-- 
+--   Video I/O:
+--     DC1394:                      NO
+--     FFMPEG:                      YES
+--       avcodec:                   YES (ver 58.35.100)
+--       avformat:                  YES (ver 58.20.100)
+--       avutil:                    YES (ver 56.22.100)
+--       swscale:                   YES (ver 5.3.100)
+--       avresample:                NO
+--     GStreamer:                   YES
+--       base:                      YES (ver 1.14.4)
+--       video:                     YES (ver 1.14.4)
+--       app:                       YES (ver 1.14.4)
+--       riff:                      YES (ver 1.14.4)
+--       pbutils:                   YES (ver 1.14.4)
+--     libv4l/libv4l2:              NO
+--     v4l/v4l2:                    linux/videodev2.h
+-- 
+--   Parallel framework:            pthreads
+-- 
+--   Trace:                         YES (with Intel ITT)
+-- 
+--   Other third-party libraries:
+--     Lapack:                      NO
+--     Eigen:                       NO
+--     Custom HAL:                  YES (carotene (ver 0.0.1))
+--     Protobuf:                    build (3.5.1)
+-- 
+--   OpenCL:                        YES (no extra features)
+--     Include path:                /home/pi/opencv-3.4/3rdparty/include/opencl/1.2
+--     Link libraries:              Dynamic load
+-- 
+--   Python 2:
+--     Interpreter:                 /usr/bin/python2.7 (ver 2.7.16)
+--     Libraries:                   /usr/lib/arm-linux-gnueabihf/libpython2.7.so (ver 2.7.16)
+--     numpy:                       /usr/lib/python2.7/dist-packages/numpy/core/include (ver 1.16.2)
+--     install path:                lib/python2.7/dist-packages/cv2/python-2.7
+-- 
+--   Python 3:
+--     Interpreter:                 /root/.virtualenvs/cv/bin/python3 (ver 3.7.3)
+--     Libraries:                   /usr/lib/arm-linux-gnueabihf/libpython3.7m.so (ver 3.7.3)
+--     numpy:                       /root/.virtualenvs/cv/lib/python3.7/site-packages/numpy/core/include (ver 1.18.1)
+--     install path:                lib/python3.7/site-packages/cv2/python-3.7
+-- 
+--   Python (for build):            /usr/bin/python2.7
+-- 
+--   Java:                          
+--     ant:                         NO
+--     JNI:                         NO
+--     Java wrappers:               NO
+--     Java tests:                  NO
+-- 
+--   Install to:                    /usr/local
+-- -----------------------------------------------------------------
+-- 

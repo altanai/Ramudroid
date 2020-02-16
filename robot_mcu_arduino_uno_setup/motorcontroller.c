@@ -1,56 +1,59 @@
 // connect motor controller pins to Arduino digital pins
 
-// motor one
+// motor Left
 int enA = 10;
 int in1 = 9;
 int in2 = 8;
 
-// motor two
+// motor Right
 int enB = 5;
 int in3 = 7;
 int in4 = 6;
-int brh = 2 ;
 
-  
+// Brush
+int brh = 2;
+
+
 void setup()
 {
-    // set all the motor control pins to outputs
-    pinMode(enA, OUTPUT);
-    pinMode(enB, OUTPUT);
-    pinMode(in1, OUTPUT);
-    pinMode(in2, OUTPUT);
-    pinMode(in3, OUTPUT);
-    pinMode(in4, OUTPUT);
-    pinMode(brh, OUTPUT);
+  // set all the motor control pins to outputs
+  pinMode(enA, OUTPUT);
+  pinMode(enB, OUTPUT);
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(in3, OUTPUT);
+  pinMode(in4, OUTPUT);
+  pinMode(brh, OUTPUT);
 
-    // initialize serial communication at 9600 bits per second:
-    Serial.begin(115200);
-    digitalWrite(enA, HIGH);
-    digitalWrite(enB, HIGH);
-    digitalWrite(brh,HIGH);
+  // initialize serial communication at 9600 bits per second:
+  Serial.begin(115200);
+  digitalWrite(enA, HIGH);
+  digitalWrite(enB, HIGH);
+  digitalWrite(brh,HIGH);
 
 }
 void backward()
 {
-    // this function will run the motors in bakward direction at a fixed speed
-    // turn on motor A
-    Serial.println("back");
-    digitalWrite(in1, HIGH);
-    digitalWrite(in2, LOW);
+  // this function will run the motors in bakward direction at a fixed speed
 
-    // turn on motor B
-    digitalWrite(in3, HIGH);
-    digitalWrite(in4, LOW);
+  // turn on motor Left
+  Serial.println("back");
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+
+  // turn on motor right
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
 }
 
 void forward()
 {
     // this function will run the motors in forward direction at a fixed speed
-    // turn on motor A
+    // turn on motor Left
     // Serial.println("forward");
     digitalWrite(in1, LOW);
     digitalWrite(in2, HIGH);
-    // turn on motor B
+    // turn on motor Right
     digitalWrite(in3, LOW);
     digitalWrite(in4, HIGH);
 }
@@ -59,8 +62,10 @@ void right()
 {
     // this function will run the motors in right direction at a fixed speed
     //  Serial.println("right");
+    // turn on motor Left
     digitalWrite(in1, HIGH);
     digitalWrite(in2, LOW);
+    // turn on motor Right
     digitalWrite(in3, LOW);
     digitalWrite(in4, HIGH);
 }
@@ -69,8 +74,10 @@ void left()
 {
     // this function will run the motors in left direction at a fixed speed
     //Serial.println("left");
+    // turn on motor Left
     digitalWrite(in1, LOW);
     digitalWrite(in2, HIGH);
+    // turn on motor Right
     digitalWrite(in3, HIGH);
     digitalWrite(in4, LOW);
 }
@@ -78,11 +85,11 @@ void left()
 void halt()
 {
     // this function stop the motors
-    // turn off motor
+    // turn off motor Left
     //Serial.println("stop");
     digitalWrite(in1, LOW);
     digitalWrite(in2, LOW);
-    // turn off motor B
+    // turn off motor Right
     digitalWrite(in3, LOW);
     digitalWrite(in4, LOW);
 }
@@ -97,14 +104,13 @@ void speed(int velocity)
         // set speed to 200 out of possible range 0~255
         analogWrite(enB, 200);
     }
-
     if(velocity == 2)
-      {
+    {
         // set speed to 200 out of possible range 0~255
         analogWrite(enA, 70);
         // set speed to 200 out of possible range 0~255
         analogWrite(enB, 160);
-     }
+    }
 
     if(velocity == 3)
     {
@@ -125,36 +131,44 @@ void serialRead(void)
         Serial.println(incomingByte);
         switch(incomingByte)
         {
-          case 50:
+            case 50:
             forward();
             break;
-          case 51:
+
+            case 51:
             backward();
             break;
-          case 52:
+
+            case 52:
             left();
             break;
-          case 53:
+
+            case 53:
             right();
             break;
-          case 49:
+
+            case 49:
             halt();
             break;
-          case 54:
+
+            case 54:
             digitalWrite(brh,LOW);
             break;
-          case 55:
+
+            case 55:
             digitalWrite(brh,HIGH);
             break;
-          default:
+
+            default:
             halt();
         }
     }
 }
-void loop()
-{ 
-  serialRead();
- 
-}    
 
- 
+void loop()
+{
+    serialRead();
+}
+
+
+
