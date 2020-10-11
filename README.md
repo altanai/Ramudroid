@@ -1,7 +1,12 @@
 
 ![alt Ramudroid ](https://altanaitelecom.files.wordpress.com/2016/03/ramudroid-image.png?w=500)
 
-Ramudroid is a bot to clean roads and outdoor environments. It is battery-powered. For brains, there's a Raspberry Pi on board. It's got wireless connectivity. There's a camera for real-time image sensing of the environment
+Project “Ramudroid” is designed to use computer vision and autonomous robots to target litter and clean roadsides for keeping the locality clean. 
+The hardware assembly is designed to drive through roads / lanes / alleys / narrows pathways and lift up small litter objects like plastic cups, wrappers, leaves etc.
+
+It's got wireless connectivity. 
+
+There's a camera for real-time image sensing of the environment
 
 [![Join the chat at https://gitter.im/altanai/m2mcommunication](https://badges.gitter.im/altanai/m2mcommunication.svg)](https://gitter.im/altanai/m2mcommunication?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -100,19 +105,45 @@ gpio readall
 
 ![alt Ramudroid webconsole ](webrobocontrol/screenshots/webconsole1.png)
 
-## Author 
-Altanai https://www.linkedin.com/in/altanai
 
 **Contributing guidelines**
+
 https://github.com/altanai/Ramudroid/wiki/Contributing-Guidelines
 
-**References**
+**External References and Resources**
+
 Hackaday : https://hackaday.io/project/11201-ramudroid
+
 JigsawAcdemy : https://youtu.be/49dtFYhxmjc
 
-**Version5**
-Ramudroid v5 https://altanaitelecom.wordpress.com/?s=Bot+to+clean+roads+and+outdoors
-Ramudorid v7 Surajdroid ( Ramudroid v7 Solar Powered ) - https://telecom.altanai.com/2018/12/09/surajdroid-ramudroid-v7-solar-powered/
+## Version
+
+- Ramudroid v5
+    - Autonomous navigation with GPS
+    https://altanaitelecom.wordpress.com/?s=Bot+to+clean+roads+and+outdoors
+    
+- Ramudorid v6 
+    - Enhancement to autonomous navigation 
+    - Sensors addons - rain , ultrasonic 
+    - Web console enhanced. 
+    
+- Ramudroid v6.5
+    - Minimize usage of heavy libraries such as three.js for Augmented reality, google maps for GPS coordinates plotting 
+    - Autonomous control to the robot to self drive through obstacles.
+    - Edge analytics on Obstruction and recalculate the route.
+    
+- Ramudorid v7 Surajdroid ( Ramudroid v7 Solar Powered) 
+
+    https://telecom.altanai.com/2018/12/09/surajdroid-ramudroid-v7-solar-powered/
+
+- Ramudorid v7.5 Surajdroid  
+    A
+    https://telecom.altanai.com/2018/12/09/surajdroid-ramudroid-v7-solar-powered/
+
+
+## Author 
+@Altanai https://www.linkedin.com/in/altanai
+
 
 **License**
 MIT
