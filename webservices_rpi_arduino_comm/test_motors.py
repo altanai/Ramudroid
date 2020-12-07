@@ -52,6 +52,18 @@ class Ramudroid:
         time.sleep(t)
         ser.write("1".encode("ascii"))
 
+    def brushOn(self, t):
+        print("brush on")
+        ser.write("6".encode("ascii"))
+        time.sleep(t)
+        ser.write("1".encode("ascii"))
+
+    def brushOff(self, t):
+        print("brush off")
+        ser.write("7".encode("ascii"))
+        time.sleep(t)
+        ser.write("1".encode("ascii"))
+
     def commander(self, action, t):
         return {
             'forward': self.moveForward(t),
@@ -59,11 +71,17 @@ class Ramudroid:
             'right': self.turnRight(t),
             'left': self.turnLeft(t),
             'stop': self.stop(t),
+            'brushOn' : self.brushOn(t),
+            'brushOff': self.brushOff(t)
         }[action]
 
 rdroid = Ramudroid("debug", 7)
-rdroid.commander("backward",4)
-rdroid.commander("right",4)
-rdroid.commander("forward",4)
+
+rdroid.commander("brushOn",4)
+rdroid.commander("brushOff",4)
+
+# rdroid.commander("backward",4)
+# rdroid.commander("right",4)
+# rdroid.commander("forward",4)
 
 # rdroid.stop(1)

@@ -19,7 +19,7 @@ var options = {
 var app = https.createServer(options, function(request, response){
         request.addListener('end', function () {
         file.serve(request, response);
-    }).resume();     
+    }).resume();
 });
 
 var io = require('socket.io').listen(app, {
@@ -95,7 +95,6 @@ console.log(" webserver and socket.io server listsing on 8084");
 
 //----------------------------- REST Server 
 var api = require('./api/restserver.js');
-
 
 
 // --------------------------------Secure Websocket Server

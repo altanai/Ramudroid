@@ -22,7 +22,7 @@ function addGyronormScript() {
     });
 }
 
-var signalling_server_hostname = location.hostname || "192.168.0.6";
+var signalling_server_hostname = location.hostname || "192.168.15.193;
 var signalling_server_address = signalling_server_hostname + ':' + (location.port || (location.protocol === 'https:' ? 443 : 80));
 var isFirefox = typeof InstallTrigger !== 'undefined';// Firefox 1.0+
 

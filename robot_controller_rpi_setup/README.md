@@ -197,7 +197,7 @@ raspistill -o img.jpg
 raspivid -o video.h264 -t 1000
 ```
 
-Note : rapivid  outputs in h364 format .
+Note : raspivid  outputs in h364 format .
 To convert that inot mp4 container , install MP4box
 ```
 sudo apt-get install -y gpac
@@ -212,12 +212,12 @@ MP4Box -add pivideo.h264 pivideo.mp4
 ```
 
 ## Motion
-
+-tbd
 
 
 ## Uv4l 
 
-Installation 
+### uv4l Installation 
 
 Find your Raspbian Linux distribution (e.g. Wheezy, Jessie, Stretch etc)
 
@@ -262,25 +262,31 @@ service uv4l_raspicam start
 ```
 Check for status
 ```
-root@raspberrypi:/home/pi# service uv4l_raspicam status
+service uv4l_raspicam status
 ```
-
 stop uv4l 
-```
+```shell script
 pkill uv4l
 service uv4l_raspicam stop
 ```
 
 ### start https , ssl based streaming 
 
-create self signed cerst 
-```
+create self signed certs 
+```shell script
 openssl genrsa -out selfsign.key 2048 && openssl req -new -x509 -key selfsign.key -out selfsign.crt -sha256
 ```
 give them in server options 
-```
-pi@raspberrypi:~ $ export OPENSSL_CONF=/etc/ssl/
-pi@raspberrypi:~ $ uv4l --external-driver --device-name=video0 --server-option '--use-ssl=yes' --server-option '--ssl-private-key-file=/home/pi/selfsign.key' --server-option '--ssl-certificate-file=/home/pi/selfsign.crt' --verbosity=7 --server-option '--enable-webrtc-video=yes' --server-option '--enable-webrtc-audio=no' --server-option '--webrtc-receive-video=yes' --server-option '--webrtc-renderer-fullscreen=yes' --server-option '--webrtc-receive-datachannels=yes' --server-option '--webrtc-receive-audio=yes' --auto-video_nr --server-option '--enable-control-panel' --server-option '--enable-builtin-ui'
+```shell script
+export OPENSSL_CONF=/etc/ssl/
+uv4l --external-driver --device-name=video0 --server-option '--use-ssl=yes' -\
+-server-option '--ssl-private-key-file=/home/pi/selfsign.key' \
+--server-option '--ssl-certificate-file=/home/pi/selfsign.crt' \
+--verbosity=7 --server-option '--enable-webrtc-video=yes' \
+--server-option '--enable-webrtc-audio=no' --server-option '--webrtc-receive-video=yes' \
+--server-option '--webrtc-renderer-fullscreen=yes' --server-option '--webrtc-receive-datachannels=yes' \
+--server-option '--webrtc-receive-audio=yes' --auto-video_nr --server-option '--enable-control-panel' \
+--server-option '--enable-builtin-ui'
 ```
 
 ## opencv (Open Source Computer Vision Library) 
@@ -290,7 +296,7 @@ Used for a very wide range of applications including image analysis, stitching s
 
 OpenCV can take advantage of multi-core processing and features GPU acceleration for real-time operation.
 
-Installting OpenCV 
+### Installting OpenCV 
 
 Expand filesystem
 include all available space on your micro-SD card:
@@ -303,7 +309,7 @@ df -h
 ```
 Alternatively free up extra space being used by wolfram-alpha or libreoffice 
 ```
-sudo apt-get purge wolfram-engine
+$ sudo apt-get purge wolfram-engine
 $ sudo apt-get purge libreoffice*
 $ sudo apt-get clean
 $ sudo apt-get autoremove
@@ -321,7 +327,7 @@ install image I/O packages to understand image file formats like jpeg , png ,tif
 ```
 sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
 ```
-simillarly install video I/O packages to work with video stream 
+Simmillarly install video I/O packages to work with video stream 
 ```
 sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev
 ```
@@ -331,11 +337,11 @@ highgui is opencv submodule, used to display images to screen and build basic GU
 sudo apt-get install libgtk2.0-dev libgtk-3-dev
 ```
 For opencv matrix operation, install 
-```
+```shell script
 sudo apt-get install libatlas-base-dev gfortran
 ```
-python headers file , else opencv compiltaion may complain about missing Python.h file
-```
+python headers file , else opencv compilation may complain about missing Python.h file
+```shell script
 sudo apt-get install python3-dev
 sudo apt-get -y install python3-dev python3-pip
 sudo -H pip3 install -U pip numpy
@@ -343,7 +349,7 @@ sudo apt-get -y install python3-testresources
 ```
 
 Get source code of opencv and opencv_contrib ( ensure same version for both )
-```
+```shell script
 git clone https://github.com/opencv/opencv.git && cd opencv && git checkout 3.0.0
 cd ..
 git clone https://github.com/opencv/opencv_contrib.git && cd opencv_contrib &&git checkout 3.0.0
@@ -357,7 +363,7 @@ virtual env keep the dependencies for diff projects isolated in independent Pyth
 ```
 
 create build folder 
-```
+```shell script
 cd ~/opencv && mkdir build && cd build
 
 cmake -D CMAKE_BUILD_TYPE=RELEASE 
@@ -368,7 +374,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE
  -D BUILD_EXAMPLES=ON ..
 ```
 compile OpenCV ( takes hours )
-```
+```shell script
 sudo make install && sudo ldconfig
 ```
 
@@ -391,7 +397,7 @@ Debian and Ubuntu use the service command to control services and update-rc.d fo
 
 update-rc.d  updates  the  System V style init script links /etc/rcrunlevel.d/NNname whose target is the script /etc/init.d/name.  These links  are  run  by  init  when  it  changes runlevels;  they  are  generally  used  to start and stop system services such as daemons.
 
-First createa superscript will all commands and copy to /etc/init.d
+First create a superscript will all commands and copy to /etc/init.d
 ```
 /etc/init.d/superscript
 ```
@@ -422,13 +428,87 @@ systemctl status superscript.service
 
 graphical desktop sharing system that allows you to remotely control the desktop interface of one computer (running VNC Server) from another device running VNC viewer
 
-```
+```shell script
 sudo apt-get update
 sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
 ```
 
 enabling from cmd line 
 sudo raspi-config - > interfacing options ->
+
+
+## Debugging help 
+
+**Issue 1** No file found
+```shell script
+<warning> [core] libdummy.so: cannot open shared object file: No such file or directory
+```
+\
+**solution** Run ldconfig as root to update the cache
+ldconfig creates the necessary links and cache to the most recent shared libraries found in the directories specified on the command line, 
+in the file /etc/ld.so.conf, and in the trusted directories (/lib and /usr/lib).
+```shell script
+sudo ldconfig
+```
+
+
+**Issue 3** : 
+service uv4l_raspicam status , ssl enabling error
+```
+raspberrypi uv4l[1290]: 3069326164:error:25066067:DSO support routines:DLFCN_LOAD:could not load the shared library:dso_dlfcn.c:185:filename(libssl_conf.so): libssl_conf.so: cannot open sh
+Oct 12 19:22:29 raspberrypi uv4l[1290]: 3069326164:error:25070067:DSO support routines:DSO_load:could not load the shared library:dso_lib.c:244:
+Oct 12 19:22:29 raspberrypi uv4l[1290]: 3069326164:error:0E07506E:configuration file routines:MODULE_LOAD_DSO:error loading dso:conf_mod.c:285:module=ssl_conf, path=ssl_conf
+Oct 12 19:22:29 raspberrypi uv4l[1290]: 3069326164:error:0E076071:configuration file routines:MODULE_RUN:unknown module name:conf_mod.c:222:module=ssl_conf
+```
+or 
+DLFCN_LOAD:could not load the shared library:dso_dlfcn.c:185:filename(libssl_conf.so): libssl_conf.so: cannot open shared object file: No such file or directory
+\
+**solution**
+step 1 : vim /etc/uv4l/uv4l-raspidisp.conf
+and enable ssl
+
+Step 2 : see if openssl is installed 
+```
+which openssl
+/usr/bin/openssl
+```
+else install it 
+```
+apt-get install openssl libssl-dev
+```
+
+
+**Issue 4**: Device busy streaming
+```
+<warning> [server] Sorry, the device is either busy streaming to another peer or previous shutdown has not been completed yet
+```
+\
+**Solution**  To kill 
+```
+pkill uv4l
+```
+or ctrl + c to stop the foreground process
+
+
+**Issue 5**: removing overlay on video from linux4you
+\
+**Solution** Instead of using uv4l's raspicam driver to driver the raspberry pi camera, use the kernel-based bcm2835-v4l2 driver. 
+modprobe it and enable it using raspi-config, to have a /dev/video0 file.
+After the device file appears, you can start uv4l with these options:
+```
+uv4l --external-driver --device-name=video0
+```
+
+
+**Issue 6** 
+```shell script
+<notice> [server] HTTP/HTTPS Streaming & WebRTC Signalling Server v1.1.125 built on Sep  5 2019
+Auto configuration failed
+3069797108:error:25066067:DSO support routines:DLFCN_LOAD:could not load the shared library:dso_dlfcn.c:185:filename(libssl_conf.so): 
+libssl_conf.so: cannot open shared object file: No such file or directory
+```
+\
+**solution**
 
 
 

@@ -1,5 +1,7 @@
-
 ![alt Ramudroid ](https://altanaitelecom.files.wordpress.com/2016/03/ramudroid-image.png?w=500)
+
+![Project Ramudroid](http://altanai.github.io/Ramudroid/)
+
 
 Project “Ramudroid” is designed to use computer vision and autonomous robots to target litter and clean roadsides for keeping the locality clean. 
 The hardware assembly is designed to drive through roads / lanes / alleys / narrows pathways and lift up small litter objects like plastic cups, wrappers, leaves etc.
@@ -48,10 +50,10 @@ Lipo batteru 11.1 V or Solar Panel connection 12 V
 5V single channel relay
 
 **power**
-Lipo batteru 11.1 V or Solar Panel connection 12 V
+Lipo battery 11.1 V or Solar Panel connection 12 V
 
 
-#### IR sensor to detect if garbage collectrion bin/tray is full
+#### IR sensor to detect if garbage collection bin/tray is full
 infrared radiation can be found between the visible and microwave regions, wavelengths between 0.75 and 1000µm.
 
 ## Software 
@@ -67,15 +69,15 @@ For external world
 - Wifi
 - BLE
 
-For intercomponents 
+For inter-components 
 - GPIO
 - UART 
 - I2C
 
 ### 2. Computer Vision, object tracking, realtime video analysis
 
-To effectively limit the usuage of power on frontal clenaing brushes, it is crucial to target garbage/litter and active the motors only when suited target is found. 
-Implemnting edge image analysis based on opencv filters and classifiers to detect garbage
+To effectively limit the usage of power on frontal clenaing brushes, it is crucial to target garbage/litter and active the motors only when suited target is found. 
+Implementing edge image analysis based on opencv filters and classifiers to detect garbage
 
 Ref : https://github.com/altanai/computervision
 https://github.com/altanai/opencv_extra
@@ -137,12 +139,12 @@ JigsawAcdemy : https://youtu.be/49dtFYhxmjc
     https://telecom.altanai.com/2018/12/09/surajdroid-ramudroid-v7-solar-powered/
 
 - Ramudorid v7.5 Surajdroid  
-    A
+    
     https://telecom.altanai.com/2018/12/09/surajdroid-ramudroid-v7-solar-powered/
 
 
 ## Author 
-@Altanai https://www.linkedin.com/in/altanai
+![@altanai](https://www.linkedin.com/in/altanai)
 
 
 **License**
