@@ -57,7 +57,7 @@ enable_uart=1
 These webservices will control RPi's input to arduino which a emote user can control iver REST interface.
 The ways to start webservices server on Rpi is 
 
-1. env from cmd line 
+1. env from cmd line ( insure )
 ```shell script
 $ env FLASK_ENV=development FLASK_APP=main.py flask run
  * Serving Flask app "move.py" (lazy loading)
@@ -76,7 +76,7 @@ export FLASK_ENV=development
 flask run -h 0.0.0.0
 ```
 
-Run in https mode 
+3. Run in https mode - to be used with webrtc streaming 
 ```shell script
 sudo env FLASK_ENV=development FLASK_APP=main.py flask run -h 0.0.0.0 --cert=adhoc
 ```

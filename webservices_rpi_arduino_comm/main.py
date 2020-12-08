@@ -15,10 +15,10 @@ ser.stopbits = serial.STOPBITS_ONE
 # ser.open()
 
 from flask import Flask, render_template, request
-from flask_cors import CORS, cross_origin
+# from flask_cors import CORS, cross_origin
 
 app = Flask(__name__, template_folder='templates')
-cors = CORS(app)
+# cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/")
