@@ -194,11 +194,13 @@
     <details open>
         <summary><b>Advanced options</b></summary>
         <fieldset>
-            <span>Remote Peer/Signalling Server Address: </span><input required type="text" id="signalling_server"
-                                                                       value="192.168.0.6:8080"
-                                                                       title="<host>:<port>, default address is autodetected"/><br>
-            <span>Optional ICE Servers (STUN/TURN): </span><input type="text" id="ice_servers" value=""
-                                                                  title="array of RTCIceServer objects as valid JSON string"/><br>
+            <span>Remote Peer/Signalling Server Address: </span>
+            <input required type="text" id="signalling_server"
+                   value="192.168.0.6:8080"
+                   title="<host>:<port>, default address is autodetected"/><br>
+            <span>Optional ICE Servers (STUN/TURN): </span>
+            <input type="text" id="ice_servers" value=""
+                   title="array of RTCIceServer objects as valid JSON string"/><br>
             <span>Trickle ICE: </span>
             <select onclick="trickleice_selection();" id="trickleice" name="trickleice" title="enable trickle ice">
                 <option value="auto">auto</option>

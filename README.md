@@ -74,6 +74,8 @@ For inter-components
 - UART 
 - I2C
 
+![comminterface](webservices_rpi_arduino_comm/imgs/Screenshot%202019-10-12%20at%201.08.54%20PM.png)
+
 ### 2. Computer Vision, object tracking, realtime video analysis
 
 To effectively limit the usage of power on frontal clenaing brushes, it is crucial to target garbage/litter and active the motors only when suited target is found. 

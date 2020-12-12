@@ -3,22 +3,26 @@
 ## Requirnments 
 
 Uv4l and extra -  for installing uv4l refer to dir rpi_setup 
+[uv4l](../robot_controller_rpi_setup/README.md)
 
-## Run
-Run a http server 
-```
+## Run HTTP servefor web rtc stream rendering
+Run a http server on localhost and port 8001
+```shell script
 http-server -a localhost -p 8001 -c-1
 ```
 
 ## Debug 
 
-**Issue 1** : raspistill -o test.jpg
+**Issue 1** : Camera not found while using raspistill
+```
+raspistill -o test.jpg
 mmal: Cannot read camera info, keeping the defaults for OV5647
 mmal: mmal_vc_component_create: failed to create component 'vc.ril.camera' (1:ENOMEM)
 mmal: mmal_component_create_core: could not create component 'vc.ril.camera' (1)
 mmal: Failed to create camera component
 mmal: main: Failed to create camera component
 mmal: Camera is not detected. Please check carefully the camera module is installed correctly
+```
 \
 **Solution** check with vcgencmd 
 ```

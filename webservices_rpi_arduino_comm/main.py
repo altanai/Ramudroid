@@ -30,7 +30,7 @@ def index():
 	return render_template('index.html', **templateData)
 
 @app.route("/move/<actiontype>")
-@cross_origin()
+# @cross_origin()
 def action(actiontype):
 	try:
 		print("action "+ actiontype)

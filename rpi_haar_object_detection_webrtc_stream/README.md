@@ -2,10 +2,14 @@
 
 Uses haarcascade filters on opencv to detect based on predefined xml models 
 
-## Run
+## Requirnments
+Uv4l and extra -  for installing uv4l refer to dir rpi_setup 
+[uv4l](../robot_controller_rpi_setup/README.md)
+
+## Run the web server for Webrtc stream
 
 start the web console , using http-server on nodev12.4.0
-```
+```shell script
 > http-server -a localhost -p 8001 -c-1
 Starting up http-server, serving ./
 Available on:
@@ -13,6 +17,7 @@ Available on:
 Hit CTRL-C to stop the server
 ```
 
-Webconsole 
-![alt Webconsole](https://github.com/altanai/Ramudroid/blob/master/ramudroid_rpi_object_detection_webrtc_stream/screenshot/Screenshot%202019-09-14%20at%2011.07.45%20AM.png?raw=true)
+Open Web console
+![rpi object deection](screenshot/Screenshot%202019-09-14%20at%2011.07.45%20AM.png)
+
 

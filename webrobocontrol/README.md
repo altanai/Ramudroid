@@ -8,10 +8,9 @@
 - device agnostic design using bootstrap templates 
 
 
-![alt Ramudroid webconsole ](https://altanaitelecom.files.wordpress.com/2016/03/screenshot-from-2016-03-19-04-28-53.png?w=728)
+![alt Ramudroid webconsole 168](https://altanaitelecom.files.wordpress.com/2016/03/screenshot-from-2016-03-19-04-28-53.png?w=728)
 
-
-## Installation and Dependencies 
+## Installation and Dependencies for the web console
 
 It can be run from an independant web server in cloud. 
 Node can be downloaded from https://nodejs.org/en/download/
@@ -19,51 +18,6 @@ Node can be downloaded from https://nodejs.org/en/download/
 download node modules 
 ```shell script
 npm install
-```
-
-## Run uv4l_raspicam service for webrtc stream
-
-```
-service uv4l_raspicam  restart --use-ssl
-```
-note : use ssl ode since our other services are on https
-
-```shell script
-### HTTPS options:
-server-option = --use-ssl=yes
-server-option = --ssl-private-key-file=/home/pi/Ramudroid/webrobocontrol/sslcert/server.key
-server-option = --ssl-certificate-file=/home/pi/Ramudroid/webrobocontrol/sslcert/server.crt
-```
-
-or
-```shell script
-sudo uv4l --external-driver --device-name=video0 --server-option '--use-ssl=yes' \
---server-option '--ssl-private-key-file=/home/pi/selfsign.key' \
---server-option '--ssl-certificate-file=/home/pi/selfsign.crt' \
---verbosity=7 --server-option '--enable-webrtc-video=yes' \
---server-option '--enable-webrtc-audio=no' --server-option '--webrtc-receive-video=yes' \
---server-option '--webrtc-renderer-fullscreen=yes' --server-option '--webrtc-receive-datachannels=yes' \
---server-option '--webrtc-receive-audio=yes' --auto-video_nr --server-option '--enable-control-panel' \
---server-option '--enable-builtin-ui'
-```
-output traces 
-```
-<notice> [core] Trying to load the the Streaming Server plug-in...
-<notice> [server] HTTP/HTTPS Streaming & WebRTC Signalling Server v1.1.125 built on Sep  5 2019
-<notice> [server] SSL is enabled for the Streaming Server. Using secure HTTPS.
-<notice> [core] Streaming Server loaded!
-<notice> [server] Web Streaming Server listening on port 8080
-<notice> [driver] Using video device /dev/video0
-<notice> [webrtc] WebRTC Renderer extension successfully loaded
-<notice> [server] WebRTC, Signalling Server and STUN Server extensions successfully loaded
-<info> [server] Trickle ICE enabled
-<info> [webrtc] Data Channel created with label: uv4l
-<info> [webrtc] Using the old SCTP syntax description: true
-<info> [webrtc] ICE gathering complete!
-<info> [server] Trickle ICE enabled
-<info> [webrtc] Data Channel created with label: uv4l
-<info> [webrtc] Using the old SCTP syntax description: true
-<info> [webrtc] ICE gathering complete!
 ```
 
 ### Run server.js
@@ -81,8 +35,8 @@ Since we are using self signed certificate , it may ask to accept advanced secur
 \
 **solution** Update socketio via npm update
 
-**Issue 2** :
-Access to fetch at 'https://192.168.0.5:5000/move/back' from origin 'https://127.0.0.1:8084' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+**Issue 2** : Access to fetch at 'https://192.168.0.5:5000/move/back' from origin 'https://127.0.0.1:8084' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+\
 **Solution** add ors origin headers to fetch api 
 ```shell script
     let headers = new Headers();

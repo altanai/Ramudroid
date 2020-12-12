@@ -229,7 +229,7 @@ deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/stretch stretch mai
 
 
 Update and Install 
-```
+```shell script
 sudo apt-get update
 sudo apt-get install uv4l uv4l-raspicam
 ```
@@ -256,8 +256,62 @@ sudo apt-get install uv4l-demos
 Format
 uv4l [ uv4l-options ] –driver raspicam [ raspicam-options ]
 
-Start server
+
+## Secure https , ssl based streaming 
+
+create self signed certs 
+```shell script
+openssl genrsa -out selfsign.key 2048 && openssl req -new -x509 -key selfsign.key -out selfsign.crt -sha256
 ```
+
+## Run uv4l_raspicam service for webrtc stream
+```shell script
+service uv4l_raspicam  restart --use-ssl
+```
+note : use ssl arg since our other services are on https
+
+HTTPS options:
+```shell script
+server-option = --use-ssl=yes
+server-option = --ssl-private-key-file=/home/pi/Ramudroid/webrobocontrol/sslcert/server.key
+server-option = --ssl-certificate-file=/home/pi/Ramudroid/webrobocontrol/sslcert/server.crt
+```
+
+or supply uv4l with all runtime params  
+```shell script
+sudo uv4l --external-driver --device-name=video0 --server-option '--use-ssl=yes' \
+--server-option '--ssl-private-key-file=/home/pi/selfsign.key' \
+--server-option '--ssl-certificate-file=/home/pi/selfsign.crt' \
+--verbosity=7 --server-option '--enable-webrtc-video=yes' \
+--server-option '--enable-webrtc-audio=no' --server-option '--webrtc-receive-video=yes' \
+--server-option '--webrtc-renderer-fullscreen=yes' --server-option '--webrtc-receive-datachannels=yes' \
+--server-option '--webrtc-receive-audio=yes' --auto-video_nr --server-option '--enable-control-panel' \
+--server-option '--enable-builtin-ui'
+```
+output traces 
+```
+<notice> [core] Trying to load the the Streaming Server plug-in...
+<notice> [server] HTTP/HTTPS Streaming & WebRTC Signalling Server v1.1.125 built on Sep  5 2019
+<notice> [server] SSL is enabled for the Streaming Server. Using secure HTTPS.
+<notice> [core] Streaming Server loaded!
+<notice> [server] Web Streaming Server listening on port 8080
+<notice> [driver] Using video device /dev/video0
+<notice> [webrtc] WebRTC Renderer extension successfully loaded
+<notice> [server] WebRTC, Signalling Server and STUN Server extensions successfully loaded
+<info> [server] Trickle ICE enabled
+<info> [webrtc] Data Channel created with label: uv4l
+<info> [webrtc] Using the old SCTP syntax description: true
+<info> [webrtc] ICE gathering complete!
+<info> [server] Trickle ICE enabled
+<info> [webrtc] Data Channel created with label: uv4l
+<info> [webrtc] Using the old SCTP syntax description: true
+<info> [webrtc] ICE gathering complete!
+```
+
+### uv4l service 
+
+Start server
+```shell script
 service uv4l_raspicam start 
 ```
 Check for status
@@ -270,24 +324,6 @@ pkill uv4l
 service uv4l_raspicam stop
 ```
 
-### start https , ssl based streaming 
-
-create self signed certs 
-```shell script
-openssl genrsa -out selfsign.key 2048 && openssl req -new -x509 -key selfsign.key -out selfsign.crt -sha256
-```
-give them in server options 
-```shell script
-export OPENSSL_CONF=/etc/ssl/
-uv4l --external-driver --device-name=video0 --server-option '--use-ssl=yes' -\
--server-option '--ssl-private-key-file=/home/pi/selfsign.key' \
---server-option '--ssl-certificate-file=/home/pi/selfsign.crt' \
---verbosity=7 --server-option '--enable-webrtc-video=yes' \
---server-option '--enable-webrtc-audio=no' --server-option '--webrtc-receive-video=yes' \
---server-option '--webrtc-renderer-fullscreen=yes' --server-option '--webrtc-receive-datachannels=yes' \
---server-option '--webrtc-receive-audio=yes' --auto-video_nr --server-option '--enable-control-panel' \
---server-option '--enable-builtin-ui'
-```
 
 ## opencv (Open Source Computer Vision Library) 
 
