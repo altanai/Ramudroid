@@ -1,6 +1,6 @@
 # Webrtc stream and Object detection 
 
-Uses haarcascade filters on opencv to detect based on predefined xml models 
+Uses haar cascade filters on opencv to detect based on predefined xml models 
 
 ## Requirnments
 Uv4l and extra -  for installing uv4l refer to dir rpi_setup 

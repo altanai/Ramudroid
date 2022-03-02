@@ -1,6 +1,6 @@
 # WebRTC stream from Rapsberry Pi B+
 
-## Requirnments 
+## Requirements 
 
 Uv4l and extra -  for installing uv4l refer to dir rpi_setup 
 [uv4l](../robot_controller_rpi_setup/README.md)
