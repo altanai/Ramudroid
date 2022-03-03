@@ -4,7 +4,7 @@ libcamera library and its c++ apis enables accessing camera opoerations right fr
 - getting image frames 
 - pass image buffers to encoders( image - JPEG , video h264)
 
-Inlcided with libcamera 
+Inlcuded with libcamera 
 - ISP (Image Signal Processor)
 - IPAs (Image Processing Algorithms)
 - AEC/AGC (Auto Exposure/Gain Control)
@@ -20,6 +20,15 @@ sudo raspi-config ->  Advanced Options -> Glamor -> Yes
         meson build
         ninja -C build install
 
+## Installation of libcamera 
+
+        git config --global http.sslverify false
+        
+
+        meson.build:3:0: ERROR:  Meson version is 0.49.2 but project requires >= 0.53.
+        git clone https://github.com/mesonbuild/meson.git
+        cd meson
+        cp meson.py meson
 
 ## Options 
 
