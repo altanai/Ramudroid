@@ -1,0 +1,4 @@
+https://coral.ai/models/object-detection/
+
+
+https://www.tensorflow.org/datasets/catalog/coco
