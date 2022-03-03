@@ -22,7 +22,7 @@
     "restify": "^8.5.1",
     "restify-errors": "^4.3.0",
     "restify-plugins": "^1.6.0",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.0",
     "underscore": "^1.11.0"
   },
   "devDependencies": {},
