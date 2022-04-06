@@ -1,1 +1,0 @@
-apidoc -v -o ../scripts
