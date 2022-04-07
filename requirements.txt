@@ -17,7 +17,7 @@ cffi==1.11.5
 click==6.7
 constants==0.6.0
 coverage==4.5.1
-cryptography==3.2
+cryptography==3.3.2
 cycler==0.10.0
 decorator==4.4.0
 docutils==0.12
