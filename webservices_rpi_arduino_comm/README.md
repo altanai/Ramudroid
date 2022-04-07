@@ -19,6 +19,24 @@ or RPIO
 pip install RPi.GPIO
 ```
 
+### Starting in stand alone mode ( during dev on laptop)
+
+Start virtual env 
+
+    python3 -m  venv virtual
+    source virtual/bin/activate
+    pip install -r requirnments.tx
+
+Start the server 
+
+     env FLASK_ENV=development FLASK_APP=main.py flask run -h 0.0.0.0
+
+### Starting for the whole project 
+
+Refer to robot_controller_rpi_setup folder and superscript. ( note starting uv4l using cmd is not necessary is already setup by raspicam file)
+
+     sudo env FLASK_ENV=production FLASK_APP=/home/pi/Ramudroid/webservices_rpi_arduino_comm/main.py flask run -h 0.0.0.0 --cert=adhoc
+
 ### UART serial comm
 
 UART is an asynchronous serial communication protocol ie it transmits the individual bits from byte in a sequential fashion , without the sender having to send a clock signal to the receiver. 
@@ -175,4 +193,4 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'flask_cors'
 ```
 \
-**solution** 
+**solution**  Install Flask cors in virtual env
