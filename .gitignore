@@ -1,4 +1,6 @@
 #workspace IDE
+*/virtual/*
+virtal/
 .idea/workspace.xml
 .idea/
 webservices_rpi_arduino_comm/__pycache__/
@@ -11,3 +13,5 @@ webrobocontrol/node_modules/
 outdated_code/webrobocontrol/node_modules/
 
 .DS_Store
+
+*/.ipynb_checkpoints
