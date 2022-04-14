@@ -58,7 +58,7 @@ ply==3.11
 prompt-toolkit==1.0.15
 psutil==5.6.6
 psycopg2==2.7.5
-py==1.5.3
+py==1.10.0
 pycparser==2.18
 pycrypto==2.6.1
 pyflakes==0.8.1
