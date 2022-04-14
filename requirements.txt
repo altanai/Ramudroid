@@ -46,7 +46,7 @@ mccabe==0.3.1
 mock==2.0.0
 more-itertools==4.3.0
 msgpack-python==0.1.12
-numpy==1.16.5
+numpy==1.21.0
 paramiko==2.6.0
 pathlib2==2.3.2
 pbr==5.4.3
