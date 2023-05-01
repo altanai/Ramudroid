@@ -25,7 +25,7 @@ ecdsa==0.13.3
 enum34==1.1.6
 execnet==1.5.0
 flake8==2.4.0
-Flask==1.1.1
+Flask==2.3.2
 Flask-Cors==3.0.9
 funcsigs==1.0.2
 futures==3.2.0
