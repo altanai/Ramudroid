@@ -99,6 +99,8 @@ Representative archive items include:
 
 ## External References
 
+- Telecom tag archive: https://telecom.altanai.com/tag/ramudroid/
+- Devpost project: https://devpost.com/software/ramudroid-g37oar
 - Medium: https://medium.com/ramudroid
 - Hackaday v1-v6: https://hackaday.io/project/11201-ramudroid
 - Surajdroid v7: https://hackaday.io/project/173801-surajdroid

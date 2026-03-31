@@ -20,6 +20,8 @@ RamuDroid is an autonomous outdoor garbage-collecting robotics innovation develo
 - Open-source repository with architecture and implementation modules:
   - https://github.com/altanai/Ramudroid
 - Public technical writing and project logs:
+  - https://telecom.altanai.com/tag/ramudroid/
+  - https://devpost.com/software/ramudroid-g37oar
   - https://medium.com/ramudroid
   - https://hackaday.io/project/11201-ramudroid
   - https://hackaday.io/project/173801-surajdroid
