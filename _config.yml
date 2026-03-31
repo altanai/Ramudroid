@@ -1,8 +1,8 @@
-title: Ramudroid
-description: Ramudroid  m2m communication design hardware architecture livestream
-google_analytics: 
+title: RamuDroid — Autonomous Outdoor Garbage-Picking Robot
+description: "Open-source robotics project combining computer vision, IoT, and solar power for autonomous litter collection. Designed and built by Altanai Bisht (2014–present)."
+google_analytics:
 show_downloads: true
-theme: jekyll-theme-minimal
+theme: jekyll-theme-cayman
 
-gems:
+plugins:
   - jekyll-mentions
