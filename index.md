@@ -97,6 +97,28 @@ Representative archive items include:
 
 ---
 
+## Archive Image Gallery (G:\My Drive\Ramudroid)
+
+Additional snapshots and artifacts from the Ramudroid Drive archive:
+
+![Communication model](images/archive-gallery/communication-model.jpg)
+
+![Ramudroid archive image 3004](images/archive-gallery/img-3004.jpg)
+
+![Ramudroid archive image 4062](images/archive-gallery/img-4062.jpg)
+
+![Ramudroid archive image 4867](images/archive-gallery/img-4867.jpg)
+
+![Ramudroid archive image 6498](images/archive-gallery/img-6498.jpg)
+
+![Ramudroid archive image 6503](images/archive-gallery/img-6503.jpg)
+
+![Ramudroid archive image 8036](images/archive-gallery/img-8036.jpg)
+
+![Ramudroid archive screenshot](images/archive-gallery/screenshot-2020-10-10.png)
+
+---
+
 ## External References
 
 - Telecom tag archive: https://telecom.altanai.com/tag/ramudroid/
