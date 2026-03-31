@@ -4,9 +4,9 @@ RamuDroid is an open-source autonomous outdoor garbage-picking robot project com
 
 This GitHub Pages site has been refreshed with content from:
 
-- Project repository source (`README.md` and module docs)
-- Archive material from `G:\My Drive\Ramudroid`
-- Original innovation document from `G:\My Drive\VISA H1B  O1  EB1\EB1\Original work\Robot_Ramudroid`
+- Project repository source (README.md and module docs)
+- Archive material from G:\My Drive\Ramudroid
+- Original innovation document from G:\My Drive\VISA H1B O1 EB1\EB1\Original work\Robot_Ramudroid
 
 ---
 
